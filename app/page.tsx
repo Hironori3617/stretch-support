@@ -1,11 +1,4 @@
-// Stretch Support — Manifesto / Server Component（外部ライブラリ・画像なし）
-
-const serif =
-  '"Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "Times New Roman", serif';
-const sans =
-  '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "YuGothic", "Meiryo", "Noto Sans JP", system-ui, sans-serif';
-
-const ACCENT = "#2f4e6f";
+import { serif, sans, ACCENT, SOCIAL_LINKS } from "@/app/lib/constants";
 
 function Eyebrow({ en, ja }: { en: string; ja: string }) {
   return (
@@ -71,34 +64,11 @@ const projects = [
 ];
 
 export default function Page() {
-  const year = new Date().getFullYear();
-
   return (
     <div
       className="min-h-screen bg-white text-neutral-900 antialiased"
       style={{ fontFamily: sans }}
     >
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-neutral-200/70 bg-white/80 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-          <a
-            href="#"
-            className="text-[15px] tracking-tight text-neutral-900"
-            style={{ fontFamily: serif }}
-          >
-            Stretch Support
-          </a>
-          <nav className="flex items-center gap-6 text-[13px] tracking-wide text-neutral-500">
-            <a href="#journal" className="transition-colors hover:text-neutral-900">
-              Journal
-            </a>
-            <a href="#" className="transition-colors hover:text-neutral-900">
-              Contact
-            </a>
-          </nav>
-        </div>
-      </header>
-
       <main>
         {/* Hero */}
         <section className="mx-auto max-w-5xl px-6 pt-28 pb-24 sm:pt-40 sm:pb-36">
@@ -227,7 +197,9 @@ export default function Page() {
                 探究の記録を、noteで発信しています。
               </p>
               <a
-                href="#"
+                href={SOCIAL_LINKS.note}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 text-[15px] tracking-wide transition-colors"
                 style={{ color: ACCENT }}
               >
@@ -254,39 +226,6 @@ export default function Page() {
           </div>
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="border-t border-neutral-200 bg-white">
-        <div className="mx-auto max-w-5xl px-6 py-16">
-          <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p
-                className="text-[15px] text-neutral-900"
-                style={{ fontFamily: serif }}
-              >
-                株式会社ストレッチサポート
-              </p>
-              <p className="mt-2 text-[13px] tracking-wide text-neutral-500">
-                Stretch Support, Inc.
-              </p>
-            </div>
-            <nav className="flex flex-col gap-2 text-[13px] tracking-wide text-neutral-500 sm:items-end">
-              <a href="#" className="transition-colors hover:text-neutral-900">
-                Contact
-              </a>
-              <a
-                href="https://stretch-s.co.jp"
-                className="transition-colors hover:text-neutral-900"
-              >
-                stretch-s.co.jp
-              </a>
-            </nav>
-          </div>
-          <p className="mt-12 text-[12px] tracking-wide text-neutral-400">
-            © {year} Stretch Support, Inc.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }
