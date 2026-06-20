@@ -1,5 +1,15 @@
 // Stretch Support — Manifesto / Server Component（外部ライブラリ・画像なし）
 
+import Image from "next/image";
+
+const LINKS = {
+  note: "https://note.com/udio812",
+  instagram: "https://www.instagram.com/udio08/?hl=ja",
+  facebook: "https://www.facebook.com/hironori.uranaka",
+  contact: "mailto:info@stretch-s.co.jp",   // 問い合わせ先に差し替え
+  siteUrl: "https://stretch-s.co.jp",
+} as const;
+
 const serif =
   '"Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "Times New Roman", serif';
 const sans =
@@ -34,10 +44,10 @@ const mvr = [
 ];
 
 const philosophy = [
-  "中学時代の駅伝では、優れた指導者との出会いと仲間との挑戦を通じて、人は想像以上に成長できることを知りました。",
+  "中学時代、世界を知る指導者との出会いと仲間との挑戦を通じて、人は想像以上に成長できることを知りました。",
   "高校時代には怪我に苦しみ、スポーツを支える存在の重要性を知りました。",
   "アスレチックトレーナーとして活動する中では、スポーツを支える人たちの価値が十分に伝わっていない現実も見てきました。",
-  "そして親となった今、スポーツには競技力向上だけではなく、人を育てる可能性があると感じています。",
+  "そして父親となった今、スポーツには競技力向上だけではなく、人を育てる可能性があると感じています。",
 ];
 
 const themes = [
@@ -81,18 +91,21 @@ export default function Page() {
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-neutral-200/70 bg-white/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-          <a
-            href="#"
-            className="text-[15px] tracking-tight text-neutral-900"
-            style={{ fontFamily: serif }}
-          >
-            Stretch Support
+          <a href="#" className="shrink-0">
+            <Image
+              src="/logo.png"
+              alt="Stretch Support"
+              width={93}
+              height={36}
+              className="h-8 w-auto sm:h-9"
+              priority
+            />
           </a>
           <nav className="flex items-center gap-6 text-[13px] tracking-wide text-neutral-500">
             <a href="#journal" className="transition-colors hover:text-neutral-900">
               Journal
             </a>
-            <a href="#" className="transition-colors hover:text-neutral-900">
+            <a href={LINKS.contact} className="transition-colors hover:text-neutral-900">
               Contact
             </a>
           </nav>
@@ -101,22 +114,43 @@ export default function Page() {
 
       <main>
         {/* Hero */}
-        <section className="mx-auto max-w-5xl px-6 pt-28 pb-24 sm:pt-40 sm:pb-36">
-          <p className="mb-8 text-[12px] uppercase tracking-[0.22em] text-neutral-400">
-            Manifesto
-          </p>
-          <h1
-            className="text-[2.5rem] leading-[1.5] text-neutral-900 [text-wrap:balance] sm:text-6xl sm:leading-[1.45]"
-            style={{ fontFamily: serif }}
-          >
-            可能性は、
-            <br className="sm:hidden" />
-            出会いからひらく。
-          </h1>
-          <div className="my-10 h-px w-12" style={{ backgroundColor: ACCENT }} />
-          <p className="max-w-xl text-[15px] leading-loose tracking-wide text-neutral-600 sm:text-lg sm:leading-loose">
-            スポーツの中にある可能性を探究し、その価値を社会へ翻訳する。
-          </p>
+        <section className="relative overflow-hidden bg-white">
+          {/* 背景写真：opacity を低め、右上寄りで山頂をコピーから外す */}
+          <Image
+            src="/manifesto-hero.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            style={{ opacity: 0.13, objectPosition: "60% 15%" }}
+            priority
+            aria-hidden="true"
+          />
+          {/* ベース白オーバーレイ（強化） */}
+          <div className="absolute inset-0 bg-white/83" aria-hidden="true" />
+          {/* 下部を白へ溶かすグラデーション */}
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"
+            aria-hidden="true"
+          />
+          {/* コンテンツ（既存のコピー・余白をそのまま維持） */}
+          <div className="relative mx-auto max-w-5xl px-6 pt-28 pb-24 sm:pt-40 sm:pb-36">
+            <p className="mb-8 text-[12px] uppercase tracking-[0.22em] text-neutral-400">
+              Manifesto
+            </p>
+            <h1
+              className="text-[2.5rem] leading-[1.5] text-neutral-900 [text-wrap:balance] sm:text-6xl sm:leading-[1.45]"
+              style={{ fontFamily: serif }}
+            >
+              可能性は、
+              <br className="sm:hidden" />
+              出会いからひらく。
+            </h1>
+            <div className="my-10 h-px w-12" style={{ backgroundColor: ACCENT }} />
+            <p className="max-w-xl text-[15px] leading-loose tracking-wide text-neutral-600 sm:text-lg sm:leading-loose">
+              スポーツの中にある可能性を探究し、その価値を社会へ翻訳する。
+            </p>
+          </div>
         </section>
 
         {/* Mission / Vision / Role */}
@@ -166,6 +200,16 @@ export default function Page() {
                 スポーツには、まだ十分に語られていない価値があります。
               </p>
               <p>私は、その価値を探究し、編集し、社会へ届けていきます。</p>
+            </div>
+            <div
+              className="mt-8 pb-2 text-right text-[13px] leading-relaxed tracking-wider text-neutral-500"
+              style={{
+                fontFamily:
+                  '"新正楷書CBSK1", "游明朝体", "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HiraMinProN-W3", "MS Mincho", "MS 明朝", serif',
+              }}
+            >
+              <p>株式会社ストレッチサポート 代表取締役</p>
+              <p className="mt-1.5 text-[15px] text-neutral-700">浦中宏典</p>
             </div>
           </div>
         </section>
@@ -227,7 +271,7 @@ export default function Page() {
                 探究の記録を、noteで発信しています。
               </p>
               <a
-                href="#"
+                href={LINKS.note}
                 className="group inline-flex items-center gap-2 text-[15px] tracking-wide transition-colors"
                 style={{ color: ACCENT }}
               >
@@ -240,19 +284,6 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Closing */}
-        <section className="border-t border-neutral-200 bg-neutral-950 text-neutral-50">
-          <div className="mx-auto max-w-5xl px-6 py-32 text-center sm:py-44">
-            <div
-              className="mx-auto inline-flex flex-col gap-5 text-2xl leading-relaxed sm:gap-7 sm:text-4xl sm:leading-relaxed"
-              style={{ fontFamily: serif }}
-            >
-              <span>出会いを、探究に。</span>
-              <span>探究を、翻訳に。</span>
-              <span className="text-neutral-300">そして、社会へ。</span>
-            </div>
-          </div>
-        </section>
       </main>
 
       {/* Footer */}
@@ -260,6 +291,13 @@ export default function Page() {
         <div className="mx-auto max-w-5xl px-6 py-16">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <div>
+              <Image
+                src="/logo.png"
+                alt="Stretch Support"
+                width={103}
+                height={40}
+                className="mb-5 h-10 w-auto"
+              />
               <p
                 className="text-[15px] text-neutral-900"
                 style={{ fontFamily: serif }}
@@ -269,16 +307,38 @@ export default function Page() {
               <p className="mt-2 text-[13px] tracking-wide text-neutral-500">
                 Stretch Support, Inc.
               </p>
+              <address className="mt-3 not-italic text-[12px] leading-relaxed tracking-wide text-neutral-400">
+                〒104-0061<br />
+                東京都中央区銀座1-22-11 銀座大竹ビジデンス2階
+              </address>
             </div>
             <nav className="flex flex-col gap-2 text-[13px] tracking-wide text-neutral-500 sm:items-end">
-              <a href="#" className="transition-colors hover:text-neutral-900">
+              <a href={LINKS.contact} className="transition-colors hover:text-neutral-900">
                 Contact
               </a>
               <a
-                href="https://stretch-s.co.jp"
-                className="transition-colors hover:text-neutral-900"
+                href={LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 transition-colors hover:text-neutral-900"
               >
-                stretch-s.co.jp
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+                Instagram
+              </a>
+              <a
+                href={LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 transition-colors hover:text-neutral-900"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+                Facebook
               </a>
             </nav>
           </div>
