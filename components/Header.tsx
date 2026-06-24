@@ -47,7 +47,7 @@ export default function Header({ hero = false }: { hero?: boolean }) {
         <nav
           style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}
           className={[
-            "text-[13px] tracking-wide transition-colors duration-300",
+            "text-[13px] font-semibold tracking-wide transition-colors duration-300",
             transparent ? "text-white/90" : "text-neutral-500",
           ].join(" ")}
         >
