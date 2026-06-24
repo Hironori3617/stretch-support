@@ -89,46 +89,54 @@ export default function Page() {
       className="min-h-screen bg-white text-neutral-900 antialiased"
       style={{ fontFamily: sans }}
     >
-      <Header />
+      <Header hero />
 
       <main>
-        {/* Hero */}
-        <section className="relative overflow-hidden bg-white">
-          {/* 背景写真：opacity を低め、右上寄りで山頂をコピーから外す */}
+        {/* Hero — 山岳風景フルブリードレイアウト確認用（仮） */}
+        <section className="relative -mt-16 min-h-[85svh] flex flex-col overflow-hidden">
+          {/* 背景画像: PC=center 60%（空を詰め山・道を手前に）、モバイル=右寄せ下寄り */}
           <Image
-            src="/manifesto-hero.jpg"
+            src="/hero-mountain.png"
             alt=""
             fill
             sizes="100vw"
-            className="object-cover"
-            style={{ opacity: 0.13, objectPosition: "60% 15%" }}
+            className="object-cover [object-position:60%_65%] sm:[object-position:center_60%]"
             priority
             aria-hidden="true"
           />
-          {/* ベース白オーバーレイ（強化） */}
-          <div className="absolute inset-0 bg-white/83" aria-hidden="true" />
-          {/* 下部を白へ溶かすグラデーション */}
+          {/* ヘッダー下の薄い暗さ（白文字可読性確保） */}
           <div
-            className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"
+            className="absolute inset-x-0 top-0 h-44 pointer-events-none"
+            style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.20) 0%, transparent 100%)" }}
             aria-hidden="true"
           />
-          {/* コンテンツ（既存のコピー・余白をそのまま維持） */}
-          <div className="relative mx-auto max-w-5xl px-6 pt-28 pb-24 sm:pt-40 sm:pb-36">
-            <p className="mb-8 text-[12px] uppercase tracking-[0.22em] text-neutral-400">
-              Manifesto
-            </p>
-            <h1
-              className="text-[2.5rem] leading-[1.5] text-neutral-900 [text-wrap:balance] sm:text-6xl sm:leading-[1.45]"
-              style={{ fontFamily: serif }}
-            >
-              可能性は、
-              <br className="sm:hidden" />
-              出会いからひらく。
-            </h1>
-            <div className="my-10 h-px w-12" style={{ backgroundColor: ACCENT }} />
-            <p className="max-w-xl text-[15px] leading-loose tracking-wide text-neutral-600 sm:text-lg sm:leading-loose">
-              スポーツの中にある可能性を探究し、その価値を社会へ翻訳する。
-            </p>
+          {/* 左下グラデーション（コピー可読性、写真の質感は残す） */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: "linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.22) 35%, transparent 60%)" }}
+            aria-hidden="true"
+          />
+          {/* コピー — 左下寄せ */}
+          <div className="relative z-10 mt-auto">
+            <div className="mx-auto max-w-5xl w-full px-6 pb-20 sm:pb-28">
+              <p className="mb-4 text-[12px] uppercase tracking-[0.22em] text-white/60">
+                Manifesto
+              </p>
+              <h1
+                className="text-[2.5rem] leading-[1.5] text-white [text-wrap:balance] sm:text-6xl sm:leading-[1.45]"
+                style={{ fontFamily: serif }}
+              >
+                可能性は、
+                <br className="sm:hidden" />
+                出会いからひらく。
+              </h1>
+              <div className="mt-7 mb-6 h-px w-12 bg-white/40" />
+              <p className="max-w-xl text-[15px] leading-loose tracking-wide text-white/85 sm:text-lg sm:leading-loose">
+                スポーツの中にある可能性を探究し、
+                <br className="sm:hidden" />
+                その価値を社会へ翻訳する。
+              </p>
+            </div>
           </div>
         </section>
 
