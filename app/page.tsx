@@ -327,6 +327,12 @@ export default function Page() {
                 </svg>
                 Facebook
               </a>
+              <a
+                href="/legal"
+                className="mt-3 transition-colors hover:text-neutral-900"
+              >
+                Privacy Policy
+              </a>
             </nav>
           </div>
           <p className="mt-12 text-[12px] tracking-wide text-neutral-400">
