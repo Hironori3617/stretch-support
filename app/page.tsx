@@ -129,12 +129,11 @@ export default function Page() {
                 Manifesto
               </p>
               <h1
-                className="hero-heading text-[2.5rem] leading-[1.5] text-white [text-wrap:balance] sm:text-6xl sm:leading-[1.45]"
+                className="hero-heading text-[2.2rem] leading-[1.5] text-white sm:text-6xl sm:leading-[1.45] sm:[text-wrap:balance]"
                 style={{ fontFamily: serif }}
               >
-                可能性は、
-                <br className="sm:hidden" />
-                出会いからひらく。
+                <span className="block sm:inline">可能性は、</span>
+                <span className="block whitespace-nowrap sm:inline sm:whitespace-normal">出会いからひらく。</span>
               </h1>
               <div className="mt-7 mb-6 h-px w-12 bg-white/40" />
               <p className="max-w-xl text-[15px] leading-loose tracking-wide text-white/85 sm:text-lg sm:leading-loose">
