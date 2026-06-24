@@ -116,6 +116,12 @@ export default function Page() {
             style={{ background: "linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.22) 35%, transparent 60%)" }}
             aria-hidden="true"
           />
+          {/* モバイル専用: 空の明るい部分を中心に薄く暗化（sm:hidden でPC非表示） */}
+          <div
+            className="absolute inset-0 pointer-events-none sm:hidden"
+            style={{ background: "linear-gradient(to bottom, rgba(10,22,40,0.38) 0%, rgba(10,22,40,0.16) 48%, transparent 70%)" }}
+            aria-hidden="true"
+          />
           {/* コピー — 左下寄せ */}
           <div className="relative z-10 mt-auto">
             <div className="mx-auto max-w-5xl w-full px-6 pb-20 sm:pb-28">
@@ -123,7 +129,7 @@ export default function Page() {
                 Manifesto
               </p>
               <h1
-                className="text-[2.5rem] leading-[1.5] text-white [text-wrap:balance] sm:text-6xl sm:leading-[1.45]"
+                className="hero-heading text-[2.5rem] leading-[1.5] text-white [text-wrap:balance] sm:text-6xl sm:leading-[1.45]"
                 style={{ fontFamily: serif }}
               >
                 可能性は、

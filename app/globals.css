@@ -23,3 +23,12 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* モバイルのみ: ヒーロー見出しに極薄のテキストシャドウ（輪郭補強） */
+@media (max-width: 639px) {
+  .hero-heading {
+    text-shadow:
+      0 1px 6px rgba(0, 0, 0, 0.32),
+      0 0 18px rgba(0, 0, 0, 0.14);
+  }
+}
