@@ -92,28 +92,28 @@ export default function Page() {
       <Header hero />
 
       <main>
-        {/* Hero */}
+        {/* Hero — 山岳風景フルブリードレイアウト確認用（仮） */}
         <section className="relative -mt-16 min-h-[85svh] flex flex-col overflow-hidden">
-          {/* 背景画像: PC=右寄り中央、モバイル=右寄せやや下（人物と道を残す） */}
+          {/* 背景画像: PC=center 60%（空を詰め山・道を手前に）、モバイル=右寄せ下寄り */}
           <Image
-            src="/hero-main.png"
+            src="/hero-mountain.png"
             alt=""
             fill
             sizes="100vw"
-            className="object-cover [object-position:62%_55%] sm:[object-position:58%_50%]"
+            className="object-cover [object-position:60%_65%] sm:[object-position:center_60%]"
             priority
             aria-hidden="true"
           />
           {/* ヘッダー下の薄い暗さ（白文字可読性確保） */}
           <div
             className="absolute inset-x-0 top-0 h-44 pointer-events-none"
-            style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, transparent 100%)" }}
+            style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.20) 0%, transparent 100%)" }}
             aria-hidden="true"
           />
-          {/* 下部グラデーション — 画像本来の暗部を活かすため極めて薄く */}
+          {/* 左下グラデーション（コピー可読性、写真の質感は残す） */}
           <div
             className="absolute inset-0 pointer-events-none"
-            style={{ background: "linear-gradient(to top, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.06) 25%, transparent 50%)" }}
+            style={{ background: "linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.22) 35%, transparent 60%)" }}
             aria-hidden="true"
           />
           {/* コピー — 左下寄せ */}
