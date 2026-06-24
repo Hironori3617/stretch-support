@@ -1,6 +1,7 @@
 // Stretch Support — Manifesto / Server Component（外部ライブラリ・画像なし）
 
 import Image from "next/image";
+import Header from "@/components/Header";
 
 const LINKS = {
   note: "https://note.com/udio812",
@@ -88,29 +89,7 @@ export default function Page() {
       className="min-h-screen bg-white text-neutral-900 antialiased"
       style={{ fontFamily: sans }}
     >
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-neutral-200/70 bg-white/80 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-          <a href="#" className="shrink-0">
-            <Image
-              src="/logo.png"
-              alt="Stretch Support"
-              width={93}
-              height={36}
-              className="h-8 w-auto sm:h-9"
-              priority
-            />
-          </a>
-          <nav className="flex items-center gap-6 text-[13px] tracking-wide text-neutral-500">
-            <a href="#journal" className="transition-colors hover:text-neutral-900">
-              Journal
-            </a>
-            <a href={LINKS.contact} className="transition-colors hover:text-neutral-900">
-              Contact
-            </a>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <main>
         {/* Hero */}
