@@ -3,20 +3,26 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://stretch-s.co.jp"),
-  title: "Stretch Support｜可能性は、出会いからひらく。",
+  title: "株式会社ストレッチサポート｜スポーツから可能性をひらく",
   description:
-    "スポーツの中にある可能性を探究し、その価値を社会へ翻訳する。株式会社ストレッチサポートのマニフェスト。",
+    "株式会社ストレッチサポートは、スポーツの中にある成長の可能性を探究し、実践知を編集・発信することで、一人ひとりが自らの可能性をひらくための環境をつくります。",
   openGraph: {
-    title: "Stretch Support｜可能性は、出会いからひらく。",
-    description: "スポーツの中にある可能性を探究し、その価値を社会へ翻訳する。",
+    title: "株式会社ストレッチサポート｜スポーツから可能性をひらく",
+    description:
+      "株式会社ストレッチサポートは、スポーツの中にある成長の可能性を探究し、実践知を編集・発信することで、一人ひとりが自らの可能性をひらくための環境をつくります。",
     type: "website",
     locale: "ja_JP",
-    siteName: "Stretch Support",
+    siteName: "株式会社ストレッチサポート｜Stretch Support",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stretch Support",
-    description: "可能性は、出会いからひらく。",
+    title: "株式会社ストレッチサポート｜スポーツから可能性をひらく",
+    description:
+      "株式会社ストレッチサポートは、スポーツの中にある成長の可能性を探究し、実践知を編集・発信することで、一人ひとりが自らの可能性をひらくための環境をつくります。",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

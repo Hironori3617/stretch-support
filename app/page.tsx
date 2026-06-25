@@ -1,7 +1,34 @@
-// Stretch Support — Manifesto / Server Component（外部ライブラリ・画像なし）
-
+import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
+
+const DESC =
+  "株式会社ストレッチサポートは、スポーツの中にある成長の可能性を探究し、実践知を編集・発信することで、一人ひとりが自らの可能性をひらくための環境をつくります。";
+
+export const metadata: Metadata = {
+  title: "株式会社ストレッチサポート｜スポーツから可能性をひらく",
+  description: DESC,
+  alternates: {
+    canonical: "https://stretch-s.co.jp/",
+  },
+  openGraph: {
+    title: "株式会社ストレッチサポート｜スポーツから可能性をひらく",
+    description: DESC,
+    url: "https://stretch-s.co.jp/",
+    siteName: "株式会社ストレッチサポート｜Stretch Support",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "株式会社ストレッチサポート｜スポーツから可能性をひらく",
+    description: DESC,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 const LINKS = {
   note: "https://note.com/udio812",
