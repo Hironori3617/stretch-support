@@ -273,6 +273,17 @@ export default function Page() {
                 </span>
               </a>
             </div>
+            <div className="mt-14 border-t border-neutral-200 pt-8">
+              <a
+                href="/service"
+                className="group inline-flex items-center gap-2 text-[13px] tracking-wide text-neutral-400 transition-colors hover:text-neutral-700"
+              >
+                法人・団体向けの支援について
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+            </div>
           </div>
         </section>
 

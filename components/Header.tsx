@@ -58,6 +58,12 @@ export default function Header({ hero = false }: { hero?: boolean }) {
             About
           </a>
           <a
+            href="/service"
+            className={`transition-colors ${transparent ? "hover:text-white" : "hover:text-neutral-900"}`}
+          >
+            Service
+          </a>
+          <a
             href="/#journal"
             className={`transition-colors ${transparent ? "hover:text-white" : "hover:text-neutral-900"}`}
           >

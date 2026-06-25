@@ -203,6 +203,17 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
+            <div className="mt-12 border-t border-neutral-200 pt-10">
+              <a
+                href="/service"
+                className="group inline-flex items-center gap-2 text-[14px] tracking-wide text-neutral-500 transition-colors hover:text-neutral-900"
+              >
+                法人・団体向けの支援について
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+            </div>
           </div>
         </section>
 
