@@ -20,6 +20,19 @@ stretch-support/
 └── .gitignore
 ```
 
+## 環境変数の設定
+
+プロジェクトルートに `.env.local` を作成し、以下を設定してください。
+
+```bash
+# Google Tag Manager コンテナ ID（GTM-XXXXXXX 形式）
+NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
+```
+
+- `NEXT_PUBLIC_GTM_ID` が未設定または空の場合、GTM スクリプトは挿入されません。
+- Vercel にデプロイする場合は、Project → Settings → Environment Variables に同じキーと値を追加してください。
+- `.env.local` は `.gitignore` に含まれており、リポジトリにはコミットされません。
+
 ## ローカルで動かす
 
 ```bash
