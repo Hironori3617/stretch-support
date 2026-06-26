@@ -34,9 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      {process.env.NEXT_PUBLIC_GTM_ID && (
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
-      )}
+      <GoogleTagManager gtmId="GTM-MHK672JV" />
       <body>{children}</body>
     </html>
   );
