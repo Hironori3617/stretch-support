@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
+import ArticleCard from "@/components/articles/ArticleCard";
+import { articles } from "@/data/articles";
 
 const DESC =
   "株式会社ストレッチサポートは、スポーツの中にある成長の可能性を探究し、実践知を編集・発信することで、一人ひとりが自らの可能性をひらくための環境をつくります。";
@@ -103,8 +105,8 @@ const projects = [
     body: "指導者、トレーナー、教育者、研究者、保護者など、スポーツに関わる実践者との対話を通じて、スポーツの可能性を探究しています。",
   },
   {
-    title: "Journal",
-    body: "探究の記録をnoteで発信しています。",
+    title: "Articles",
+    body: "探究の記録を編集し、noteで発信しています。",
   },
 ];
 
@@ -278,29 +280,36 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Journal */}
-        <section id="journal" className="border-t border-neutral-200">
+        {/* Articles */}
+        <section id="articles" className="border-t border-neutral-200">
           <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
-            <Eyebrow en="Journal" ja="探究の記録" />
+            <Eyebrow en="Articles" ja="探究の記録" />
             <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
               <p
                 className="max-w-md text-lg leading-loose text-neutral-900 sm:text-2xl sm:leading-snug"
                 style={{ fontFamily: serif }}
               >
-                探究の記録を、noteで発信しています。
+                探究の記録を編集し、届けています。
               </p>
               <a
-                href={LINKS.note}
+                href="/articles"
                 className="group inline-flex items-center gap-2 text-[15px] tracking-wide transition-colors"
                 style={{ color: ACCENT }}
               >
-                noteを読む
+                View all Articles
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
               </a>
             </div>
-            <div className="mt-14 border-t border-neutral-200 pt-8">
+            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {articles
+                .filter((a) => a.published && a.featured)
+                .map((article) => (
+                  <ArticleCard key={article.id} article={article} />
+                ))}
+            </div>
+            <div className="mt-12 border-t border-neutral-200 pt-8">
               <a
                 href="/service"
                 className="group inline-flex items-center gap-2 text-[13px] tracking-wide text-neutral-400 transition-colors hover:text-neutral-700"
