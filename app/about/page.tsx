@@ -75,6 +75,48 @@ const offerings = [
   },
 ];
 
+const biography = [
+  { label: "1983年", body: "長崎県長崎市生まれ" },
+  {
+    label: "トレーナーとして活動",
+    body: "スポーツ選手や市民ランナーを中心に、トレーニング・コンディショニングを支援",
+  },
+  {
+    label: "株式会社ストレッチサポート設立",
+    body: "トレーニング指導を起点に、コンテンツ制作、セミナー・イベントの企画運営などへ活動を展開",
+  },
+  {
+    label: "マーケティング活動",
+    body: "ランナー向けオウンドメディアを立ち上げ、月間30万PVを超えるメディアへ成長。BtoBマーケティングでは、顧客理解と市場・業界理解を起点とした事業・マーケティング支援に携わる",
+  },
+  {
+    label: "現在",
+    body: "スポーツの現場で生まれる実践知を編集し、社会へ翻訳することを軸に、スポーツ事業者や地域との事業づくりに取り組む",
+  },
+];
+
+const works = [
+  {
+    title: "Training & Conditioning",
+    body: [
+      "スポーツ選手や市民ランナー、経営者を対象に、トレーニングやコンディショニングを支援。身体の状態や目的を捉え、一人ひとりに合わせた身体づくりに取り組んできました。",
+    ],
+  },
+  {
+    title: "Media & Content",
+    body: [
+      "ランナー向けオウンドメディアを企画・運営し、月間30万PVを超えるメディアへ成長。スポーツ領域のコンテンツ制作や、セミナー・イベントの企画運営にも携わってきました。",
+      "『Training Journal』『Tarzan』などへの寄稿実績あり。",
+    ],
+  },
+  {
+    title: "Marketing & Project Design",
+    body: [
+      "BtoBマーケティングの実務を通して、顧客理解と市場・業界理解を起点とした、価値づくりと情報発信を支援。現在は、スポーツ事業者の価値整理やコンテンツ設計、クラブや地域との共創事業の企画に取り組んでいます。",
+    ],
+  },
+];
+
 // ─── ページ本体 ──────────────────────────────────────────────────────────────
 export default function AboutPage() {
   const year = new Date().getFullYear();
@@ -214,6 +256,121 @@ export default function AboutPage() {
                 </span>
               </a>
             </div>
+          </div>
+        </section>
+
+        {/* ── Profile ── */}
+        <section className="border-t border-neutral-200">
+          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+            <Eyebrow en="Profile" ja="" />
+            <div className="mb-12">
+              <p
+                className="text-[1.625rem] leading-tight text-neutral-900 sm:text-[2rem]"
+                style={{ fontFamily: serif }}
+              >
+                浦中 宏典
+              </p>
+              <p className="mt-3 text-[14px] tracking-wide text-neutral-500">
+                株式会社ストレッチサポート 代表取締役
+              </p>
+            </div>
+            <div className="max-w-2xl space-y-6 text-[15px] leading-loose tracking-wide text-neutral-700">
+              <p>
+                高校時代、陸上競技に取り組む中で慢性的な膝の痛みに悩んだ経験から、身体づくりやコンディショニングに関心を持ち、トレーナーの道を志しました。
+              </p>
+              <p>
+                その後、トレーナーとしてスポーツ選手や市民ランナーの身体づくりを支援。株式会社ストレッチサポートを設立し、トレーニング指導に加え、ランニングメディアの運営、コンテンツ制作、セミナーやイベントの企画・運営など、スポーツに関わるさまざまな事業に取り組んできました。
+              </p>
+              <p>
+                活動を続ける中で、保護者として子どものスポーツに関わるようになり、現場の外側からスポーツを見る機会が増えました。選手やトレーナーとして関わっていた頃とは異なる視点から、スポーツの価値や課題を考えるようになりました。
+              </p>
+              <p>
+                また、BtoBマーケティングに携わる中では、顧客を深く理解し、市場や業界の構造を捉えることを前提としてきました。マーケティングにおいて重要なのは、価値をどのようにつくり、必要とする人へ届けるかということです。
+              </p>
+              <p>
+                こうした経験を通して、スポーツの現場には人の成長を支える知識や経験が数多くある一方で、その多くが現場の中で完結し、社会へ伝わる機会が限られていることに課題を感じるようになりました。
+              </p>
+              <p>
+                現場で生まれる実践知を見つけ、編集し、必要とする人へ届けること。そして、その価値を新たな事業や地域へつないでいくことを、株式会社ストレッチサポートの役割と考えています。
+              </p>
+            </div>
+            {/* 略歴 */}
+            <div className="mt-16 max-w-2xl border-t border-neutral-200 pt-10">
+              <div className="divide-y divide-neutral-200">
+                {biography.map((item) => (
+                  <div
+                    key={item.label}
+                    className="py-6 sm:grid sm:grid-cols-[13rem_1fr] sm:gap-10"
+                  >
+                    <p className="mb-2 text-[14px] font-medium tracking-wide text-neutral-800 sm:mb-0">
+                      {item.label === "株式会社ストレッチサポート設立" ? (
+                        <>
+                          株式会社ストレッチサポート
+                          <br className="hidden sm:block" />
+                          設立
+                        </>
+                      ) : (
+                        item.label
+                      )}
+                    </p>
+                    <p className="text-[15px] leading-loose tracking-wide text-neutral-600">
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Works ── */}
+        <section className="border-t border-neutral-200 bg-neutral-50">
+          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+            <Eyebrow en="Works" ja="" />
+            <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-12">
+              {works.map((item) => (
+                <div
+                  key={item.title}
+                  className="border-t border-neutral-300 py-8 lg:pb-0"
+                >
+                  <h3
+                    className="mb-5 text-[15px] tracking-[0.04em] text-neutral-900"
+                    style={{ fontFamily: serif }}
+                  >
+                    {item.title}
+                  </h3>
+                  <div className="space-y-4 text-[14px] leading-loose tracking-wide text-neutral-600">
+                    {item.body.map((para, j) => (
+                      <p key={j}>{para}</p>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Message ── */}
+        <section className="border-t border-neutral-200">
+          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+            <Eyebrow en="Message" ja="" />
+            <div className="max-w-xl space-y-6 text-[15px] leading-loose tracking-wide text-neutral-700">
+              <p>
+                スポーツに関わる専門家や組織のもとには、人の成長や挑戦を支える専門知や実践知が蓄積されています。しかし、それらが必要とする人や地域の現場まで届き、日々の実践に生かされる仕組みは、まだ十分ではありません。
+              </p>
+              <p>
+                私たちは、専門知や実践知を持つ人たちと、それを必要とする人たちの間に立ち、その価値を見つけ、伝わる言葉や実践できる仕組みへ編集していきます。
+              </p>
+              <p>
+                そして、現場で生まれた知識や経験が、新たな事業や地域の仕組みへとつながり、より多くの人の成長や挑戦を支える循環をつくっていきます。
+              </p>
+            </div>
+            <p
+              className="mt-10 max-w-xl text-base leading-loose text-neutral-800 sm:text-lg"
+              style={{ fontFamily: serif }}
+            >
+              スポーツの中にある可能性を探究し、その価値を社会へ翻訳する。
+            </p>
           </div>
         </section>
 
