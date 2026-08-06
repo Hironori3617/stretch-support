@@ -22,6 +22,33 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    id: "article-011",
+    title: "なぜ、スポーツには「編集」が必要なのか",
+    summary:
+      "高校時代、原因の分からない膝の痛みに悩まされ続けた経験から見えてきたこと。現場に埋もれた実践知を社会に届けるために、なぜスポーツに「編集」という視点が必要なのかを考えます。",
+    category: "事業づくり",
+    target: "スポーツ事業者",
+    publishedAt: "2026.08.04",
+    thumbnail: "/images/articles/20260804-why-sports-edit.webp",
+    noteUrl: "https://note.com/udio812/n/n100436cc58df",
+    featured: true,
+    published: true,
+  },
+  {
+    id: "article-010",
+    title:
+      "プロスポーツの知見を、地域の子どもたちへどう届けるか？専門知を、地域で実践できる仕組みに変えるために",
+    summary:
+      "プロスポーツクラブやスポーツ医科学の専門家には、身体づくりや傷害予防、コンディショニングに関する知見が蓄積されています。その専門知を、地域の子どもたちが実践できる仕組みへと変えていくための視点を考えます。",
+    category: "事業づくり",
+    target: "スポーツ事業者",
+    publishedAt: "2026.07.19",
+    thumbnail: "/images/articles/20260719-sports-knowledge.webp",
+    noteUrl: "https://note.com/udio812/n/nd114f0f15b6f",
+    featured: true,
+    published: true,
+  },
+  {
     id: "article-001",
     title: "スポーツの価値をもっと社会に届けるために",
     summary:
@@ -57,7 +84,7 @@ export const articles: Article[] = [
     publishedAt: "2026.06.22",
     thumbnail: "/images/articles/20260622-sports-possibility.webp",
     noteUrl: "https://note.com/udio812/n/n7ee52836998f",
-    featured: true,
+    featured: false,
     published: true,
   },
   {
@@ -135,7 +162,7 @@ export const articles: Article[] = [
     publishedAt: "2025.05.24",
     thumbnail: "/images/articles/20250524-bukatsu-transition.webp",
     noteUrl: "https://note.com/udio812/n/n8686993ce86b",
-    featured: true,
+    featured: false,
     published: true,
   },
 ];
