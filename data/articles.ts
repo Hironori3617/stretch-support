@@ -22,6 +22,32 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    id: "article-013",
+    title: "「伝えた」と「届いた」は同じではない｜実践知をどう届けるか",
+    summary:
+      "記事を書いた。SNSで発信した。資料をつくって説明した。そこまでやれば、「伝えた」と感じることがあります。",
+    category: "事業づくり",
+    target: "スポーツ事業者",
+    publishedAt: "2026.08.16",
+    thumbnail: "/images/articles/20260816-conveyed-received.webp",
+    noteUrl: "https://note.com/udio812/n/n617c3c50ddbc",
+    featured: true,
+    published: true,
+  },
+  {
+    id: "article-012",
+    title: "「専門知識を、分かりやすくする」だけでは足りない｜「実践知の編集」を考える",
+    summary:
+      "スポーツの現場には、日々の実践の中で積み重ねられてきた知識や経験があります。",
+    category: "事業づくり",
+    target: "スポーツ事業者",
+    publishedAt: "2026.08.10",
+    thumbnail: "/images/articles/20260810-specialized-editing.webp",
+    noteUrl: "https://note.com/udio812/n/n80ea4ab96a69",
+    featured: true,
+    published: true,
+  },
+  {
     id: "article-011",
     title: "なぜ、スポーツには「編集」が必要なのか",
     summary:
@@ -58,7 +84,7 @@ export const articles: Article[] = [
     publishedAt: "2026.06.28",
     thumbnail: "/images/articles/20260628-sports-value-gift.webp",
     noteUrl: "https://note.com/udio812/n/n5126fc849d74",
-    featured: true,
+    featured: false,
     published: true,
   },
   {
@@ -71,7 +97,7 @@ export const articles: Article[] = [
     publishedAt: "2026.06.24",
     thumbnail: "/images/articles/20260624-child-after-game-advice.webp",
     noteUrl: "https://note.com/udio812/n/n4f9642668663",
-    featured: true,
+    featured: false,
     published: true,
   },
   {
