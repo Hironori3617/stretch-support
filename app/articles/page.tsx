@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
 import ArticleCard from "@/components/articles/ArticleCard";
-import { articles } from "@/data/articles";
+import { getAllArticles } from "@/lib/articles";
 
 export const metadata: Metadata = {
   title: "Articles｜株式会社ストレッチサポート",
@@ -29,6 +29,7 @@ const LINKS = {
 
 export default function ArticlesPage() {
   const year = new Date().getFullYear();
+  const articles = getAllArticles(); // note記事・自社記事を新着順で統合
 
   return (
     <div
@@ -69,7 +70,7 @@ export default function ArticlesPage() {
         <section className="border-t border-neutral-100">
           <div className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {articles.filter((a) => a.published).map((article) => (
+              {articles.map((article) => (
                 <ArticleCard key={article.id} article={article} />
               ))}
             </div>

@@ -32,3 +32,75 @@ body {
       0 0 18px rgba(0, 0, 0, 0.14);
   }
 }
+
+/* 自社記事(owned)本文: Markdownから生成したHTMLの表示スタイル */
+/* /articles/[slug] でのみ使用。他ページの表示には影響しない */
+.article-prose p {
+  margin-bottom: 1.75em;
+}
+
+.article-prose h2 {
+  margin-top: 3em;
+  margin-bottom: 1em;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP",
+    "Times New Roman", serif;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #171717;
+}
+
+.article-prose h3 {
+  margin-top: 2.5em;
+  margin-bottom: 0.85em;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP",
+    "Times New Roman", serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: #171717;
+}
+
+.article-prose ul,
+.article-prose ol {
+  margin-bottom: 1.75em;
+  padding-left: 1.4em;
+}
+
+.article-prose ul {
+  list-style: disc;
+}
+
+.article-prose ol {
+  list-style: decimal;
+}
+
+.article-prose li + li {
+  margin-top: 0.5em;
+}
+
+.article-prose blockquote {
+  margin: 2em 0;
+  padding-left: 1.25em;
+  border-left: 2px solid #2f4e6f;
+  color: #737373;
+  font-style: italic;
+}
+
+.article-prose a {
+  color: #2f4e6f;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-prose img {
+  margin: 2.5em 0;
+  width: 100%;
+  height: auto;
+}
+
+.article-prose > *:first-child {
+  margin-top: 0;
+}
+
+.article-prose > *:last-child {
+  margin-bottom: 0;
+}

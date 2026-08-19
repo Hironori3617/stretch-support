@@ -1,5 +1,7 @@
 import type { Article } from "@/data/articles";
+import { getArticleHref } from "@/data/articles";
 import Image from "next/image";
+import Link from "next/link";
 
 const serif =
   '"Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "Times New Roman", serif';
@@ -7,14 +9,13 @@ const ACCENT = "#2f4e6f";
 
 export default function ArticleCard({ article }: { article: Article }) {
   const isoDate = article.publishedAt.replace(/\./g, "-");
+  const isNote = article.type === "note";
+  const href = getArticleHref(article);
+  const cardClassName =
+    "group flex flex-col bg-white border border-neutral-200 transition-shadow duration-300 hover:shadow-md";
 
-  return (
-    <a
-      href={article.noteUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex flex-col bg-white border border-neutral-200 transition-shadow duration-300 hover:shadow-md"
-    >
+  const content = (
+    <>
       {/* Thumbnail */}
       <div className="relative aspect-[16/9] overflow-hidden bg-neutral-100">
         {article.thumbnail ? (
@@ -80,13 +81,34 @@ export default function ArticleCard({ article }: { article: Article }) {
             className="inline-flex items-center gap-1.5 text-[12px] tracking-wide transition-colors duration-200"
             style={{ color: ACCENT }}
           >
-            続きを読む
-            <span className="transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
+            {isNote ? "note ↗" : "続きを読む"}
+            {!isNote && (
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            )}
           </span>
         </div>
       </div>
-    </a>
+    </>
+  );
+
+  if (isNote) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cardClassName}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={cardClassName}>
+      {content}
+    </Link>
   );
 }
