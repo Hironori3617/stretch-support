@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Service｜株式会社ストレッチサポート",
   description:
     "スポーツに関わる事業・組織に向けて、価値整理・発信・企画・集客・改善支援を行っています。",
+  alternates: {
+    canonical: "https://stretch-s.co.jp/service",
+  },
 };
 
 const serif =

@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "About | Stretch Support",
   description:
     "実践知を、伝わる価値へ。株式会社ストレッチサポートについて。",
+  alternates: {
+    canonical: "https://stretch-s.co.jp/about",
+  },
 };
 
 // ─── 定数（page.tsx と同じ値を使用）────────────────────────────────────────
