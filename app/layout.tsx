@@ -27,6 +27,24 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "株式会社ストレッチサポート",
+  alternateName: "Stretch Support, Inc.",
+  url: "https://stretch-s.co.jp/",
+  logo: "https://stretch-s.co.jp/logo.png",
+  founder: {
+    "@type": "Person",
+    name: "浦中宏典",
+  },
+  sameAs: [
+    "https://note.com/udio812",
+    "https://www.instagram.com/udio08/",
+    "https://www.facebook.com/hironori.uranaka",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -35,7 +53,13 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <GoogleTagManager gtmId="GTM-MHK672JV" />
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
