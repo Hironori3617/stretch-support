@@ -86,7 +86,7 @@ export default function ArticleDetailPage({
         <article>
           {/* ── Article Header ── */}
           <section className="bg-white" style={{ borderBottom: `1px solid ${ACCENT}` }}>
-            <div className="mx-auto max-w-2xl px-6 pt-16 pb-12 sm:pt-24 sm:pb-14">
+            <div className="mx-auto max-w-2xl px-6 pt-16 pb-14 sm:pt-24 sm:pb-16">
               <p
                 className="mb-6 text-[12px] uppercase tracking-[0.22em]"
                 style={{ color: ACCENT }}
@@ -94,7 +94,7 @@ export default function ArticleDetailPage({
                 {meta.category}
               </p>
               <h1
-                className="text-[1.75rem] leading-[1.5] text-neutral-900 [text-wrap:balance] sm:text-[2.25rem] sm:leading-[1.45]"
+                className="text-[1.875rem] leading-[1.55] text-neutral-900 [text-wrap:balance] sm:text-[2.5rem] sm:leading-[1.5]"
                 style={{ fontFamily: serif }}
               >
                 {meta.title}
@@ -117,22 +117,11 @@ export default function ArticleDetailPage({
           </section>
 
           {/* ── Body ── */}
+          {/* thumbnailは/articles一覧カード専用のため、詳細ページでは表示しない */}
           <section className="border-t border-neutral-100">
             <div className="mx-auto max-w-2xl px-6 py-16 sm:py-20">
-              {meta.thumbnail && (
-                <div className="relative mb-12 aspect-[16/9] overflow-hidden bg-neutral-100">
-                  <Image
-                    src={meta.thumbnail}
-                    alt=""
-                    fill
-                    sizes="(max-width: 768px) 100vw, 720px"
-                    className="object-cover"
-                    unoptimized
-                  />
-                </div>
-              )}
               <div
-                className="article-prose text-[15px] leading-loose tracking-wide text-neutral-700"
+                className="article-prose text-[16px] leading-loose tracking-wide text-neutral-700"
                 dangerouslySetInnerHTML={{ __html: html }}
               />
             </div>
@@ -141,7 +130,7 @@ export default function ArticleDetailPage({
           {/* ── Related Articles ── */}
           {related.length > 0 && (
             <section className="border-t border-neutral-200 bg-neutral-50">
-              <div className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
+              <div className="mx-auto max-w-5xl px-6 pt-24 pb-20 sm:pt-28 sm:pb-24">
                 <p className="mb-10 text-[12px] uppercase tracking-[0.22em] text-neutral-400">
                   Related Articles
                 </p>

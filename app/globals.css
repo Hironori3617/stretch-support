@@ -39,24 +39,43 @@ body {
   margin-bottom: 1.75em;
 }
 
+/* 本文冒頭の段落 = frontmatterでleadを省略した場合のリード文として、
+   本文よりわずかに大きく・濃く見せる（新規要素は追加せず既存の最初の段落を強調） */
+.article-prose > p:first-of-type {
+  font-size: 1.0625rem;
+  color: #262626;
+}
+
 .article-prose h2 {
-  margin-top: 3em;
-  margin-bottom: 1em;
+  margin-top: 3.5em;
+  margin-bottom: 1.1em;
   font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP",
     "Times New Roman", serif;
-  font-size: 1.25rem;
+  font-weight: 700;
+  font-size: 1.375rem;
   line-height: 1.6;
   color: #171717;
 }
 
 .article-prose h3 {
-  margin-top: 2.5em;
-  margin-bottom: 0.85em;
+  margin-top: 2.75em;
+  margin-bottom: 0.9em;
   font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP",
     "Times New Roman", serif;
-  font-size: 1.0625rem;
+  font-weight: 700;
+  font-size: 1.125rem;
   line-height: 1.6;
   color: #171717;
+}
+
+@media (min-width: 640px) {
+  .article-prose h2 {
+    font-size: 1.5rem;
+  }
+
+  .article-prose h3 {
+    font-size: 1.1875rem;
+  }
 }
 
 .article-prose ul,
@@ -77,6 +96,10 @@ body {
   margin-top: 0.5em;
 }
 
+.article-prose strong {
+  font-weight: 600;
+}
+
 .article-prose blockquote {
   margin: 2em 0;
   padding-left: 1.25em;
@@ -95,6 +118,32 @@ body {
   margin: 2.5em 0;
   width: 100%;
   height: auto;
+}
+
+/* 記事末尾の「---」区切り線。以降を参考資料として補助的な見た目にする */
+.article-prose hr {
+  margin: 3.5em 0 2.5em;
+  border: none;
+  border-top: 1px solid #e5e5e5;
+}
+
+.article-prose hr ~ h2 {
+  margin-top: 0;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  color: #a3a3a3;
+  text-transform: uppercase;
+}
+
+.article-prose hr ~ ul {
+  padding-left: 1.1em;
+}
+
+.article-prose hr ~ ul li {
+  font-size: 0.875rem;
+  color: #525252;
 }
 
 .article-prose > *:first-child {
