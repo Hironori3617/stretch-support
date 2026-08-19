@@ -3,7 +3,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "About | Stretch Support",
+  title: "About｜株式会社ストレッチサポート",
   description:
     "実践知を、伝わる価値へ。株式会社ストレッチサポートについて。",
   alternates: {

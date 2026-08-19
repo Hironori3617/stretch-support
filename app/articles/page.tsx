@@ -5,7 +5,7 @@ import ArticleCard from "@/components/articles/ArticleCard";
 import { articles } from "@/data/articles";
 
 export const metadata: Metadata = {
-  title: "Articles | Stretch Support",
+  title: "Articles｜株式会社ストレッチサポート",
   description:
     "スポーツを通じて、人の可能性を考える。現場で生まれる実践知を編集し、スポーツに関わる人たちへ届けます。",
   alternates: {

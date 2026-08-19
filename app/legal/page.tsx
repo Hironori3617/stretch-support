@@ -3,7 +3,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "法的表記｜株式会社ストレッチサポート",
+  title: "プライバシーポリシー｜株式会社ストレッチサポート",
   description: "株式会社ストレッチサポートのプライバシーポリシーです。",
   alternates: {
     canonical: "https://stretch-s.co.jp/legal",
