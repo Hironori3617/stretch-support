@@ -46,6 +46,49 @@ export function getArticleHref(article: Article): string {
 
 export const articles: NoteArticle[] = [
   {
+    id: "article-016",
+    type: "note",
+    title:
+      "「続けさせる」から、「続けられる・続けたくなる」へ｜子どもが主体的に取り組み、夢中になっていく過程を考える",
+    summary:
+      "前回の記事では、学んだことを日常の中で試し、続け、振り返りながら、少しずつ自分のものにしていくことについて書きました。育成年代では、最初からすべてを本人に任せるのではなく、保護者や指導者が声をかけたり、続けやすい環境を整えたりすることも必要です。",
+    category: "育成とスポーツ環境",
+    target: "保護者",
+    publishedAt: "2026.08.23",
+    thumbnail: "/images/articles/20260823-continue-by-choice.webp",
+    noteUrl: "https://note.com/udio812/n/n1598f3584c5c",
+    featured: true,
+    published: true,
+  },
+  {
+    id: "article-015",
+    type: "note",
+    title: "学んだことを、自分のものにするということ",
+    summary:
+      "前回の記事では、育成年代の子どもたちに何かを届けるとき、講習会やセミナー、ワークショップの当日だけでなく、その後の日常まで含めて設計することが大切ではないかと書きました。",
+    category: "育成とスポーツ環境",
+    target: "保護者",
+    publishedAt: "2026.08.22",
+    thumbnail: "/images/articles/20260822-make-learning-your-own.webp",
+    noteUrl: "https://note.com/udio812/n/nc60a1ebc6105",
+    featured: true,
+    published: true,
+  },
+  {
+    id: "article-014",
+    type: "note",
+    title: "学びを「その日」で終わらせないために｜育成年代に必要な、その後の設計",
+    summary:
+      "講習会やセミナー、ワークショップを通じて、その道の専門家から直接学べる機会には大きな価値があります。育成年代の子どもたちにも、それまで知らなかったことを知り、新しい身体の使い方を体験し、自分の身体について考えるきっかけにもなる。",
+    category: "育成とスポーツ環境",
+    target: "保護者",
+    publishedAt: "2026.08.21",
+    thumbnail: "/images/articles/20260821-design-learning-beyond-the-day.webp",
+    noteUrl: "https://note.com/udio812/n/ne47a2dc26531",
+    featured: true,
+    published: true,
+  },
+  {
     id: "article-013",
     type: "note",
     title: "「伝えた」と「届いた」は同じではない｜実践知をどう届けるか",

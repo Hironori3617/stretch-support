@@ -303,8 +303,10 @@ export default function Page() {
               </a>
             </div>
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {articles
+              {[...articles]
                 .filter((a) => a.published && a.featured)
+                .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+                .slice(0, 4)
                 .map((article) => (
                   <ArticleCard key={article.id} article={article} />
                 ))}
