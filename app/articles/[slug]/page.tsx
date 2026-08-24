@@ -42,6 +42,8 @@ export function generateMetadata({
   const title = `${meta.seoTitle ?? meta.title}｜株式会社ストレッチサポート`;
   const description = meta.description ?? meta.summary;
   const url = `https://stretch-s.co.jp/articles/${meta.slug}`;
+  // thumbnailは相対パスのまま渡す。metadataBase(app/layout.tsx)により絶対URLへ自動解決される
+  const images = meta.thumbnail ? [meta.thumbnail] : undefined;
 
   return {
     title,
@@ -56,6 +58,15 @@ export function generateMetadata({
       siteName: "株式会社ストレッチサポート｜Stretch Support",
       locale: "ja_JP",
       type: "article",
+      publishedTime: meta.publishedAt.replace(/\./g, "-"),
+      ...(meta.updatedAt ? { modifiedTime: meta.updatedAt.replace(/\./g, "-") } : {}),
+      ...(images ? { images } : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      ...(images ? { images } : {}),
     },
   };
 }
