@@ -9,6 +9,7 @@ publishedAt: "2026.08.20"
 thumbnail: "/images/articles/bukatsu-coordinate.webp"
 featured: false
 published: true
+toc: true
 related: ["bukatsu-chiiki-tenkai", "article-009", "article-010"]
 ---
 

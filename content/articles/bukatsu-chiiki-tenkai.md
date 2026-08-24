@@ -9,6 +9,7 @@ publishedAt: "2026.08.17"
 thumbnail: "/images/articles/bukatsu-chiiki-tenkai.webp"
 featured: false
 published: true
+toc: true
 related: ["article-009", "article-010", "article-011"]
 ---
 
