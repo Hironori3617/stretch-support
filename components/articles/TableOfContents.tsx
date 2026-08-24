@@ -13,7 +13,7 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
   return (
     <nav
       aria-label="目次"
-      className="mb-14 bg-neutral-50 text-[15px] leading-snug tracking-wide text-neutral-700 sm:mb-16"
+      className="mt-10 mb-14 bg-neutral-50 text-[15px] leading-snug tracking-wide text-neutral-700 sm:mb-16"
     >
       <button
         type="button"

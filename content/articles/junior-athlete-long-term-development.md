@@ -11,6 +11,7 @@ thumbnail: "/images/articles/20260824-junior-athlete-long-term-development.webp"
 featured: false
 published: true
 toc: true
+related: ["article-014", "article-015", "article-016"]
 ---
 
 ジュニアスポーツでは、同じ年代でも、早い段階から高い競技力を示す選手がいます。
