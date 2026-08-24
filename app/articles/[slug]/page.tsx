@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Header from "@/components/Header";
 import ArticleCard from "@/components/articles/ArticleCard";
+import TableOfContents from "@/components/articles/TableOfContents";
 import {
   getOwnedArticleBySlug,
   getOwnedArticlesMeta,
@@ -38,7 +39,7 @@ export function generateMetadata({
   }
 
   const { meta } = article;
-  const title = `${meta.title}｜株式会社ストレッチサポート`;
+  const title = `${meta.seoTitle ?? meta.title}｜株式会社ストレッチサポート`;
   const description = meta.description ?? meta.summary;
   const url = `https://stretch-s.co.jp/articles/${meta.slug}`;
 
@@ -69,11 +70,17 @@ export default function ArticleDetailPage({
     notFound();
   }
 
-  const { meta, html } = article;
+  const { meta, html, toc } = article;
   const isoDate = meta.publishedAt.replace(/\./g, "-");
   const isoUpdated = meta.updatedAt?.replace(/\./g, "-");
   const related = resolveRelatedArticles(meta.related, meta.id);
   const year = new Date().getFullYear();
+
+  // toc: trueの記事のみ、本文冒頭(導入文)と最初のH2の間に目次を挿入する
+  const showToc = meta.toc && toc.length > 0;
+  const firstH2Index = html.indexOf("<h2");
+  const introHtml = showToc && firstH2Index !== -1 ? html.slice(0, firstH2Index) : html;
+  const restHtml = showToc && firstH2Index !== -1 ? html.slice(firstH2Index) : "";
 
   return (
     <div
@@ -122,8 +129,15 @@ export default function ArticleDetailPage({
             <div className="mx-auto max-w-2xl px-6 py-16 sm:py-20">
               <div
                 className="article-prose text-[16px] leading-loose tracking-wide text-neutral-700"
-                dangerouslySetInnerHTML={{ __html: html }}
+                dangerouslySetInnerHTML={{ __html: introHtml }}
               />
+              {showToc && <TableOfContents items={toc} />}
+              {showToc && (
+                <div
+                  className="article-prose text-[16px] leading-loose tracking-wide text-neutral-700"
+                  dangerouslySetInnerHTML={{ __html: restHtml }}
+                />
+              )}
             </div>
           </section>
 

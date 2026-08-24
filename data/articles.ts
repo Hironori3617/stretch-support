@@ -36,6 +36,8 @@ export type OwnedArticle = ArticleBase & {
   slug: string;
   lead?: string; // 記事詳細ページのリード文（サブタイトル）
   description?: string; // SEO description（省略時はsummaryを使用）
+  seoTitle?: string; // <title>/OGタイトル用（省略時はtitleを使用）
+  toc?: boolean; // 目次の表示有無（記事ごとに明示指定。省略時はfalse）
 };
 
 export type Article = NoteArticle | OwnedArticle;

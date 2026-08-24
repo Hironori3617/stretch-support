@@ -55,6 +55,8 @@ body {
   font-size: 1.375rem;
   line-height: 1.6;
   color: #171717;
+  /* アンカースクロール時、sticky headerの下に見出しが隠れないためのオフセット */
+  scroll-margin-top: 80px;
 }
 
 .article-prose h3 {
@@ -66,6 +68,7 @@ body {
   font-size: 1.125rem;
   line-height: 1.6;
   color: #171717;
+  scroll-margin-top: 80px;
 }
 
 @media (min-width: 640px) {

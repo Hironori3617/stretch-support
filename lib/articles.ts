@@ -3,7 +3,9 @@ import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
-import remarkHtml from "remark-html";
+import remarkRehype from "remark-rehype";
+import rehypeSlug from "rehype-slug";
+import rehypeStringify from "rehype-stringify";
 import {
   articles as noteArticles,
   type Article,
@@ -17,6 +19,7 @@ const CONTENT_DIR = path.join(process.cwd(), "content", "articles");
 
 type OwnedFrontmatter = {
   title: string;
+  seoTitle?: string; // <title>/OGタイトル用。省略時はtitleを使用
   lead?: string;
   description?: string;
   category: Category;
@@ -28,7 +31,13 @@ type OwnedFrontmatter = {
   featured?: boolean;
   published?: boolean;
   related?: string[];
+  toc?: boolean; // 目次の表示有無。省略時はfalse（記事ごとに明示指定）
 };
+
+export type TocItem = { id: string; text: string };
+
+// 目次から除外する見出し（参考文献・参考資料セクション）
+const TOC_EXCLUDED_HEADINGS = new Set(["参考文献", "参考資料"]);
 
 function listOwnedSlugs(): string[] {
   if (!fs.existsSync(CONTENT_DIR)) return [];
@@ -52,6 +61,7 @@ function toOwnedArticle(slug: string, data: OwnedFrontmatter): OwnedArticle {
     id: slug,
     slug,
     title: data.title,
+    seoTitle: data.seoTitle,
     lead: data.lead,
     description: data.description,
     category: data.category,
@@ -63,6 +73,7 @@ function toOwnedArticle(slug: string, data: OwnedFrontmatter): OwnedArticle {
     featured: data.featured ?? false,
     published: data.published ?? false,
     related: data.related,
+    toc: data.toc ?? false,
   };
 }
 
@@ -88,15 +99,37 @@ export function getAllArticles(options: { includeUnpublished?: boolean } = {}): 
   return [...visible].sort(sortByPublishedAtDesc);
 }
 
+const H2_REGEX = /<h2 id="([^"]+)">([\s\S]*?)<\/h2>/g;
+
+// 生成済みHTMLからH2見出し（id・テキスト）を目次用に抽出する。
+// H3以下や「参考文献」等は対象外
+function extractToc(html: string): TocItem[] {
+  const items: TocItem[] = [];
+  for (const match of html.matchAll(H2_REGEX)) {
+    const id = match[1];
+    const text = match[2].replace(/<[^>]+>/g, "").trim();
+    if (TOC_EXCLUDED_HEADINGS.has(text)) continue;
+    items.push({ id, text });
+  }
+  return items;
+}
+
 // 自社記事1件の詳細（本文HTML込み）。/articles/[slug] 用
 export function getOwnedArticleBySlug(
   slug: string
-): { meta: OwnedArticle; html: string } | null {
+): { meta: OwnedArticle; html: string; toc: TocItem[] } | null {
   const file = readOwnedFile(slug);
   if (!file) return null;
   const meta = toOwnedArticle(slug, file.data);
-  const processed = remark().use(remarkGfm).use(remarkHtml).processSync(file.content);
-  return { meta, html: processed.toString() };
+  const processed = remark()
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypeSlug)
+    .use(rehypeStringify)
+    .processSync(file.content);
+  const html = processed.toString();
+  const toc = meta.toc ? extractToc(html) : [];
+  return { meta, html, toc };
 }
 
 // Related Articlesの解決。記事側で指定したid/slugの配列から、
