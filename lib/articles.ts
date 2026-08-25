@@ -132,6 +132,46 @@ export function getOwnedArticleBySlug(
   return { meta, html, toc };
 }
 
+const SITE_URL = "https://stretch-s.co.jp";
+
+const STRETCH_SUPPORT_ORG = {
+  "@type": "Organization",
+  name: "株式会社ストレッチサポート",
+  url: `${SITE_URL}/`,
+} as const;
+
+// 自社記事(owned)向けのschema.org Article構造化データ(JSON-LD)を生成する。
+// note記事(外部リンク)には適用しない。frontmatterに存在するデータのみを使用し、
+// dateModified等、根拠のない値は補完しない
+export function buildArticleJsonLd(meta: OwnedArticle) {
+  const url = `${SITE_URL}/articles/${meta.slug}`;
+  const description = meta.description ?? meta.summary;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: meta.title,
+    description,
+    image: `${SITE_URL}${meta.thumbnail}`,
+    datePublished: meta.publishedAt.replace(/\./g, "-"),
+    ...(meta.updatedAt ? { dateModified: meta.updatedAt.replace(/\./g, "-") } : {}),
+    author: STRETCH_SUPPORT_ORG,
+    publisher: {
+      ...STRETCH_SUPPORT_ORG,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+    articleSection: meta.category,
+    inLanguage: "ja-JP",
+  };
+}
+
 // Related Articlesの解決。記事側で指定したid/slugの配列から、
 // note・自社記事を問わず公開済みの記事を順番通りに引き当てる
 export function resolveRelatedArticles(

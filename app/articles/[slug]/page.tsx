@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import ArticleCard from "@/components/articles/ArticleCard";
 import TableOfContents from "@/components/articles/TableOfContents";
 import {
+  buildArticleJsonLd,
   getOwnedArticleBySlug,
   getOwnedArticlesMeta,
   resolveRelatedArticles,
@@ -86,6 +87,7 @@ export default function ArticleDetailPage({
   const isoUpdated = meta.updatedAt?.replace(/\./g, "-");
   const related = resolveRelatedArticles(meta.related, meta.id);
   const year = new Date().getFullYear();
+  const articleJsonLd = buildArticleJsonLd(meta);
 
   // toc: trueの記事のみ、本文冒頭(導入文)と最初のH2の間に目次を挿入する
   const showToc = meta.toc && toc.length > 0;
@@ -98,6 +100,10 @@ export default function ArticleDetailPage({
       className="min-h-screen bg-white text-neutral-900 antialiased"
       style={{ fontFamily: sans }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <Header />
 
       <main>
