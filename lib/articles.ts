@@ -153,7 +153,7 @@ export function buildArticleJsonLd(meta: OwnedArticle) {
     headline: meta.title,
     description,
     image: `${SITE_URL}${meta.thumbnail}`,
-    datePublished: meta.publishedAt.replace(/\./g, "-"),
+    datePublished: `${meta.publishedAt.replace(/\./g, "-")}T00:00:00+09:00`,
     ...(meta.updatedAt ? { dateModified: meta.updatedAt.replace(/\./g, "-") } : {}),
     author: STRETCH_SUPPORT_ORG,
     publisher: {
