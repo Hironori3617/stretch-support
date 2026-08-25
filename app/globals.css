@@ -123,6 +123,34 @@ body {
   height: auto;
 }
 
+.article-prose table {
+  width: 100%;
+  margin: 2em 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.9375rem;
+}
+
+.article-prose th,
+.article-prose td {
+  padding: 0.75em 1em;
+  border: 1px solid #e5e5e5;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: break-word;
+}
+
+.article-prose th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #171717;
+}
+
+.article-prose th:first-child,
+.article-prose td:first-child {
+  width: 30%;
+}
+
 /* 記事末尾の「---」区切り線。以降を参考資料として補助的な見た目にする */
 .article-prose hr {
   margin: 3.5em 0 2.5em;
