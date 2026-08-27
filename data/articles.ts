@@ -38,6 +38,10 @@ export type OwnedArticle = ArticleBase & {
   description?: string; // SEO description（省略時はsummaryを使用）
   seoTitle?: string; // <title>/OGタイトル用（省略時はtitleを使用）
   toc?: boolean; // 目次の表示有無（記事ごとに明示指定。省略時はfalse）
+  // data/authors.ts のid。省略時はDEFAULT_AUTHOR_IDへフォールバック（lib/articles.tsで解決）
+  authorId?: string;
+  // 将来の監修者表示用。現状は型・データのみで表示・構造化データには未反映
+  supervisorIds?: string[];
 };
 
 export type Article = NoteArticle | OwnedArticle;

@@ -12,6 +12,12 @@ import {
   type Category,
   type OwnedArticle,
 } from "@/data/articles";
+import {
+  getAuthorById,
+  DEFAULT_AUTHOR_ID,
+  STRETCH_SUPPORT_ORG,
+  type Author,
+} from "@/data/authors";
 
 // 自社記事(owned)のMarkdown本文置き場
 // 1記事 = 1ファイル。ファイル名(拡張子除く)がそのままslugになる
@@ -32,6 +38,8 @@ type OwnedFrontmatter = {
   published?: boolean;
   related?: string[];
   toc?: boolean; // 目次の表示有無。省略時はfalse（記事ごとに明示指定）
+  authorId?: string;
+  supervisorIds?: string[];
 };
 
 export type TocItem = { id: string; text: string };
@@ -55,6 +63,20 @@ function readOwnedFile(slug: string): { data: OwnedFrontmatter; content: string 
   return { data: data as OwnedFrontmatter, content };
 }
 
+// authorId省略時のみDEFAULT_AUTHOR_IDへフォールバックする。
+// 未登録のauthorIdが指定された場合は、どのファイルが原因か分かるメッセージ付きで例外を投げる
+// （黙って既定著者に差し替えない）
+function resolveAuthorId(slug: string, authorId: string | undefined): string {
+  const resolvedId = authorId ?? DEFAULT_AUTHOR_ID;
+  try {
+    getAuthorById(resolvedId);
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    throw new Error(`content/articles/${slug}.md: ${message}`);
+  }
+  return resolvedId;
+}
+
 function toOwnedArticle(slug: string, data: OwnedFrontmatter): OwnedArticle {
   return {
     type: "owned",
@@ -74,7 +96,14 @@ function toOwnedArticle(slug: string, data: OwnedFrontmatter): OwnedArticle {
     published: data.published ?? false,
     related: data.related,
     toc: data.toc ?? false,
+    authorId: resolveAuthorId(slug, data.authorId),
+    supervisorIds: data.supervisorIds,
   };
+}
+
+// 記事詳細ページの著者表示・JSON-LD用に、記事から著者レコードを解決する
+export function getArticleAuthor(meta: OwnedArticle): Author {
+  return getAuthorById(meta.authorId ?? DEFAULT_AUTHOR_ID);
 }
 
 // 自社記事のメタ情報一覧（本文の変換は行わない軽量版。一覧・generateStaticParams用）
@@ -134,18 +163,13 @@ export function getOwnedArticleBySlug(
 
 const SITE_URL = "https://stretch-s.co.jp";
 
-const STRETCH_SUPPORT_ORG = {
-  "@type": "Organization",
-  name: "株式会社ストレッチサポート",
-  url: `${SITE_URL}/`,
-} as const;
-
 // 自社記事(owned)向けのschema.org Article構造化データ(JSON-LD)を生成する。
 // note記事(外部リンク)には適用しない。frontmatterに存在するデータのみを使用し、
 // dateModified等、根拠のない値は補完しない
 export function buildArticleJsonLd(meta: OwnedArticle) {
   const url = `${SITE_URL}/articles/${meta.slug}`;
   const description = meta.description ?? meta.summary;
+  const author = getArticleAuthor(meta);
 
   return {
     "@context": "https://schema.org",
@@ -155,7 +179,14 @@ export function buildArticleJsonLd(meta: OwnedArticle) {
     image: `${SITE_URL}${meta.thumbnail}`,
     datePublished: `${meta.publishedAt.replace(/\./g, "-")}T00:00:00+09:00`,
     ...(meta.updatedAt ? { dateModified: meta.updatedAt.replace(/\./g, "-") } : {}),
-    author: STRETCH_SUPPORT_ORG,
+    author: {
+      "@type": "Person",
+      name: author.name,
+      url: author.url,
+      jobTitle: author.title,
+      worksFor: author.worksFor,
+      ...(author.sameAs && author.sameAs.length > 0 ? { sameAs: author.sameAs } : {}),
+    },
     publisher: {
       ...STRETCH_SUPPORT_ORG,
       logo: {

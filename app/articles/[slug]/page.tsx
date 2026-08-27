@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import ArticleCard from "@/components/articles/ArticleCard";
 import TableOfContents from "@/components/articles/TableOfContents";
 import {
   buildArticleJsonLd,
+  getArticleAuthor,
   getOwnedArticleBySlug,
   getOwnedArticlesMeta,
   resolveRelatedArticles,
@@ -86,6 +88,7 @@ export default function ArticleDetailPage({
   const isoDate = meta.publishedAt.replace(/\./g, "-");
   const isoUpdated = meta.updatedAt?.replace(/\./g, "-");
   const related = resolveRelatedArticles(meta.related, meta.id);
+  const author = getArticleAuthor(meta);
   const year = new Date().getFullYear();
   const articleJsonLd = buildArticleJsonLd(meta);
 
@@ -136,6 +139,20 @@ export default function ArticleDetailPage({
                     <time dateTime={isoUpdated}>{meta.updatedAt}</time>
                   </span>
                 )}
+              </div>
+              <div className="mt-6 text-[12px] leading-relaxed tracking-wide text-neutral-400">
+                <p>
+                  執筆・編集：
+                  <Link
+                    href="/about"
+                    className="text-neutral-700 transition-colors hover:text-neutral-900"
+                  >
+                    {author.name}
+                  </Link>
+                </p>
+                <p className="mt-1">
+                  {author.worksFor.name} {author.title}
+                </p>
               </div>
             </div>
           </section>
