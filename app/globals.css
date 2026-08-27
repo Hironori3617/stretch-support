@@ -115,6 +115,7 @@ body {
   color: #2f4e6f;
   text-decoration: underline;
   text-underline-offset: 2px;
+  overflow-wrap: break-word;
 }
 
 .article-prose img {

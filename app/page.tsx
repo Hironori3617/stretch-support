@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
 import ArticleCard from "@/components/articles/ArticleCard";
-import { articles } from "@/data/articles";
+import { getAllArticles } from "@/lib/articles";
 
 const DESC =
   "株式会社ストレッチサポートは、スポーツの中にある成長の可能性を探究し、実践知を編集・発信することで、一人ひとりが自らの可能性をひらくための環境をつくります。";
@@ -112,6 +112,11 @@ const projects = [
 
 export default function Page() {
   const year = new Date().getFullYear();
+  // note記事・owned記事を統合したデータから、featured記事を公開日の新しい順に4件取得
+  // getAllArticles()は既にpublished:trueかつpublishedAt降順でソート済み
+  const featuredArticles = getAllArticles()
+    .filter((a) => a.featured)
+    .slice(0, 4);
 
   return (
     <div
@@ -303,13 +308,9 @@ export default function Page() {
               </a>
             </div>
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {[...articles]
-                .filter((a) => a.published && a.featured)
-                .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
-                .slice(0, 4)
-                .map((article) => (
-                  <ArticleCard key={article.id} article={article} />
-                ))}
+              {featuredArticles.map((article) => (
+                <ArticleCard key={article.id} article={article} />
+              ))}
             </div>
             <div className="mt-12 border-t border-neutral-200 pt-8">
               <a
