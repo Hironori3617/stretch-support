@@ -10,7 +10,7 @@ thumbnail: "/images/articles/20260827-junior-athlete-confidence.webp"
 featured: true
 published: true
 toc: true
-related: ["junior-athlete-long-term-development", "article-016"]
+related: ["junior-athlete-long-term-development", "article-015", "article-016"]
 ---
 
 スポーツに取り組む子どもには、自信を持ってプレーしてほしい。多くの保護者や指導者が、そう願っているのではないでしょうか。
