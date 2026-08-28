@@ -7,7 +7,7 @@ target: "自治体・スポーツ事業者・地域スポーツ関係者"
 summary: "Stretch Supportは信州SOIPでボアルース長野との共創に取り組みます。地域にすでにある知識・人材・実践をつなぎ、子どもたちの育成環境として活かす「地域共創型ジュニアアスリート育成モデル」の背景と、実証で確かめたいことを整理します。"
 publishedAt: "2026.08.28"
 thumbnail: "/images/articles/20260828-boaluz-nagano-youth-development.webp"
-featured: false
+featured: true
 published: true
 toc: true
 ---
