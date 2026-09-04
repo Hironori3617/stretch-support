@@ -228,12 +228,47 @@ export default function ServicePage() {
           </div>
         </section>
 
+        {/* ── Marketing & PR：外部マーケティング・広報パートナー導線 ── */}
+        <section className="border-t border-neutral-200 bg-neutral-50">
+          <div className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
+            <Eyebrow en="Marketing & PR" ja="外部パートナーとして" />
+            <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+              <div className="max-w-2xl">
+                <p
+                  className="text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-snug"
+                  style={{ fontFamily: serif }}
+                >
+                  スポーツ事業者の外部マーケティング・広報パートナー
+                </p>
+                <div className="mt-5 space-y-4 text-[15px] leading-loose tracking-wide text-neutral-600">
+                  <p>
+                    スポーツに関わる事業では、専門的なサービスや現場の仕事に加え、営業、広報、集客、スポンサー対応など、限られた人員でさまざまな業務を担っているケースがあります。
+                  </p>
+                  <p>
+                    Stretch Supportは、スポーツ事業者やスポーツクラブの外部マーケティング・広報パートナーとして、事業や組織の状況を理解しながら、マーケティング・広報の課題整理から必要な施策の企画・実行まで支援します。
+                  </p>
+                </div>
+              </div>
+              <a
+                href="/service/marketing"
+                className="group inline-flex shrink-0 items-center gap-2 text-[15px] tracking-wide transition-colors"
+                style={{ color: ACCENT }}
+              >
+                詳細はこちら
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* ── Document ── */}
         <section className="border-t border-neutral-200">
           <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
             <Eyebrow en="Document" ja="資料を読む" />
             <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
-              <div className="max-w-md">
+              <div className="max-w-2xl">
                 <p
                   className="text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-snug"
                   style={{ fontFamily: serif }}
@@ -248,7 +283,7 @@ export default function ServicePage() {
                 href={LINKS.pdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 text-[15px] tracking-wide transition-colors"
+                className="group inline-flex shrink-0 items-center gap-2 text-[15px] tracking-wide transition-colors"
                 style={{ color: ACCENT }}
               >
                 資料を読む

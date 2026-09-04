@@ -32,6 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: "https://stretch-s.co.jp/service/marketing",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: "https://stretch-s.co.jp/articles",
       lastModified: new Date(),
       changeFrequency: "weekly",
