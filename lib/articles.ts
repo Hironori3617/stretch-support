@@ -152,9 +152,9 @@ export function getOwnedArticleBySlug(
   const meta = toOwnedArticle(slug, file.data);
   const processed = remark()
     .use(remarkGfm)
-    .use(remarkRehype)
+    .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
-    .use(rehypeStringify)
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .processSync(file.content);
   const html = processed.toString();
   const toc = meta.toc ? extractToc(html) : [];
