@@ -316,7 +316,7 @@ export default function ServicePage() {
               </div>
               <div className="mt-12">
                 <a
-                  href={LINKS.contact}
+                  href="/contact"
                   className="group inline-flex items-center gap-2 text-[15px] tracking-wide transition-colors"
                   style={{ color: ACCENT }}
                 >
@@ -360,7 +360,7 @@ export default function ServicePage() {
             </div>
             <nav className="flex flex-col gap-2 text-[13px] tracking-wide text-neutral-500 sm:items-end">
               <a
-                href={LINKS.contact}
+                href="/contact"
                 className="transition-colors hover:text-neutral-900"
               >
                 Contact

@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "/service", label: "Service" },
   { href: "/articles", label: "Articles" },
-  { href: "mailto:info@stretch-s.co.jp", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 export default function Header({ hero = false }: { hero?: boolean }) {
