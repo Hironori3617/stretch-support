@@ -31,12 +31,13 @@ export function generateStaticParams() {
     .map((article) => ({ slug: article.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const article = getOwnedArticleBySlug(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const article = getOwnedArticleBySlug(slug);
   if (!article || !article.meta.published) {
     notFound();
   }
@@ -74,12 +75,13 @@ export function generateMetadata({
   };
 }
 
-export default function ArticleDetailPage({
+export default async function ArticleDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const article = getOwnedArticleBySlug(params.slug);
+  const { slug } = await params;
+  const article = getOwnedArticleBySlug(slug);
   if (!article || !article.meta.published) {
     notFound();
   }
