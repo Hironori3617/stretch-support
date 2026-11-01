@@ -14,7 +14,7 @@ const CSP_REPORT_ONLY = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.clarity.ms https://challenges.cloudflare.com",
   "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.clarity.ms https://c.bing.com https://challenges.cloudflare.com",
-  "img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.clarity.ms",
+  "img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://*.clarity.ms https://c.bing.com",
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self'",
   "frame-src https://www.googletagmanager.com https://challenges.cloudflare.com",
