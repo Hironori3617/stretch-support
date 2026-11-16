@@ -179,6 +179,46 @@ export default function Page() {
           </div>
         </section>
 
+        {/* For Business — 法人向けサービス導線 */}
+        <section className="border-t border-neutral-200 bg-neutral-50">
+          <div className="mx-auto max-w-2xl px-6 py-14 sm:py-16">
+            <Eyebrow en="For Business" ja="法人・団体向け" />
+            <p
+              className="text-xl leading-snug text-neutral-900 [text-wrap:balance] sm:text-2xl sm:leading-snug"
+              style={{ fontFamily: serif }}
+            >
+              スポーツの現場にある価値を、事業の力へ。
+            </p>
+            <p className="mt-6 text-[15px] leading-loose tracking-wide text-neutral-700">
+              スポーツ事業者やプロスポーツクラブが持つ専門性・経験を、伝わる言葉やサービスへとつなぐ。価値の整理から発信、事業づくりまで、一緒に考え、形にしていきます。
+            </p>
+            <ul className="mt-8 space-y-4 text-[14px] tracking-wide text-neutral-700">
+              {[
+                "価値の言語化・編集",
+                "マーケティング・情報発信支援",
+                "事業・共創プロジェクトの企画設計",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span
+                    className="mt-[0.65em] h-[3px] w-[3px] shrink-0 rounded-full"
+                    style={{ backgroundColor: ACCENT }}
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/service"
+              className="group mt-8 inline-flex w-full items-center justify-center gap-2 border border-[#2f4e6f] px-6 py-3 text-[14px] tracking-wide text-[#2f4e6f] transition-colors duration-300 hover:bg-[#2f4e6f] hover:text-white sm:w-auto"
+            >
+              法人・団体向けサービスを見る
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+          </div>
+        </section>
+
         {/* Mission / Vision / Role */}
         <section className="border-t border-neutral-200">
           <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
