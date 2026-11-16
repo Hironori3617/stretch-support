@@ -38,7 +38,7 @@ export default function ContactPage() {
         {/* ── Hero ── */}
         <section className="bg-white">
           <div className="mx-auto max-w-5xl px-6 pt-16 pb-12 sm:pt-24 sm:pb-14">
-            <p className="mb-6 text-[12px] uppercase tracking-[0.22em] text-neutral-400">
+            <p className="mb-6 text-[12px] uppercase tracking-[0.22em] text-neutral-600">
               Contact
             </p>
             <h1
@@ -64,7 +64,7 @@ export default function ContactPage() {
 
             {/* ── メールでのお問い合わせ（副導線） ── */}
             <div className="mt-16 border-t border-neutral-200 pt-10">
-              <p className="text-[12px] uppercase tracking-[0.22em] text-neutral-400">
+              <p className="text-[12px] uppercase tracking-[0.22em] text-neutral-600">
                 メールでのお問い合わせ
               </p>
               <a
@@ -100,7 +100,7 @@ export default function ContactPage() {
               <p className="mt-2 text-[13px] tracking-wide text-neutral-500">
                 Stretch Support, Inc.
               </p>
-              <address className="mt-3 not-italic text-[12px] leading-relaxed tracking-wide text-neutral-400">
+              <address className="mt-3 not-italic text-[12px] leading-relaxed tracking-wide text-neutral-600">
                 〒104-0061
                 <br />
                 東京都中央区銀座1-22-11 銀座大竹ビジデンス2階
@@ -167,7 +167,7 @@ export default function ContactPage() {
               </a>
             </nav>
           </div>
-          <p className="mt-12 text-[12px] tracking-wide text-neutral-400">
+          <p className="mt-12 text-[12px] tracking-wide text-neutral-600">
             © {year} Stretch Support, Inc.
           </p>
         </div>

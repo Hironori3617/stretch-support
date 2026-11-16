@@ -133,7 +133,7 @@ export default async function ArticleDetailPage({
                   {meta.lead}
                 </p>
               )}
-              <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] tracking-wide text-neutral-400">
+              <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] tracking-wide text-neutral-600">
                 <time dateTime={isoDate}>{meta.publishedAt}</time>
                 {meta.updatedAt && (
                   <span>
@@ -142,7 +142,7 @@ export default async function ArticleDetailPage({
                   </span>
                 )}
               </div>
-              <div className="mt-6 text-[12px] leading-relaxed tracking-wide text-neutral-400">
+              <div className="mt-6 text-[12px] leading-relaxed tracking-wide text-neutral-600">
                 <p>
                   執筆・編集：
                   <Link
@@ -181,7 +181,7 @@ export default async function ArticleDetailPage({
           {related.length > 0 && (
             <section className="border-t border-neutral-200 bg-neutral-50">
               <div className="mx-auto max-w-5xl px-6 pt-24 pb-20 sm:pt-28 sm:pb-24">
-                <p className="mb-10 text-[12px] uppercase tracking-[0.22em] text-neutral-400">
+                <p className="mb-10 text-[12px] uppercase tracking-[0.22em] text-neutral-600">
                   Related Articles
                 </p>
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -196,7 +196,7 @@ export default async function ArticleDetailPage({
           {/* ── About Stretch Support ── */}
           <section className="border-t border-neutral-200">
             <div className="mx-auto max-w-2xl px-6 py-16 sm:py-20">
-              <p className="mb-5 text-[12px] uppercase tracking-[0.22em] text-neutral-400">
+              <p className="mb-5 text-[12px] uppercase tracking-[0.22em] text-neutral-600">
                 Stretch Supportについて
               </p>
               <p className="max-w-xl text-[14px] leading-loose tracking-wide text-neutral-600">
@@ -247,7 +247,7 @@ export default async function ArticleDetailPage({
               <p className="mt-2 text-[13px] tracking-wide text-neutral-500">
                 Stretch Support, Inc.
               </p>
-              <address className="mt-3 not-italic text-[12px] leading-relaxed tracking-wide text-neutral-400">
+              <address className="mt-3 not-italic text-[12px] leading-relaxed tracking-wide text-neutral-600">
                 〒104-0061
                 <br />
                 東京都中央区銀座1-22-11 銀座大竹ビジデンス2階
@@ -308,7 +308,7 @@ export default async function ArticleDetailPage({
               </a>
             </nav>
           </div>
-          <p className="mt-12 text-[12px] tracking-wide text-neutral-400">
+          <p className="mt-12 text-[12px] tracking-wide text-neutral-600">
             © {year} Stretch Support, Inc.
           </p>
         </div>

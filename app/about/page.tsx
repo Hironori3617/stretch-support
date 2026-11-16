@@ -29,10 +29,10 @@ function Eyebrow({ en, ja }: { en: string; ja: string }) {
   return (
     <div className="mb-10 flex items-center gap-3">
       <span className="h-4 w-px" style={{ backgroundColor: ACCENT }} />
-      <span className="text-[12px] uppercase tracking-[0.2em] text-neutral-400">
+      <span className="text-[12px] uppercase tracking-[0.2em] text-neutral-600">
         {en}
       </span>
-      <span className="text-[12px] tracking-wide text-neutral-300">{ja}</span>
+      <span className="text-[12px] tracking-wide text-neutral-500">{ja}</span>
     </div>
   );
 }
@@ -138,7 +138,7 @@ export default function AboutPage() {
           style={{ borderBottom: `1px solid ${ACCENT}` }}
         >
           <div className="mx-auto max-w-5xl px-6 pt-16 pb-12 sm:pt-24 sm:pb-14">
-            <p className="mb-6 text-[12px] uppercase tracking-[0.22em] text-neutral-400">
+            <p className="mb-6 text-[12px] uppercase tracking-[0.22em] text-neutral-600">
               About
             </p>
             {/* 【差し替えポイント】ページの軸コピー */}
@@ -196,7 +196,7 @@ export default function AboutPage() {
                   key={item.title}
                   className="flex items-start gap-5 py-10 sm:gap-10 sm:py-12"
                 >
-                  <span className="w-7 shrink-0 pt-0.5 text-[13px] tracking-[0.18em] text-neutral-400 sm:w-8">
+                  <span className="w-7 shrink-0 pt-0.5 text-[13px] tracking-[0.18em] text-neutral-600 sm:w-8">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="flex-1">
@@ -231,7 +231,7 @@ export default function AboutPage() {
                   key={item.title}
                   className="flex items-start gap-5 py-10 sm:gap-10 sm:py-12"
                 >
-                  <span className="w-7 shrink-0 pt-0.5 text-[13px] tracking-[0.18em] text-neutral-400 sm:w-8">
+                  <span className="w-7 shrink-0 pt-0.5 text-[13px] tracking-[0.18em] text-neutral-600 sm:w-8">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="flex-1">
@@ -427,7 +427,7 @@ export default function AboutPage() {
               <p className="mt-2 text-[13px] tracking-wide text-neutral-500">
                 Stretch Support, Inc.
               </p>
-              <address className="mt-3 not-italic text-[12px] leading-relaxed tracking-wide text-neutral-400">
+              <address className="mt-3 not-italic text-[12px] leading-relaxed tracking-wide text-neutral-600">
                 〒104-0061
                 <br />
                 東京都中央区銀座1-22-11 銀座大竹ビジデンス2階
@@ -494,7 +494,7 @@ export default function AboutPage() {
               </a>
             </nav>
           </div>
-          <p className="mt-12 text-[12px] tracking-wide text-neutral-400">
+          <p className="mt-12 text-[12px] tracking-wide text-neutral-600">
             © {year} Stretch Support, Inc.
           </p>
         </div>

@@ -51,10 +51,10 @@ function Eyebrow({ en, ja }: { en: string; ja: string }) {
   return (
     <div className="mb-10 flex items-center gap-3">
       <span className="h-4 w-px" style={{ backgroundColor: ACCENT }} />
-      <span className="text-[12px] uppercase tracking-[0.2em] text-neutral-400">
+      <span className="text-[12px] uppercase tracking-[0.2em] text-neutral-600">
         {en}
       </span>
-      <span className="text-[12px] tracking-wide text-neutral-300">{ja}</span>
+      <span className="text-[12px] tracking-wide text-neutral-500">{ja}</span>
     </div>
   );
 }
@@ -229,9 +229,9 @@ export default function Page() {
                   key={item.label}
                   className="grid gap-4 py-10 sm:grid-cols-[180px_1fr] sm:gap-10 sm:py-12"
                 >
-                  <div className="text-[13px] uppercase tracking-[0.18em] text-neutral-400">
+                  <div className="text-[13px] uppercase tracking-[0.18em] text-neutral-600">
                     {item.label}
-                    <span className="ml-2 text-neutral-300">{item.ja}</span>
+                    <span className="ml-2 text-neutral-500">{item.ja}</span>
                   </div>
                   <p
                     className="text-xl leading-relaxed text-neutral-900 sm:text-2xl sm:leading-relaxed"
@@ -355,7 +355,7 @@ export default function Page() {
             <div className="mt-12 border-t border-neutral-200 pt-8">
               <a
                 href="/service"
-                className="group inline-flex items-center gap-2 text-[13px] tracking-wide text-neutral-400 transition-colors hover:text-neutral-700"
+                className="group inline-flex items-center gap-2 text-[13px] tracking-wide text-neutral-600 transition-colors hover:text-neutral-700"
               >
                 法人・団体向けの支援について
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -389,7 +389,7 @@ export default function Page() {
               <p className="mt-2 text-[13px] tracking-wide text-neutral-500">
                 Stretch Support, Inc.
               </p>
-              <address className="mt-3 not-italic text-[12px] leading-relaxed tracking-wide text-neutral-400">
+              <address className="mt-3 not-italic text-[12px] leading-relaxed tracking-wide text-neutral-600">
                 〒104-0061<br />
                 東京都中央区銀座1-22-11 銀座大竹ビジデンス2階
               </address>
@@ -430,7 +430,7 @@ export default function Page() {
               </a>
             </nav>
           </div>
-          <p className="mt-12 text-[12px] tracking-wide text-neutral-400">
+          <p className="mt-12 text-[12px] tracking-wide text-neutral-600">
             © {year} Stretch Support, Inc.
           </p>
         </div>
