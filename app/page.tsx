@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import ArticleCard from "@/components/articles/ArticleCard";
 import { getAllArticles } from "@/lib/articles";
@@ -336,7 +337,7 @@ export default function Page() {
               >
                 探究の記録を編集し、届けています。
               </p>
-              <a
+              <Link
                 href="/articles"
                 className="group inline-flex items-center gap-2 text-[15px] tracking-wide transition-colors"
                 style={{ color: ACCENT }}
@@ -345,7 +346,7 @@ export default function Page() {
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </a>
+              </Link>
             </div>
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
               {featuredArticles.map((article) => (
