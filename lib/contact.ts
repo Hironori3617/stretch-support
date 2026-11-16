@@ -25,7 +25,8 @@ export type ContactValidationResult =
   | { success: false };
 
 // RFC5322完全準拠ではなく、一般的なメールアドレス形式を確認する簡易チェック
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// クライアント側の事前検証（ContactForm）とサーバー側検証の両方から参照し、判定基準をずらさない
+export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function isConsultationTopic(value: string): value is ConsultationTopic {
   return (CONSULTATION_OPTIONS as readonly string[]).includes(value);
