@@ -45,7 +45,7 @@ export default function ArticlesPage() {
           style={{ borderBottom: `1px solid ${ACCENT}` }}
         >
           <div className="mx-auto max-w-5xl px-6 pt-16 pb-14 sm:pt-24 sm:pb-16">
-            <p className="mb-6 text-[12px] uppercase tracking-[0.22em] text-neutral-400">
+            <p className="mb-6 text-[12px] uppercase tracking-[0.22em] text-neutral-600">
               Articles
             </p>
             <h1
@@ -125,7 +125,7 @@ export default function ArticlesPage() {
               <p className="mt-2 text-[13px] tracking-wide text-neutral-500">
                 Stretch Support, Inc.
               </p>
-              <address className="mt-3 not-italic text-[12px] leading-relaxed tracking-wide text-neutral-400">
+              <address className="mt-3 not-italic text-[12px] leading-relaxed tracking-wide text-neutral-600">
                 〒104-0061
                 <br />
                 東京都中央区銀座1-22-11 銀座大竹ビジデンス2階
@@ -192,7 +192,7 @@ export default function ArticlesPage() {
               </a>
             </nav>
           </div>
-          <p className="mt-12 text-[12px] tracking-wide text-neutral-400">
+          <p className="mt-12 text-[12px] tracking-wide text-neutral-600">
             © {year} Stretch Support, Inc.
           </p>
         </div>

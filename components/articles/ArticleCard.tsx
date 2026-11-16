@@ -36,7 +36,7 @@ export default function ArticleCard({ article }: { article: Article }) {
           >
             <span
               className="text-[11px] uppercase tracking-[0.18em]"
-              style={{ color: ACCENT, opacity: 0.6 }}
+              style={{ color: ACCENT }}
             >
               {article.category}
             </span>
@@ -56,7 +56,7 @@ export default function ArticleCard({ article }: { article: Article }) {
           </span>
           <time
             dateTime={isoDate}
-            className="shrink-0 text-[11px] tracking-wide text-neutral-400"
+            className="shrink-0 text-[11px] tracking-wide text-neutral-600"
           >
             {article.publishedAt}
           </time>
