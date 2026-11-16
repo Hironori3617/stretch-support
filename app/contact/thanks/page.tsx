@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
@@ -55,7 +56,7 @@ export default function ContactThanksPage() {
               <p>内容を確認のうえ、ご連絡いたします。</p>
             </div>
             <div className="mt-10">
-              <a
+              <Link
                 href="/"
                 className="group inline-flex items-center gap-2 text-[15px] tracking-wide transition-colors"
                 style={{ color: ACCENT }}
@@ -64,7 +65,7 @@ export default function ContactThanksPage() {
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </section>

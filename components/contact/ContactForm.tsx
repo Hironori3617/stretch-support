@@ -140,7 +140,6 @@ export default function ContactForm() {
   // 再発火しないことがあるため、マウント時にも一度描画を試みる
   useEffect(() => {
     if (window.turnstile) renderTurnstileWidget();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // トークンは1回限り・有効期限5分の前提のため、サーバーへ到達した（Siteverifyを

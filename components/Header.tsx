@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
@@ -49,7 +50,7 @@ export default function Header({ hero = false }: { hero?: boolean }) {
           style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
         >
           {/* transparent時: -ml-2でロゴPNG内部余白(約9px)を補正しMANIFESTOと左端を揃える */}
-          <a href="/" className={`shrink-0 ${transparent ? "-ml-2" : ""}`}>
+          <Link href="/" className={`shrink-0 ${transparent ? "-ml-2" : ""}`}>
             <Image
               src="/logo.png"
               alt="Stretch Support"
@@ -63,7 +64,7 @@ export default function Header({ hero = false }: { hero?: boolean }) {
                   : undefined
               }
             />
-          </a>
+          </Link>
 
           {/* PC ナビゲーション */}
           <nav
