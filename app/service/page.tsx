@@ -71,7 +71,21 @@ const services = [
   },
 ];
 
-const experienceItems = [
+const experienceItems: {
+  title: string;
+  body: string;
+  highlights?: string;
+  photo: string;
+  alt: string;
+}[] = [
+  {
+    title: "Webサイト・デジタルマーケティング",
+    body: "サービスサイト・プロダクトサイトの企画・構築・運用や、BtoB領域のマーケティング施策に取り組んできました。また、ランナー向けオウンドメディアを企画・運営し、月間30万PVを超える規模へ成長。コンテンツ販売、物販、イベント集客など、Web上の接点を実際の事業へつなげてきました。",
+    highlights:
+      "月間30万PV超のメディア運営／コンテンツ販売・物販・イベント集客への展開／サービスサイト・プロダクトサイトの構築・運用",
+    photo: "/images/service/digital-marketing.webp",
+    alt: "スポーツ分野のWebサイト設計とデジタルマーケティングを表現したイメージ",
+  },
   {
     title: "セミナー・ウェビナーの企画運営",
     body: "ランナー向けのセミナーに加え、外部講師を招いたトレーナー向けの専門セミナー、BtoB領域のウェビナーなど、対象と目的に応じた学びの場を企画・運営してきました。",
@@ -290,23 +304,7 @@ export default function ServicePage() {
               </p>
             </div>
 
-            <div className="max-w-2xl border-t border-neutral-200 pt-10">
-              <h3
-                className="text-lg text-neutral-900 sm:text-xl"
-                style={{ fontFamily: serif }}
-              >
-                Webサイト・デジタルマーケティング
-              </h3>
-              <p className="mt-3 text-[15px] leading-loose tracking-wide text-neutral-600">
-                サービスサイト・プロダクトサイトの企画・構築・運用や、BtoB領域のマーケティング施策に取り組んできました。また、ランナー向けオウンドメディアを企画・運営し、月間30万PVを超える規模へ成長。コンテンツ販売、物販、イベント集客など、Web上の接点を実際の事業へつなげてきました。
-              </p>
-              <p className="mt-5 text-[12px] leading-relaxed tracking-wide text-neutral-500">
-                <span className="text-neutral-400">実績の要点：</span>{" "}
-                月間30万PV超のメディア運営／コンテンツ販売・物販・イベント集客への展開／サービスサイト・プロダクトサイトの構築・運用
-              </p>
-            </div>
-
-            <div className="mt-14 divide-y divide-neutral-200 border-t border-neutral-200">
+            <div className="divide-y divide-neutral-200 border-t border-neutral-200">
               {experienceItems.map((item, i) => (
                 <div
                   key={item.title}
@@ -326,6 +324,12 @@ export default function ServicePage() {
                       <p className="mt-3 text-[15px] leading-loose tracking-wide text-neutral-600">
                         {item.body}
                       </p>
+                      {item.highlights && (
+                        <p className="mt-5 text-[12px] leading-relaxed tracking-wide text-neutral-500">
+                          <span className="text-neutral-400">実績の要点：</span>{" "}
+                          {item.highlights}
+                        </p>
+                      )}
                     </div>
                     <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 sm:w-56 sm:shrink-0">
                       <Image
