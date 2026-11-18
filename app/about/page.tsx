@@ -19,7 +19,6 @@ const sans =
 const ACCENT = "#2f4e6f";
 
 const LINKS = {
-  contact: "mailto:info@stretch-s.co.jp",
   instagram: "https://www.instagram.com/udio08/?hl=ja",
   facebook: "https://www.facebook.com/hironori.uranaka",
 } as const;
@@ -42,39 +41,35 @@ function Eyebrow({ en, ja }: { en: string; ja: string }) {
 
 const supporters = [
   {
-    title: "コーチ・指導者",
-    body: "育成現場の実践知を言語化し、指導者としての価値を社会へ届ける支援をします。",
+    title: "スポーツ事業者",
+    body: "トレーニング、コンディショニング、教育、用品、イベント、サービス開発など、スポーツに関わる事業を展開する企業・事業者。私たちが主に支援する対象です。",
   },
   {
-    title: "トレーナー・専門職",
-    body: "専門性の高い知識と経験を、伝わる言葉とコンテンツへと変換します。",
+    title: "プロスポーツクラブ・スポーツ団体",
+    body: "クラブの価値発信、事業・広報の改善、地域との接点づくりに取り組む組織。",
   },
   {
-    title: "チーム・クラブ・団体",
-    body: "活動の意義と価値をわかりやすく発信し、共感とファンを集める基盤をつくります。",
+    title: "自治体・地域の関係者",
+    body: "スポーツを通じた育成、健康づくり、地域参加、共創プロジェクトに取り組む組織。",
   },
   {
-    title: "スポーツ関連事業者",
-    body: "スポーツの文脈を深く理解した上で、マーケティングと情報発信を設計します。",
+    title: "企業",
+    body: "スポーツを活用した事業展開や、地域連携・共創プロジェクトに取り組む企業。",
   },
 ];
 
 const offerings = [
   {
-    title: "価値の整理",
-    body: "実践の中にある強みや専門性を言語化し、伝わるメッセージに整理します。",
+    title: "価値の言語化・編集",
+    body: "専門性や強みを、顧客に伝わる言葉と情報へ整理します。",
   },
   {
-    title: "発信・マーケティング設計",
-    body: "SNS・ウェブ・noteなどの媒体を活かした、情報発信の戦略を設計します。",
+    title: "マーケティング・情報発信支援",
+    body: "Webサイトの企画・構築・運用改善を中心に、情報発信や顧客との接点づくりを支援します。",
   },
   {
-    title: "講演・イベントの企画運営",
-    body: "実践者の知恵を場として届けるために、講演やイベントの企画・運営を行います。",
-  },
-  {
-    title: "集客・コンテンツ活用支援",
-    body: "コンテンツを起点に、ファンと顧客が自然と集まる仕組みをつくります。",
+    title: "事業・共創プロジェクトの企画設計",
+    body: "スポーツの専門性を、新しい事業や地域の機会へつなぐ企画を設計します。",
   },
 ];
 
@@ -100,22 +95,38 @@ const biography = [
 
 const works = [
   {
-    title: "Training & Conditioning",
+    title: "Web & Digital Marketing",
     body: [
-      "スポーツ選手や市民ランナー、経営者を対象に、トレーニングやコンディショニングを支援。身体の状態や目的を捉え、一人ひとりに合わせた身体づくりに取り組んできました。",
+      "Webサイトやページの企画、ワイヤーフレーム作成、実装、公開後の計測・分析、運用改善まで、構築から改善までを一貫して担ってきました。",
     ],
   },
   {
-    title: "Media & Content",
+    title: "Media & Business Development",
     body: [
-      "ランナー向けオウンドメディアを企画・運営し、月間30万PVを超えるメディアへ成長。スポーツ領域のコンテンツ制作や、セミナー・イベントの企画運営にも携わってきました。",
-      "『Training Journal』『Tarzan』などへの寄稿実績あり。",
+      "ランナー向けオウンドメディアを企画・運営し、月間30万PVを超える規模へ成長。コンテンツ販売や物販、イベント集客など、メディアを起点とした事業展開にも取り組んできました。",
     ],
   },
   {
-    title: "Marketing & Project Design",
+    title: "Events & Learning Programs",
     body: [
-      "BtoBマーケティングの実務を通して、顧客理解と市場・業界理解を起点とした、価値づくりと情報発信を支援。現在は、スポーツ事業者の価値整理やコンテンツ設計、クラブや地域との共創事業の企画に取り組んでいます。",
+      "セミナー、イベント、ワークショップなど、学びや体験の場の企画・運営に取り組んできました。",
+    ],
+  },
+];
+
+const companyProfile: { label: string; body: string | string[] }[] = [
+  { label: "会社名", body: "株式会社ストレッチサポート" },
+  { label: "英文社名", body: "Stretch Support Inc." },
+  { label: "設立", body: "2011年4月" },
+  { label: "所在地", body: "〒104-0061 東京都中央区銀座1-22-11 2F" },
+  { label: "活動拠点", body: "東京都・長野県" },
+  { label: "代表取締役", body: "浦中 宏典" },
+  {
+    label: "事業内容",
+    body: [
+      "スポーツ事業・サービスの価値整理、企画・編集支援",
+      "Webサイトの企画・構築・運用改善、マーケティング支援",
+      "スポーツを起点とした事業・共創プロジェクトの企画・設計",
     ],
   },
 ];
@@ -174,11 +185,13 @@ export default function AboutPage() {
               {/* 【差し替えポイント】課題の本文（段落ごとに <p> を増減可） */}
               <div className="mt-8 space-y-6 text-[15px] leading-loose tracking-wide text-neutral-700">
                 <p>
-                  スポーツを支える指導者やトレーナーの実践知は、十分に伝わる言葉になっていない。
-                  現場で積み重ねられた知恵が、社会に届かないまま埋もれ続けている。
+                  指導者やトレーナーが培ってきた実践知だけでなく、スポーツ事業者やクラブ、地域の組織が積み重ねてきた専門性や実績も、十分に伝わる言葉や情報になっていないことがあります。
                 </p>
                 <p>
-                  私たちはその現実と向き合い、スポーツの価値を「伝わる言葉」へと翻訳することに取り組んでいます。
+                  その結果、価値そのものは存在していても、顧客との接点や新しい事業機会につながらないまま埋もれてしまうことがあります。
+                </p>
+                <p>
+                  私たちはその現実と向き合い、スポーツに関わる価値を「伝わる言葉」へと翻訳し、次の機会へつなげることに取り組んでいます。
                 </p>
               </div>
             </div>
@@ -296,6 +309,9 @@ export default function AboutPage() {
               <p>
                 現場で生まれる実践知を見つけ、編集し、必要とする人へ届けること。そして、その価値を新たな事業や地域へつないでいくことを、株式会社ストレッチサポートの役割と考えています。
               </p>
+              <p>
+                トレーナーとしての活動は、株式会社ストレッチサポートの出発点です。現在は、Webサイトの企画・構築・運用改善や、事業者の価値整理・情報発信、事業・共創プロジェクトの企画設計を中心に取り組んでいます。
+              </p>
             </div>
             {/* 略歴 */}
             <div className="mt-16 max-w-2xl border-t border-neutral-200 pt-10">
@@ -353,6 +369,41 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* ── Company Profile ── */}
+        <section className="border-t border-neutral-200">
+          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+            <Eyebrow en="Company Profile" ja="会社概要" />
+            <div className="max-w-2xl divide-y divide-neutral-200 border-t border-neutral-200">
+              {companyProfile.map((item) => (
+                <div
+                  key={item.label}
+                  className="py-6 sm:grid sm:grid-cols-[13rem_1fr] sm:gap-10"
+                >
+                  <p className="mb-2 text-[14px] font-medium tracking-wide text-neutral-800 sm:mb-0">
+                    {item.label}
+                  </p>
+                  {Array.isArray(item.body) ? (
+                    <ol className="space-y-2 text-[15px] leading-loose tracking-wide text-neutral-600">
+                      {item.body.map((line, i) => (
+                        <li key={line} className="flex gap-3">
+                          <span className="shrink-0 text-neutral-400">
+                            {i + 1}.
+                          </span>
+                          <span>{line}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  ) : (
+                    <p className="text-[15px] leading-loose tracking-wide text-neutral-600">
+                      {item.body}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── Message ── */}
         <section className="border-t border-neutral-200">
           <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
@@ -392,11 +443,11 @@ export default function AboutPage() {
                 ご相談、お気軽にどうぞ。
               </p>
               <a
-                href={LINKS.contact}
+                href="/contact"
                 className="group inline-flex items-center gap-2 text-[15px] tracking-wide transition-colors"
                 style={{ color: ACCENT }}
               >
-                メールで問い合わせる
+                お問い合わせ
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
