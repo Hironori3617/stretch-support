@@ -234,7 +234,11 @@ export default function AboutPage() {
                 className="text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose lg:sticky lg:top-24 lg:self-start"
                 style={{ fontFamily: serif }}
               >
-                スポーツの現場には、まだ言語化されていない価値がある。
+                スポーツの現場には、
+                <br className="hidden lg:block" />
+                まだ言語化されていない
+                <br className="hidden lg:block" />
+                価値がある。
               </p>
               {/* 【差し替えポイント】課題の本文（段落ごとに <p> を増減可） */}
               <div className="max-w-2xl space-y-6 text-[15px] leading-loose tracking-wide text-neutral-700">
