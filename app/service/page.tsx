@@ -333,20 +333,20 @@ export default function ServicePage() {
                         </p>
                       )}
                     </div>
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 sm:w-56 sm:shrink-0">
-                      <Image
-                        src={item.photo}
-                        alt={item.alt}
-                        fill
-                        sizes="(max-width: 640px) 100vw, 224px"
-                        className="object-cover"
-                      />
+                    <div className="sm:w-56 sm:shrink-0">
+                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
+                        <Image
+                          src={item.photo}
+                          alt={item.alt}
+                          fill
+                          sizes="(max-width: 640px) 100vw, 224px"
+                          className="object-cover"
+                        />
+                      </div>
                       {item.photoNote && (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="rounded bg-black/35 px-2.5 py-1 text-[11px] tracking-wide text-white/90">
-                            {item.photoNote}
-                          </span>
-                        </div>
+                        <p className="mt-1 text-center text-[11px] tracking-wide text-neutral-400">
+                          {item.photoNote}
+                        </p>
                       )}
                     </div>
                   </div>
