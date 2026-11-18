@@ -40,7 +40,7 @@ function Eyebrow({ en, ja }: { en: string; ja: string }) {
 function WorkIcon({ type }: { type: "web" | "media" | "events" }) {
   if (type === "web") {
     return (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <rect x="2.5" y="4" width="19" height="13" rx="1.5" stroke={ACCENT} strokeWidth="1.5" />
         <line x1="8" y1="20" x2="16" y2="20" stroke={ACCENT} strokeWidth="1.5" strokeLinecap="round" />
         <line x1="12" y1="17" x2="12" y2="20" stroke={ACCENT} strokeWidth="1.5" />
@@ -57,7 +57,7 @@ function WorkIcon({ type }: { type: "web" | "media" | "events" }) {
   }
   if (type === "media") {
     return (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <rect x="3.5" y="3.5" width="12" height="16" rx="1.3" stroke={ACCENT} strokeWidth="1.5" />
         <line x1="6.5" y1="7.5" x2="12.5" y2="7.5" stroke="#9ca3af" strokeWidth="1.3" strokeLinecap="round" />
         <line x1="6.5" y1="10.5" x2="12.5" y2="10.5" stroke="#9ca3af" strokeWidth="1.3" strokeLinecap="round" />
@@ -75,7 +75,7 @@ function WorkIcon({ type }: { type: "web" | "media" | "events" }) {
     );
   }
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect x="3" y="4" width="18" height="11" rx="1.3" stroke={ACCENT} strokeWidth="1.5" />
       <line x1="7" y1="8" x2="13" y2="8" stroke="#9ca3af" strokeWidth="1.3" strokeLinecap="round" />
       <line x1="7" y1="11" x2="11" y2="11" stroke="#9ca3af" strokeWidth="1.3" strokeLinecap="round" />
@@ -227,17 +227,17 @@ export default function AboutPage() {
         <section className="bg-neutral-50">
           <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
             <Eyebrow en="Challenge" ja="私たちが向き合う課題" />
-            {/* max-w-3xl で読みやすい行幅を維持しつつ、左端は max-w-6xl に揃える */}
-            <div className="max-w-3xl">
+            {/* 見出しを左カラム、本文を右カラムに配置し、横幅を活かす */}
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[20rem_1fr] lg:gap-16">
               {/* 【差し替えポイント】課題の見出し */}
               <p
-                className="text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose"
+                className="text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose lg:sticky lg:top-24 lg:self-start"
                 style={{ fontFamily: serif }}
               >
                 スポーツの現場には、まだ言語化されていない価値がある。
               </p>
               {/* 【差し替えポイント】課題の本文（段落ごとに <p> を増減可） */}
-              <div className="mt-8 space-y-6 text-[15px] leading-loose tracking-wide text-neutral-700">
+              <div className="max-w-2xl space-y-6 text-[15px] leading-loose tracking-wide text-neutral-700">
                 <p>
                   指導者やトレーナーが培ってきた実践知だけでなく、スポーツ事業者やクラブ、地域の組織が積み重ねてきた専門性や実績も、十分に伝わる言葉や情報になっていないことがあります。
                 </p>
@@ -257,11 +257,12 @@ export default function AboutPage() {
           <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
             <Eyebrow en="For" ja="支援する対象" />
             {/* 【差し替えポイント】supporters 配列（上部）の title / body を編集 */}
-            <div className="divide-y divide-neutral-200">
+            {/* PCは2列×2段。各セルに下罫線・右罫線を付け、コンテナに上罫線・左罫線を付けて格子状に */}
+            <div className="grid grid-cols-1 border-neutral-200 sm:grid-cols-2 sm:border-t sm:border-l">
               {supporters.map((item, i) => (
                 <div
                   key={item.title}
-                  className="flex items-start gap-5 py-10 sm:gap-10 sm:py-12"
+                  className="flex items-start gap-5 border-b border-neutral-200 py-10 sm:gap-8 sm:border-r sm:px-8 sm:py-12"
                 >
                   <span className="w-7 shrink-0 pt-0.5 text-[13px] tracking-[0.18em] text-neutral-600 sm:w-8">
                     {String(i + 1).padStart(2, "0")}
@@ -273,7 +274,7 @@ export default function AboutPage() {
                     >
                       {item.title}
                     </h3>
-                    <p className="mt-3 max-w-2xl text-[15px] leading-loose tracking-wide text-neutral-600">
+                    <p className="mt-3 max-w-md text-[15px] leading-loose tracking-wide text-neutral-600">
                       {item.body}
                     </p>
                   </div>
@@ -292,26 +293,22 @@ export default function AboutPage() {
               現場にある知恵を、その人や組織らしい言葉と形に整え、必要とする人へ届けます。
             </p>
             {/* 【差し替えポイント】offerings 配列（上部）の title / body を編集 */}
-            <div className="divide-y divide-neutral-200">
+            {/* 3項目をPCでは横並びのグリッドにし、各列が横幅を活用できるようにする */}
+            <div className="grid grid-cols-1 gap-10 border-t border-neutral-200 pt-10 lg:grid-cols-3 lg:gap-x-12">
               {offerings.map((item, i) => (
-                <div
-                  key={item.title}
-                  className="flex items-start gap-5 py-10 sm:gap-10 sm:py-12"
-                >
-                  <span className="w-7 shrink-0 pt-0.5 text-[13px] tracking-[0.18em] text-neutral-600 sm:w-8">
+                <div key={item.title}>
+                  <span className="text-[13px] tracking-[0.18em] text-neutral-500">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <div className="flex-1">
-                    <h3
-                      className="text-lg text-neutral-900 sm:text-xl"
-                      style={{ fontFamily: serif }}
-                    >
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 max-w-2xl text-[15px] leading-loose tracking-wide text-neutral-600">
-                      {item.body}
-                    </p>
-                  </div>
+                  <h3
+                    className="mt-3 text-lg text-neutral-900 sm:text-xl"
+                    style={{ fontFamily: serif }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-[15px] leading-loose tracking-wide text-neutral-600">
+                    {item.body}
+                  </p>
                 </div>
               ))}
             </div>
@@ -333,64 +330,69 @@ export default function AboutPage() {
         <section className="border-t border-neutral-200">
           <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
             <Eyebrow en="Profile" ja="" />
-            <div className="mb-12">
-              <p
-                className="text-[1.375rem] leading-tight text-neutral-900 sm:text-[1.75rem]"
-                style={{ fontFamily: serif }}
-              >
-                浦中 宏典
-              </p>
-              <p className="mt-3 text-[14px] tracking-wide text-neutral-500">
-                株式会社ストレッチサポート 代表取締役
-              </p>
-            </div>
-            <div className="max-w-2xl space-y-6 text-[15px] leading-loose tracking-wide text-neutral-700">
-              <p>
-                高校時代、陸上競技に取り組む中で慢性的な膝の痛みに悩んだ経験から、身体づくりやコンディショニングに関心を持ち、トレーナーの道を志しました。
-              </p>
-              <p>
-                その後、トレーナーとしてスポーツ選手や市民ランナーの身体づくりを支援。株式会社ストレッチサポートを設立し、トレーニング指導に加え、ランニングメディアの運営、コンテンツ制作、セミナーやイベントの企画・運営など、スポーツに関わるさまざまな事業に取り組んできました。
-              </p>
-              <p>
-                活動を続ける中で、保護者として子どものスポーツに関わるようになり、現場の外側からスポーツを見る機会が増えました。選手やトレーナーとして関わっていた頃とは異なる視点から、スポーツの価値や課題を考えるようになりました。
-              </p>
-              <p>
-                また、BtoBマーケティングに携わる中では、顧客を深く理解し、市場や業界の構造を捉えることを前提としてきました。マーケティングにおいて重要なのは、価値をどのようにつくり、必要とする人へ届けるかということです。
-              </p>
-              <p>
-                こうした経験を通して、スポーツの現場には人の成長を支える知識や経験が数多くある一方で、その多くが現場の中で完結し、社会へ伝わる機会が限られていることに課題を感じるようになりました。
-              </p>
-              <p>
-                現場で生まれる実践知を見つけ、編集し、必要とする人へ届けること。そして、その価値を新たな事業や地域へつないでいくことを、株式会社ストレッチサポートの役割と考えています。
-              </p>
-              <p>
-                トレーナーとしての活動は、株式会社ストレッチサポートの出発点です。現在は、Webサイトの企画・構築・運用改善や、事業者の価値整理・情報発信、事業・共創プロジェクトの企画設計を中心に取り組んでいます。
-              </p>
-            </div>
-            {/* 略歴 */}
-            <div className="mt-16 max-w-2xl border-t border-neutral-200 pt-10">
-              <div className="divide-y divide-neutral-200">
-                {biography.map((item) => (
-                  <div
-                    key={item.label}
-                    className="py-6 sm:grid sm:grid-cols-[13rem_1fr] sm:gap-10"
-                  >
-                    <p className="mb-2 text-[14px] font-medium tracking-wide text-neutral-800 sm:mb-0">
-                      {item.label === "株式会社ストレッチサポート設立" ? (
-                        <>
-                          株式会社ストレッチサポート
-                          <br className="hidden sm:block" />
-                          設立
-                        </>
-                      ) : (
-                        item.label
-                      )}
-                    </p>
-                    <p className="text-[15px] leading-loose tracking-wide text-neutral-600">
-                      {item.body}
-                    </p>
+            {/* 氏名・肩書きを左カラム、本文・略歴を右カラムに配置し、横幅を活かしつつ本文の可読性を維持する */}
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[18rem_1fr] lg:gap-16">
+              <div className="lg:sticky lg:top-24 lg:self-start">
+                <p
+                  className="text-lg leading-snug text-neutral-900 sm:text-xl"
+                  style={{ fontFamily: serif }}
+                >
+                  浦中 宏典
+                </p>
+                <p className="mt-3 text-[14px] tracking-wide text-neutral-500">
+                  株式会社ストレッチサポート 代表取締役
+                </p>
+              </div>
+              <div>
+                <div className="max-w-2xl space-y-6 text-[15px] leading-loose tracking-wide text-neutral-700">
+                  <p>
+                    高校時代、陸上競技に取り組む中で慢性的な膝の痛みに悩んだ経験から、身体づくりやコンディショニングに関心を持ち、トレーナーの道を志しました。
+                  </p>
+                  <p>
+                    その後、トレーナーとしてスポーツ選手や市民ランナーの身体づくりを支援。株式会社ストレッチサポートを設立し、トレーニング指導に加え、ランニングメディアの運営、コンテンツ制作、セミナーやイベントの企画・運営など、スポーツに関わるさまざまな事業に取り組んできました。
+                  </p>
+                  <p>
+                    活動を続ける中で、保護者として子どものスポーツに関わるようになり、現場の外側からスポーツを見る機会が増えました。選手やトレーナーとして関わっていた頃とは異なる視点から、スポーツの価値や課題を考えるようになりました。
+                  </p>
+                  <p>
+                    また、BtoBマーケティングに携わる中では、顧客を深く理解し、市場や業界の構造を捉えることを前提としてきました。マーケティングにおいて重要なのは、価値をどのようにつくり、必要とする人へ届けるかということです。
+                  </p>
+                  <p>
+                    こうした経験を通して、スポーツの現場には人の成長を支える知識や経験が数多くある一方で、その多くが現場の中で完結し、社会へ伝わる機会が限られていることに課題を感じるようになりました。
+                  </p>
+                  <p>
+                    現場で生まれる実践知を見つけ、編集し、必要とする人へ届けること。そして、その価値を新たな事業や地域へつないでいくことを、株式会社ストレッチサポートの役割と考えています。
+                  </p>
+                  <p>
+                    トレーナーとしての活動は、株式会社ストレッチサポートの出発点です。現在は、Webサイトの企画・構築・運用改善や、事業者の価値整理・情報発信、事業・共創プロジェクトの企画設計を中心に取り組んでいます。
+                  </p>
+                </div>
+                {/* 略歴 */}
+                <div className="mt-16 max-w-2xl border-t border-neutral-200 pt-10">
+                  <div className="divide-y divide-neutral-200">
+                    {biography.map((item) => (
+                      <div
+                        key={item.label}
+                        className="py-6 sm:grid sm:grid-cols-[13rem_1fr] sm:gap-10"
+                      >
+                        <p className="mb-2 text-[14px] font-medium tracking-wide text-neutral-800 sm:mb-0">
+                          {item.label === "株式会社ストレッチサポート設立" ? (
+                            <>
+                              株式会社ストレッチサポート
+                              <br className="hidden sm:block" />
+                              設立
+                            </>
+                          ) : (
+                            item.label
+                          )}
+                        </p>
+                        <p className="text-[15px] leading-loose tracking-wide text-neutral-600">
+                          {item.body}
+                        </p>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
             </div>
           </div>
@@ -406,7 +408,7 @@ export default function AboutPage() {
                   key={item.title}
                   className="border-t border-neutral-300 py-8 lg:pb-0"
                 >
-                  <div className="mb-5 flex h-9 items-center">
+                  <div className="mx-auto mb-6 flex h-28 w-28 items-center justify-center rounded-full bg-neutral-100">
                     <WorkIcon type={item.icon} />
                   </div>
                   <h3
@@ -415,7 +417,7 @@ export default function AboutPage() {
                   >
                     {item.title}
                   </h3>
-                  <div className="max-w-md space-y-4 text-[14px] leading-loose tracking-wide text-neutral-600">
+                  <div className="space-y-4 text-[14px] leading-loose tracking-wide text-neutral-600">
                     {item.body.map((para, j) => (
                       <p key={j}>{para}</p>
                     ))}
@@ -430,9 +432,10 @@ export default function AboutPage() {
         <section className="border-t border-neutral-200">
           <div className="mx-auto max-w-7xl px-6 py-24 sm:py-28">
             <Eyebrow en="Company Profile" ja="会社概要" />
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.3fr] lg:gap-8">
-              {/* カードA：基本情報 */}
-              <div className="border border-neutral-200 bg-neutral-50 p-8">
+            {/* カードではなく罫線のみで2カラムを区切る。背景はページと同じ白のまま */}
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+              {/* 基本情報 */}
+              <div className="border-t border-neutral-200 pt-10">
                 <h3 className="mb-6 text-[12px] uppercase tracking-[0.18em] text-neutral-500">
                   基本情報
                 </h3>
@@ -453,8 +456,8 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* カードB：事業内容 */}
-              <div className="border border-neutral-200 bg-neutral-50 p-8">
+              {/* 事業内容 */}
+              <div className="border-t border-neutral-200 pt-10 lg:border-t-0 lg:border-l lg:pl-16 lg:pt-0">
                 <h3 className="mb-6 text-[12px] uppercase tracking-[0.18em] text-neutral-500">
                   事業内容
                 </h3>
