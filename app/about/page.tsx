@@ -17,6 +17,7 @@ const serif =
 const sans =
   '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "YuGothic", "Meiryo", "Noto Sans JP", system-ui, sans-serif';
 const ACCENT = "#2f4e6f";
+const ACCENT_RED = "#a8463f";
 
 const LINKS = {
   instagram: "https://www.instagram.com/udio08/?hl=ja",
@@ -33,6 +34,54 @@ function Eyebrow({ en, ja }: { en: string; ja: string }) {
       </span>
       <span className="text-[12px] tracking-wide text-neutral-500">{ja}</span>
     </div>
+  );
+}
+
+function WorkIcon({ type }: { type: "web" | "media" | "events" }) {
+  if (type === "web") {
+    return (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="2.5" y="4" width="19" height="13" rx="1.5" stroke={ACCENT} strokeWidth="1.5" />
+        <line x1="8" y1="20" x2="16" y2="20" stroke={ACCENT} strokeWidth="1.5" strokeLinecap="round" />
+        <line x1="12" y1="17" x2="12" y2="20" stroke={ACCENT} strokeWidth="1.5" />
+        <polyline
+          points="6,13.5 9.5,10 12.5,12 17.3,7.6"
+          stroke="#9ca3af"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle cx="17.5" cy="7.5" r="1.4" fill={ACCENT_RED} />
+      </svg>
+    );
+  }
+  if (type === "media") {
+    return (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="3.5" y="3.5" width="12" height="16" rx="1.3" stroke={ACCENT} strokeWidth="1.5" />
+        <line x1="6.5" y1="7.5" x2="12.5" y2="7.5" stroke="#9ca3af" strokeWidth="1.3" strokeLinecap="round" />
+        <line x1="6.5" y1="10.5" x2="12.5" y2="10.5" stroke="#9ca3af" strokeWidth="1.3" strokeLinecap="round" />
+        <line x1="6.5" y1="13.5" x2="10" y2="13.5" stroke="#9ca3af" strokeWidth="1.3" strokeLinecap="round" />
+        <path d="M15 16.5 L20.5 11" stroke={ACCENT_RED} strokeWidth="1.5" strokeLinecap="round" />
+        <path
+          d="M16.3 11 H20.5 V15.2"
+          stroke={ACCENT_RED}
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+      </svg>
+    );
+  }
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="11" rx="1.3" stroke={ACCENT} strokeWidth="1.5" />
+      <line x1="7" y1="8" x2="13" y2="8" stroke="#9ca3af" strokeWidth="1.3" strokeLinecap="round" />
+      <line x1="7" y1="11" x2="11" y2="11" stroke="#9ca3af" strokeWidth="1.3" strokeLinecap="round" />
+      <circle cx="17" cy="10" r="1.6" fill={ACCENT_RED} />
+      <path d="M8 19.5 C8 17.5 16 17.5 16 19.5" stroke={ACCENT} strokeWidth="1.5" strokeLinecap="round" fill="none" />
+    </svg>
   );
 }
 
@@ -93,42 +142,47 @@ const biography = [
   },
 ];
 
-const works = [
+const works: {
+  title: string;
+  icon: "web" | "media" | "events";
+  body: string[];
+}[] = [
   {
     title: "Web & Digital Marketing",
+    icon: "web",
     body: [
       "Webサイトやページの企画、ワイヤーフレーム作成、実装、公開後の計測・分析、運用改善まで、構築から改善までを一貫して担ってきました。",
     ],
   },
   {
     title: "Media & Business Development",
+    icon: "media",
     body: [
       "ランナー向けオウンドメディアを企画・運営し、月間30万PVを超える規模へ成長。コンテンツ販売や物販、イベント集客など、メディアを起点とした事業展開にも取り組んできました。",
     ],
   },
   {
     title: "Events & Learning Programs",
+    icon: "events",
     body: [
       "セミナー、イベント、ワークショップなど、学びや体験の場の企画・運営に取り組んできました。",
     ],
   },
 ];
 
-const companyProfile: { label: string; body: string | string[] }[] = [
+const companyBasics = [
   { label: "会社名", body: "株式会社ストレッチサポート" },
   { label: "英文社名", body: "Stretch Support Inc." },
   { label: "設立", body: "2011年4月" },
   { label: "所在地", body: "〒104-0061 東京都中央区銀座1-22-11 2F" },
   { label: "活動拠点", body: "東京都・長野県" },
   { label: "代表取締役", body: "浦中 宏典" },
-  {
-    label: "事業内容",
-    body: [
-      "スポーツ事業・サービスの価値整理、企画・編集支援",
-      "Webサイトの企画・構築・運用改善、マーケティング支援",
-      "スポーツを起点とした事業・共創プロジェクトの企画・設計",
-    ],
-  },
+];
+
+const businessLines = [
+  "スポーツ事業・サービスの価値整理、企画・編集支援",
+  "Webサイトの企画・構築・運用改善、マーケティング支援",
+  "スポーツを起点とした事業・共創プロジェクトの企画・設計",
 ];
 
 // ─── ページ本体 ──────────────────────────────────────────────────────────────
@@ -171,10 +225,10 @@ export default function AboutPage() {
 
         {/* ── Challenge：私たちが向き合う課題 ── */}
         <section className="bg-neutral-50">
-          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+          <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
             <Eyebrow en="Challenge" ja="私たちが向き合う課題" />
-            {/* max-w-2xl で読みやすい行幅を維持しつつ、左端は max-w-5xl に揃える */}
-            <div className="max-w-2xl">
+            {/* max-w-3xl で読みやすい行幅を維持しつつ、左端は max-w-6xl に揃える */}
+            <div className="max-w-3xl">
               {/* 【差し替えポイント】課題の見出し */}
               <p
                 className="text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose"
@@ -200,7 +254,7 @@ export default function AboutPage() {
 
         {/* ── For：支援する対象 ── */}
         <section className="border-t border-neutral-200">
-          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+          <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
             <Eyebrow en="For" ja="支援する対象" />
             {/* 【差し替えポイント】supporters 配列（上部）の title / body を編集 */}
             <div className="divide-y divide-neutral-200">
@@ -219,7 +273,7 @@ export default function AboutPage() {
                     >
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-[15px] leading-loose tracking-wide text-neutral-600">
+                    <p className="mt-3 max-w-2xl text-[15px] leading-loose tracking-wide text-neutral-600">
                       {item.body}
                     </p>
                   </div>
@@ -231,7 +285,7 @@ export default function AboutPage() {
 
         {/* ── Services：提供すること ── */}
         <section className="border-t border-neutral-200 bg-neutral-50">
-          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+          <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
             <Eyebrow en="Services" ja="提供すること" />
             {/* 【差し替えポイント】セクションリード文 */}
             <p className="mb-12 max-w-2xl text-[15px] leading-loose tracking-wide text-neutral-600 sm:text-base sm:leading-loose">
@@ -254,7 +308,7 @@ export default function AboutPage() {
                     >
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-[15px] leading-loose tracking-wide text-neutral-600">
+                    <p className="mt-3 max-w-2xl text-[15px] leading-loose tracking-wide text-neutral-600">
                       {item.body}
                     </p>
                   </div>
@@ -277,11 +331,11 @@ export default function AboutPage() {
 
         {/* ── Profile ── */}
         <section className="border-t border-neutral-200">
-          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+          <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
             <Eyebrow en="Profile" ja="" />
             <div className="mb-12">
               <p
-                className="text-[1.625rem] leading-tight text-neutral-900 sm:text-[2rem]"
+                className="text-[1.375rem] leading-tight text-neutral-900 sm:text-[1.75rem]"
                 style={{ fontFamily: serif }}
               >
                 浦中 宏典
@@ -344,21 +398,24 @@ export default function AboutPage() {
 
         {/* ── Works ── */}
         <section className="border-t border-neutral-200 bg-neutral-50">
-          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-28">
             <Eyebrow en="Works" ja="" />
-            <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-16">
               {works.map((item) => (
                 <div
                   key={item.title}
                   className="border-t border-neutral-300 py-8 lg:pb-0"
                 >
+                  <div className="mb-5 flex h-9 items-center">
+                    <WorkIcon type={item.icon} />
+                  </div>
                   <h3
                     className="mb-5 text-[15px] tracking-[0.04em] text-neutral-900"
                     style={{ fontFamily: serif }}
                   >
                     {item.title}
                   </h3>
-                  <div className="space-y-4 text-[14px] leading-loose tracking-wide text-neutral-600">
+                  <div className="max-w-md space-y-4 text-[14px] leading-loose tracking-wide text-neutral-600">
                     {item.body.map((para, j) => (
                       <p key={j}>{para}</p>
                     ))}
@@ -371,35 +428,47 @@ export default function AboutPage() {
 
         {/* ── Company Profile ── */}
         <section className="border-t border-neutral-200">
-          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-28">
             <Eyebrow en="Company Profile" ja="会社概要" />
-            <div className="max-w-2xl divide-y divide-neutral-200 border-t border-neutral-200">
-              {companyProfile.map((item) => (
-                <div
-                  key={item.label}
-                  className="py-6 sm:grid sm:grid-cols-[13rem_1fr] sm:gap-10"
-                >
-                  <p className="mb-2 text-[14px] font-medium tracking-wide text-neutral-800 sm:mb-0">
-                    {item.label}
-                  </p>
-                  {Array.isArray(item.body) ? (
-                    <ol className="space-y-2 text-[15px] leading-loose tracking-wide text-neutral-600">
-                      {item.body.map((line, i) => (
-                        <li key={line} className="flex gap-3">
-                          <span className="shrink-0 text-neutral-400">
-                            {i + 1}.
-                          </span>
-                          <span>{line}</span>
-                        </li>
-                      ))}
-                    </ol>
-                  ) : (
-                    <p className="text-[15px] leading-loose tracking-wide text-neutral-600">
-                      {item.body}
-                    </p>
-                  )}
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.3fr] lg:gap-8">
+              {/* カードA：基本情報 */}
+              <div className="border border-neutral-200 bg-neutral-50 p-8">
+                <h3 className="mb-6 text-[12px] uppercase tracking-[0.18em] text-neutral-500">
+                  基本情報
+                </h3>
+                <div className="divide-y divide-neutral-200">
+                  {companyBasics.map((item) => (
+                    <div
+                      key={item.label}
+                      className="py-4 first:pt-0 sm:grid sm:grid-cols-[7rem_1fr] sm:gap-6"
+                    >
+                      <p className="mb-1 text-[13px] font-medium tracking-wide text-neutral-800 sm:mb-0">
+                        {item.label}
+                      </p>
+                      <p className="text-[14px] leading-loose tracking-wide text-neutral-600">
+                        {item.body}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* カードB：事業内容 */}
+              <div className="border border-neutral-200 bg-neutral-50 p-8">
+                <h3 className="mb-6 text-[12px] uppercase tracking-[0.18em] text-neutral-500">
+                  事業内容
+                </h3>
+                <ol className="space-y-4 text-[15px] leading-loose tracking-wide text-neutral-600">
+                  {businessLines.map((line, i) => (
+                    <li key={line} className="flex gap-3">
+                      <span className="shrink-0 text-neutral-400">
+                        {i + 1}.
+                      </span>
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             </div>
           </div>
         </section>
