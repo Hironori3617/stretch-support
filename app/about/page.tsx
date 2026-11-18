@@ -332,7 +332,7 @@ export default function AboutPage() {
             <Eyebrow en="Profile" ja="" />
             {/* 氏名・肩書きを左カラム、本文・略歴を右カラムに配置し、横幅を活かしつつ本文の可読性を維持する */}
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[18rem_1fr] lg:gap-16">
-              <div className="lg:sticky lg:top-24 lg:self-start">
+              <div>
                 <p
                   className="text-lg leading-snug text-neutral-900 sm:text-xl"
                   style={{ fontFamily: serif }}
