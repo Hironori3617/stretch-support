@@ -77,6 +77,7 @@ const experienceItems: {
   highlights?: string;
   photo: string;
   alt: string;
+  photoNote?: string;
 }[] = [
   {
     title: "Webサイト・デジタルマーケティング",
@@ -85,6 +86,7 @@ const experienceItems: {
       "月間30万PV超のメディア運営／コンテンツ販売・物販・イベント集客への展開／サービスサイト・プロダクトサイトの構築・運用",
     photo: "/images/service/digital-marketing.webp",
     alt: "スポーツ分野のWebサイト設計とデジタルマーケティングを表現したイメージ",
+    photoNote: "※画像はイメージです",
   },
   {
     title: "セミナー・ウェビナーの企画運営",
@@ -331,14 +333,21 @@ export default function ServicePage() {
                         </p>
                       )}
                     </div>
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 sm:w-56 sm:shrink-0">
-                      <Image
-                        src={item.photo}
-                        alt={item.alt}
-                        fill
-                        sizes="(max-width: 640px) 100vw, 224px"
-                        className="object-cover"
-                      />
+                    <div className="sm:w-56 sm:shrink-0">
+                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
+                        <Image
+                          src={item.photo}
+                          alt={item.alt}
+                          fill
+                          sizes="(max-width: 640px) 100vw, 224px"
+                          className="object-cover"
+                        />
+                      </div>
+                      {item.photoNote && (
+                        <p className="mt-1 text-[11px] tracking-wide text-neutral-400">
+                          {item.photoNote}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
