@@ -225,7 +225,7 @@ export default function AboutPage() {
 
         {/* ── Challenge：私たちが向き合う課題 ── */}
         <section className="bg-neutral-50">
-          <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
+          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
             <Eyebrow en="Challenge" ja="私たちが向き合う課題" />
             {/* 見出しを左カラム、本文を右カラムに配置し、横幅を活かす */}
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-[20rem_1fr] lg:gap-16">
@@ -258,7 +258,7 @@ export default function AboutPage() {
 
         {/* ── For：支援する対象 ── */}
         <section className="border-t border-neutral-200">
-          <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
+          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
             <Eyebrow en="For" ja="支援する対象" />
             {/* 【差し替えポイント】supporters 配列（上部）の title / body を編集 */}
             {/* PCは2列×2段。各セルに下罫線・右罫線を付け、コンテナに上罫線・左罫線を付けて格子状に */}
@@ -290,7 +290,7 @@ export default function AboutPage() {
 
         {/* ── Services：提供すること ── */}
         <section className="border-t border-neutral-200 bg-neutral-50">
-          <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
+          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
             <Eyebrow en="Services" ja="提供すること" />
             {/* 【差し替えポイント】セクションリード文 */}
             <p className="mb-12 max-w-2xl text-[15px] leading-loose tracking-wide text-neutral-600 sm:text-base sm:leading-loose">
@@ -298,7 +298,7 @@ export default function AboutPage() {
             </p>
             {/* 【差し替えポイント】offerings 配列（上部）の title / body を編集 */}
             {/* 3項目をPCでは横並びのグリッドにし、各列が横幅を活用できるようにする */}
-            <div className="grid grid-cols-1 gap-10 border-t border-neutral-200 pt-10 lg:grid-cols-3 lg:gap-x-12">
+            <div className="grid grid-cols-1 gap-10 border-t border-neutral-200 pt-10 lg:grid-cols-3 lg:gap-x-8">
               {offerings.map((item, i) => (
                 <div key={item.title}>
                   <span className="text-[13px] tracking-[0.18em] text-neutral-500">
@@ -332,7 +332,7 @@ export default function AboutPage() {
 
         {/* ── Profile ── */}
         <section className="border-t border-neutral-200">
-          <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28">
+          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
             <Eyebrow en="Profile" ja="" />
             {/* 氏名・肩書きを左カラム、本文・略歴を右カラムに配置し、横幅を活かしつつ本文の可読性を維持する */}
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-[18rem_1fr] lg:gap-16">
@@ -404,9 +404,9 @@ export default function AboutPage() {
 
         {/* ── Works ── */}
         <section className="border-t border-neutral-200 bg-neutral-50">
-          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-28">
+          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
             <Eyebrow en="Works" ja="" />
-            <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-16">
+            <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-10">
               {works.map((item) => (
                 <div
                   key={item.title}
@@ -434,10 +434,10 @@ export default function AboutPage() {
 
         {/* ── Company Profile ── */}
         <section className="border-t border-neutral-200">
-          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-28">
+          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
             <Eyebrow en="Company Profile" ja="会社概要" />
             {/* カードではなく罫線のみで2カラムを区切る。背景はページと同じ白のまま */}
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-10">
               {/* 基本情報 */}
               <div className="border-t border-neutral-200 pt-10">
                 <h3 className="mb-6 text-[12px] uppercase tracking-[0.18em] text-neutral-500">
@@ -461,7 +461,7 @@ export default function AboutPage() {
               </div>
 
               {/* 事業内容 */}
-              <div className="border-t border-neutral-200 pt-10 lg:border-t-0 lg:border-l lg:pl-16 lg:pt-0">
+              <div className="border-t border-neutral-200 pt-10 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0">
                 <h3 className="mb-6 text-[12px] uppercase tracking-[0.18em] text-neutral-500">
                   事業内容
                 </h3>
