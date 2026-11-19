@@ -33,12 +33,23 @@ function Eyebrow({ en, ja }: { en: string; ja: string }) {
   );
 }
 
-type IconType = "media" | "product" | "event" | "contact" | "plan" | "build" | "measure";
+type IconType =
+  | "media"
+  | "product"
+  | "event"
+  | "contact"
+  | "plan"
+  | "build"
+  | "measure"
+  | "understand"
+  | "prioritize"
+  | "execute"
+  | "improve";
 
-function DiagramIcon({ type }: { type: IconType }) {
+function DiagramIcon({ type, size = 30 }: { type: IconType; size?: number }) {
   const common = {
-    width: 18,
-    height: 18,
+    width: size,
+    height: size,
     viewBox: "0 0 24 24",
     fill: "none" as const,
     stroke: "currentColor",
@@ -105,25 +116,73 @@ function DiagramIcon({ type }: { type: IconType }) {
           <rect x="16" y="5" width="3" height="15" />
         </svg>
       );
+    case "understand":
+      return (
+        <svg {...common}>
+          <circle cx="9" cy="12" r="6" />
+          <circle cx="15" cy="12" r="6" />
+        </svg>
+      );
+    case "prioritize":
+      return (
+        <svg {...common}>
+          <line x1="4" y1="6" x2="20" y2="6" />
+          <line x1="4" y1="12" x2="15" y2="12" />
+          <line x1="4" y1="18" x2="10" y2="18" />
+        </svg>
+      );
+    case "execute":
+      return (
+        <svg {...common}>
+          <polygon points="8,5 19,12 8,19" />
+        </svg>
+      );
+    case "improve":
+      return (
+        <svg {...common}>
+          <path d="M3 12a9 9 0 0 1 15-6.7L21 8" />
+          <path d="M21 3v5h-5" />
+          <path d="M21 12a9 9 0 0 1-15 6.7L3 16" />
+          <path d="M3 21v-5h5" />
+        </svg>
+      );
   }
 }
 
-function IconCircle({ type, accent = true }: { type: IconType; accent?: boolean }) {
+function IconCircle({
+  type,
+  accent = true,
+  size = "lg",
+}: {
+  type: IconType;
+  accent?: boolean;
+  size?: "lg" | "md";
+}) {
   return (
     <span
-      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-neutral-100"
+      className={
+        size === "lg"
+          ? "flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-neutral-100"
+          : "flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-neutral-100"
+      }
       style={{ color: accent ? ACCENT : "#9ca3af" }}
     >
-      <DiagramIcon type={type} />
+      <DiagramIcon type={type} size={size === "lg" ? 30 : 26} />
     </span>
   );
 }
 
-function ArrowIcon({ direction = "right" }: { direction?: "right" | "down" }) {
+function ArrowIcon({
+  direction = "right",
+  size = 16,
+}: {
+  direction?: "right" | "down";
+  size?: number;
+}) {
   return (
     <svg
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -253,22 +312,37 @@ const webFlowSteps = [
 
 const howWeWorkSteps = [
   {
+    shortTitle: "理解",
+    shortBody: "事業と顧客",
+    icon: "understand" as const,
     title: "事業・課題の理解",
     body: "事業の目的、サービスの特徴、顧客、現在の取り組みを把握します。",
   },
   {
+    shortTitle: "整理",
+    shortBody: "課題と優先順位",
+    icon: "prioritize" as const,
     title: "方針・優先順位の整理",
     body: "何を改善し、どのような施策に取り組むかを整理します。",
   },
   {
+    shortTitle: "実行",
+    shortBody: "企画・制作",
+    icon: "execute" as const,
     title: "企画・制作・実行",
     body: "Webサイトやコンテンツなど、合意した施策を具体化します。",
   },
   {
+    shortTitle: "計測",
+    shortBody: "数字と反応",
+    icon: "measure" as const,
     title: "計測・振り返り",
     body: "アクセス状況や顧客の反応などを確認します。",
   },
   {
+    shortTitle: "改善",
+    shortBody: "次の施策へ",
+    icon: "improve" as const,
     title: "改善・次の施策へ",
     body: "結果を踏まえて課題と優先順位を見直し、次の取り組みにつなげます。",
   },
@@ -427,81 +501,78 @@ export default function MarketingServicePage() {
             >
               情報を届けることと、事業につなげること。
             </h2>
-            <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-10">
+            <div className="divide-y divide-neutral-200 border-t border-neutral-200">
               {experienceItems.map((item, i) => (
-                <div
-                  key={item.title}
-                  className={
-                    i === 0
-                      ? "border-t border-neutral-200 pt-8"
-                      : "border-t border-neutral-200 pt-8 sm:border-t-0 sm:border-l sm:pl-10 sm:pt-0"
-                  }
-                >
-                  <span className="text-[13px] tracking-[0.18em] text-neutral-600">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3
-                    className="mt-3 text-[16px] leading-snug text-neutral-900 sm:text-[17px]"
-                    style={{ fontFamily: serif }}
-                  >
-                    {item.title}
-                  </h3>
-                  <div className="mt-4 space-y-4 text-[14px] leading-loose tracking-wide text-neutral-600">
-                    {item.body.map((para) => (
-                      <p key={para}>{para}</p>
-                    ))}
-                  </div>
-                  {item.note && (
-                    <p className="mt-3 text-[12px] leading-relaxed tracking-wide text-neutral-500">
-                      {item.note}
-                    </p>
-                  )}
-
-                  {i === 0 ? (
-                    <div className="mt-8 grid grid-cols-[auto_auto_1fr] items-center gap-x-3 gap-y-3 sm:max-w-sm">
-                      <div className="row-span-3 flex flex-col items-center gap-2 pr-3">
-                        <IconCircle type="media" />
-                        <span className="text-center text-[11px] leading-snug tracking-wide text-neutral-500">
-                          メディア
-                          <br />
-                          情報発信
-                        </span>
-                      </div>
-                      {experienceBranches.map((branch) => (
-                        <Fragment key={branch.label}>
-                          <ArrowIcon />
-                          <div className="flex items-center gap-2.5">
-                            <IconCircle type={branch.icon} accent={false} />
-                            <span className="text-[13px] tracking-wide text-neutral-700">
-                              {branch.label}
-                            </span>
-                          </div>
-                        </Fragment>
+                <div key={item.title} className="py-10 lg:flex lg:items-center lg:gap-14 lg:py-14">
+                  <div className="lg:w-[19rem] lg:shrink-0">
+                    <span className="text-[13px] tracking-[0.18em] text-neutral-600">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3
+                      className="mt-3 text-[16px] leading-snug text-neutral-900 sm:text-[17px]"
+                      style={{ fontFamily: serif }}
+                    >
+                      {item.title}
+                    </h3>
+                    <div className="mt-4 space-y-4 text-[14px] leading-loose tracking-wide text-neutral-600">
+                      {item.body.map((para) => (
+                        <p key={para}>{para}</p>
                       ))}
                     </div>
-                  ) : (
-                    <ol className="mt-8 flex flex-col gap-3 sm:max-w-sm sm:flex-row sm:items-stretch sm:gap-2">
-                      {webFlowSteps.map((step, j) => (
-                        <Fragment key={step.label}>
-                          <li className="flex flex-1 flex-col items-center gap-2 border border-neutral-200 px-3 py-5 text-center">
-                            <IconCircle type={step.icon} />
-                            <span className="text-[12px] tracking-wide text-neutral-800">
-                              {step.label}
-                            </span>
-                          </li>
-                          {j < webFlowSteps.length - 1 && (
-                            <li
-                              aria-hidden="true"
-                              className="flex items-center justify-center text-neutral-300"
-                            >
-                              <span className="text-base sm:hidden">↓</span>
-                              <span className="hidden text-base sm:inline">→</span>
+                    {item.note && (
+                      <p className="mt-3 text-[12px] leading-relaxed tracking-wide text-neutral-500">
+                        {item.note}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="mt-8 lg:mt-0 lg:flex-1">
+                    {i === 0 ? (
+                      <div className="grid grid-cols-[auto_auto_1fr] items-center gap-x-4 gap-y-4">
+                        <div className="row-span-3 flex flex-col items-center gap-3 pr-4">
+                          <IconCircle type="media" />
+                          <span className="text-center text-[11px] leading-snug tracking-wide text-neutral-500">
+                            メディア
+                            <br />
+                            情報発信
+                          </span>
+                        </div>
+                        {experienceBranches.map((branch) => (
+                          <Fragment key={branch.label}>
+                            <ArrowIcon size={20} />
+                            <div className="flex items-center gap-3">
+                              <IconCircle type={branch.icon} accent={false} />
+                              <span className="text-[13px] tracking-wide text-neutral-700">
+                                {branch.label}
+                              </span>
+                            </div>
+                          </Fragment>
+                        ))}
+                      </div>
+                    ) : (
+                      <ol className="flex flex-col gap-3 sm:flex-row sm:items-stretch sm:gap-2">
+                        {webFlowSteps.map((step, j) => (
+                          <Fragment key={step.label}>
+                            <li className="flex flex-1 flex-col items-center gap-3 border border-neutral-200 px-4 py-6 text-center">
+                              <IconCircle type={step.icon} />
+                              <span className="text-[13px] tracking-wide text-neutral-800">
+                                {step.label}
+                              </span>
                             </li>
-                          )}
-                        </Fragment>
-                      ))}
-                    </ol>
-                  )}
+                            {j < webFlowSteps.length - 1 && (
+                              <li
+                                aria-hidden="true"
+                                className="flex items-center justify-center text-neutral-300"
+                              >
+                                <span className="text-base sm:hidden">↓</span>
+                                <span className="hidden text-base sm:inline">→</span>
+                              </li>
+                            )}
+                          </Fragment>
+                        ))}
+                      </ol>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -519,27 +590,29 @@ export default function MarketingServicePage() {
               理解から実行、改善まで。
             </h2>
             {/* PC: 横方向の5ステップ図解（lg以上） */}
-            <div className="hidden lg:flex lg:items-stretch lg:gap-0">
+            <div className="hidden lg:flex lg:items-start lg:gap-0">
               {howWeWorkSteps.map((item, i) => (
                 <Fragment key={item.title}>
                   <div
-                    className="flex flex-1 flex-col gap-2 border-t-2 pt-5"
+                    className="flex flex-1 flex-col items-center gap-3 border-t-2 px-2 pt-6 text-center"
                     style={{ borderColor: ACCENT }}
                   >
                     <span className="text-[12px] tracking-[0.16em]" style={{ color: ACCENT }}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="text-[14px] leading-snug text-neutral-900" style={{ fontFamily: serif }}>
-                      {item.title}
+                    <IconCircle type={item.icon} size="md" />
+                    <h3
+                      className="text-2xl leading-none text-neutral-900 sm:text-3xl"
+                      style={{ fontFamily: serif }}
+                    >
+                      {item.shortTitle}
                     </h3>
-                    <p className="text-[12px] leading-relaxed tracking-wide text-neutral-600">
-                      {item.body}
-                    </p>
+                    <p className="text-[12px] tracking-wide text-neutral-500">{item.shortBody}</p>
                   </div>
                   {i < howWeWorkSteps.length - 1 && (
                     <div
                       aria-hidden="true"
-                      className="flex w-6 shrink-0 items-center justify-center pt-5"
+                      className="flex w-6 shrink-0 items-center justify-center pt-20"
                     >
                       <ArrowIcon />
                     </div>
