@@ -210,6 +210,7 @@ export default function Page() {
             </ul>
             <a
               href="/service"
+              data-cta-id="top_hero_service"
               className="group mt-8 inline-flex w-full items-center justify-center gap-2 border border-[#2f4e6f] px-6 py-3 text-[14px] tracking-wide text-[#2f4e6f] transition-colors duration-300 hover:bg-[#2f4e6f] hover:text-white sm:w-auto"
             >
               法人・団体向けサービスを見る
@@ -339,6 +340,7 @@ export default function Page() {
               </p>
               <Link
                 href="/articles"
+                data-cta-id="top_articles_more"
                 className="group inline-flex items-center gap-2 text-[15px] tracking-wide transition-colors"
                 style={{ color: ACCENT }}
               >
@@ -356,6 +358,7 @@ export default function Page() {
             <div className="mt-12 border-t border-neutral-200 pt-8">
               <a
                 href="/service"
+                data-cta-id="top_service_detail"
                 className="group inline-flex items-center gap-2 text-[13px] tracking-wide text-neutral-600 transition-colors hover:text-neutral-700"
               >
                 法人・団体向けの支援について
@@ -396,7 +399,7 @@ export default function Page() {
               </address>
             </div>
             <nav className="flex flex-col gap-2 text-[13px] tracking-wide text-neutral-500 sm:items-end">
-              <a href="/contact" className="transition-colors hover:text-neutral-900">
+              <a href="/contact" data-cta-id="footer_contact" className="transition-colors hover:text-neutral-900">
                 Contact
               </a>
               <a
