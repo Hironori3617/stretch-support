@@ -162,9 +162,9 @@ function IconCircle({
     size === "xl"
       ? "flex h-[78px] w-[78px] shrink-0 items-center justify-center rounded-full bg-neutral-100"
       : size === "md"
-        ? "flex h-[76px] w-[76px] shrink-0 items-center justify-center rounded-full bg-neutral-100"
+        ? "flex h-[92px] w-[92px] shrink-0 items-center justify-center rounded-full bg-neutral-100"
         : "flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-neutral-100";
-  const iconSize = size === "xl" ? 38 : size === "md" ? 34 : 30;
+  const iconSize = size === "xl" ? 38 : size === "md" ? 42 : 30;
   return (
     <span className={circleClass} style={{ color: accent ? ACCENT : "#9ca3af" }}>
       <DiagramIcon type={type} size={iconSize} />
@@ -175,9 +175,11 @@ function IconCircle({
 function ArrowIcon({
   direction = "right",
   size = 16,
+  tone = "light",
 }: {
   direction?: "right" | "down";
   size?: number;
+  tone?: "light" | "strong";
 }) {
   return (
     <svg
@@ -190,8 +192,11 @@ function ArrowIcon({
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      className="shrink-0 text-neutral-300"
-      style={direction === "down" ? { transform: "rotate(90deg)" } : undefined}
+      className="shrink-0"
+      style={{
+        color: tone === "strong" ? "#9ca3af" : "#d4d4d4",
+        ...(direction === "down" ? { transform: "rotate(90deg)" } : {}),
+      }}
     >
       <path d="M5 12h14M13 6l6 6-6 6" />
     </svg>
@@ -595,10 +600,7 @@ export default function MarketingServicePage() {
             <div className="hidden lg:flex lg:gap-0">
               {howWeWorkSteps.map((item, i) => (
                 <Fragment key={item.title}>
-                  <div
-                    className="flex flex-1 flex-col items-center gap-3 border-t-2 px-2 pt-6 text-center"
-                    style={{ borderColor: ACCENT }}
-                  >
+                  <div className="flex flex-1 flex-col items-center gap-3 px-2 text-center">
                     <span className="text-[12px] tracking-[0.16em]" style={{ color: ACCENT }}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -614,8 +616,8 @@ export default function MarketingServicePage() {
                     </p>
                   </div>
                   {i < howWeWorkSteps.length - 1 && (
-                    <div aria-hidden="true" className="flex w-6 shrink-0 items-center justify-center">
-                      <ArrowIcon />
+                    <div aria-hidden="true" className="flex w-8 shrink-0 items-center justify-center">
+                      <ArrowIcon size={24} tone="strong" />
                     </div>
                   )}
                 </Fragment>
@@ -640,7 +642,7 @@ export default function MarketingServicePage() {
                 </div>
               ))}
             </div>
-            <p className="mt-10 max-w-2xl text-[13px] leading-loose tracking-wide text-neutral-500">
+            <p className="mt-10 max-w-2xl text-[13px] leading-loose tracking-wide text-neutral-500 lg:max-w-none">
               すべての工程を一括で依頼いただく必要はありません。ご相談内容に応じて、支援範囲や進め方をご提案します。
             </p>
           </div>
