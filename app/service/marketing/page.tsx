@@ -156,18 +156,18 @@ function IconCircle({
 }: {
   type: IconType;
   accent?: boolean;
-  size?: "lg" | "md";
+  size?: "lg" | "md" | "xl";
 }) {
+  const circleClass =
+    size === "xl"
+      ? "flex h-[78px] w-[78px] shrink-0 items-center justify-center rounded-full bg-neutral-100"
+      : size === "md"
+        ? "flex h-[76px] w-[76px] shrink-0 items-center justify-center rounded-full bg-neutral-100"
+        : "flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-neutral-100";
+  const iconSize = size === "xl" ? 38 : size === "md" ? 34 : 30;
   return (
-    <span
-      className={
-        size === "lg"
-          ? "flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-neutral-100"
-          : "flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-neutral-100"
-      }
-      style={{ color: accent ? ACCENT : "#9ca3af" }}
-    >
-      <DiagramIcon type={type} size={size === "lg" ? 30 : 26} />
+    <span className={circleClass} style={{ color: accent ? ACCENT : "#9ca3af" }}>
+      <DiagramIcon type={type} size={iconSize} />
     </span>
   );
 }
@@ -505,15 +505,17 @@ export default function MarketingServicePage() {
               {experienceItems.map((item, i) => (
                 <div key={item.title} className="py-10 lg:flex lg:items-center lg:gap-14 lg:py-14">
                   <div className="lg:w-[19rem] lg:shrink-0">
-                    <span className="text-[13px] tracking-[0.18em] text-neutral-600">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h3
-                      className="mt-3 text-[16px] leading-snug text-neutral-900 sm:text-[17px]"
-                      style={{ fontFamily: serif }}
-                    >
-                      {item.title}
-                    </h3>
+                    <div className="flex items-baseline gap-3">
+                      <span className="shrink-0 text-[13px] tracking-[0.18em] text-neutral-600">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3
+                        className="text-[16px] leading-snug text-neutral-900 sm:text-[17px]"
+                        style={{ fontFamily: serif }}
+                      >
+                        {item.title}
+                      </h3>
+                    </div>
                     <div className="mt-4 space-y-4 text-[14px] leading-loose tracking-wide text-neutral-600">
                       {item.body.map((para) => (
                         <p key={para}>{para}</p>
@@ -528,9 +530,9 @@ export default function MarketingServicePage() {
 
                   <div className="mt-8 lg:mt-0 lg:flex-1">
                     {i === 0 ? (
-                      <div className="grid grid-cols-[auto_auto_1fr] items-center gap-x-4 gap-y-4">
-                        <div className="row-span-3 flex flex-col items-center gap-3 pr-4">
-                          <IconCircle type="media" />
+                      <div className="grid grid-cols-[auto_auto_1fr] items-center gap-x-5 gap-y-5">
+                        <div className="row-span-3 flex flex-col items-center gap-3 pr-5">
+                          <IconCircle type="media" size="xl" />
                           <span className="text-center text-[11px] leading-snug tracking-wide text-neutral-500">
                             メディア
                             <br />
@@ -539,9 +541,9 @@ export default function MarketingServicePage() {
                         </div>
                         {experienceBranches.map((branch) => (
                           <Fragment key={branch.label}>
-                            <ArrowIcon size={20} />
+                            <ArrowIcon size={22} />
                             <div className="flex items-center gap-3">
-                              <IconCircle type={branch.icon} accent={false} />
+                              <IconCircle type={branch.icon} accent={false} size="xl" />
                               <span className="text-[13px] tracking-wide text-neutral-700">
                                 {branch.label}
                               </span>
@@ -590,7 +592,7 @@ export default function MarketingServicePage() {
               理解から実行、改善まで。
             </h2>
             {/* PC: 横方向の5ステップ図解（lg以上） */}
-            <div className="hidden lg:flex lg:items-start lg:gap-0">
+            <div className="hidden lg:flex lg:gap-0">
               {howWeWorkSteps.map((item, i) => (
                 <Fragment key={item.title}>
                   <div
@@ -602,18 +604,17 @@ export default function MarketingServicePage() {
                     </span>
                     <IconCircle type={item.icon} size="md" />
                     <h3
-                      className="text-2xl leading-none text-neutral-900 sm:text-3xl"
+                      className="text-[18px] leading-snug text-neutral-900 sm:text-[20px]"
                       style={{ fontFamily: serif }}
                     >
                       {item.shortTitle}
                     </h3>
-                    <p className="text-[12px] tracking-wide text-neutral-500">{item.shortBody}</p>
+                    <p className="text-[12px] tracking-wide text-neutral-500 sm:text-[13px]">
+                      {item.shortBody}
+                    </p>
                   </div>
                   {i < howWeWorkSteps.length - 1 && (
-                    <div
-                      aria-hidden="true"
-                      className="flex w-6 shrink-0 items-center justify-center pt-20"
-                    >
+                    <div aria-hidden="true" className="flex w-6 shrink-0 items-center justify-center">
                       <ArrowIcon />
                     </div>
                   )}
