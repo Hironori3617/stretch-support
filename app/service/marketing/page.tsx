@@ -678,6 +678,7 @@ export default function MarketingServicePage() {
               <div className="mt-12">
                 <a
                   href="/contact"
+                  data-cta-id="marketing_contact_section"
                   className="group inline-flex items-center justify-center gap-2 rounded-md px-8 py-4 text-[15px] font-semibold tracking-wide whitespace-nowrap text-white transition-colors hover:bg-[#24405c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f4e6f] focus-visible:ring-offset-2"
                   style={{ backgroundColor: ACCENT }}
                 >
@@ -722,6 +723,7 @@ export default function MarketingServicePage() {
             <nav className="flex flex-col gap-2 text-[13px] tracking-wide text-neutral-500 sm:items-end">
               <a
                 href="/contact"
+                data-cta-id="footer_contact"
                 className="transition-colors hover:text-neutral-900"
               >
                 Contact

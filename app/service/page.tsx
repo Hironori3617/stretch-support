@@ -287,6 +287,7 @@ export default function ServicePage() {
                     {item.href && (
                       <a
                         href={item.href}
+                        data-cta-id="service_marketing_detail"
                         className="group mt-6 inline-flex w-fit items-center gap-2 rounded-md border border-[#2f4e6f] bg-white px-5 py-2.5 text-[14px] font-semibold tracking-wide text-[#2f4e6f] transition-colors hover:bg-[#2f4e6f] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f4e6f] focus-visible:ring-offset-2"
                       >
                         {item.linkLabel}
@@ -518,6 +519,7 @@ export default function ServicePage() {
               <div className="mt-10">
                 <a
                   href="/documents/stretch-support-service-guide.pdf"
+                  data-cta-id="service_document_download"
                   className="group inline-flex items-center justify-center gap-2 rounded-md px-8 py-4 text-[15px] font-semibold tracking-wide whitespace-nowrap text-white transition-colors hover:bg-[#24405c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f4e6f] focus-visible:ring-offset-2"
                   style={{ backgroundColor: ACCENT }}
                 >
@@ -556,6 +558,7 @@ export default function ServicePage() {
               <div className="mt-12">
                 <a
                   href="/contact"
+                  data-cta-id="service_contact"
                   className="group inline-flex items-center gap-2 text-[15px] tracking-wide transition-colors"
                   style={{ color: ACCENT }}
                 >
@@ -600,6 +603,7 @@ export default function ServicePage() {
             <nav className="flex flex-col gap-2 text-[13px] tracking-wide text-neutral-500 sm:items-end">
               <a
                 href="/contact"
+                data-cta-id="footer_contact"
                 className="transition-colors hover:text-neutral-900"
               >
                 Contact

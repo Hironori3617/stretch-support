@@ -319,6 +319,7 @@ export default function AboutPage() {
             <div className="mt-12 border-t border-neutral-200 pt-10">
               <a
                 href="/service"
+                data-cta-id="about_service"
                 className="group inline-flex items-center gap-2 text-[14px] tracking-wide text-neutral-500 transition-colors hover:text-neutral-900"
               >
                 法人・団体向けの支援について
@@ -520,6 +521,7 @@ export default function AboutPage() {
               </p>
               <a
                 href="/contact"
+                data-cta-id="about_contact"
                 className="group inline-flex items-center gap-2 text-[15px] tracking-wide transition-colors"
                 style={{ color: ACCENT }}
               >
@@ -563,6 +565,7 @@ export default function AboutPage() {
             <nav className="flex flex-col gap-2 text-[13px] tracking-wide text-neutral-500 sm:items-end">
               <a
                 href="/contact"
+                data-cta-id="footer_contact"
                 className="transition-colors hover:text-neutral-900"
               >
                 Contact

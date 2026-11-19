@@ -85,6 +85,7 @@ export default function Header({ hero = false }: { hero?: boolean }) {
             ))}
             <a
               href={CONTACT_LINK.href}
+              data-cta-id="header_contact"
               className={
                 transparent
                   ? "inline-flex items-center rounded-md border border-white px-3.5 py-1.5 font-semibold text-white transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
@@ -144,6 +145,7 @@ export default function Header({ hero = false }: { hero?: boolean }) {
           <div className="mx-auto max-w-5xl border-t border-neutral-100 px-6 pt-4 pb-5">
             <a
               href={CONTACT_LINK.href}
+              data-cta-id="header_contact"
               onClick={() => setMenuOpen(false)}
               className="flex items-center justify-center rounded-md bg-[#2f4e6f] px-4 py-3 text-[15px] font-semibold tracking-wide text-white transition-colors hover:bg-[#24405c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f4e6f] focus-visible:ring-offset-2"
             >

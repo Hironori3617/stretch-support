@@ -254,7 +254,7 @@ export default async function ArticleDetailPage({
               </address>
             </div>
             <nav className="flex flex-col gap-2 text-[13px] tracking-wide text-neutral-500 sm:items-end">
-              <a href="/contact" className="transition-colors hover:text-neutral-900">
+              <a href="/contact" data-cta-id="footer_contact" className="transition-colors hover:text-neutral-900">
                 Contact
               </a>
               <a
