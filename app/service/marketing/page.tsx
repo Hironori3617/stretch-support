@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Fragment } from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "スポーツ事業者のマーケティング・広報支援 | Stretch Support",
+  title: "マーケティング・情報発信支援｜株式会社ストレッチサポート",
   description:
-    "Stretch Supportは、スポーツ事業者やスポーツクラブの外部マーケティング・広報パートナーとして、課題整理からWebサイト、コンテンツ、広報など必要な施策の企画・実行まで支援します。",
+    "スポーツに関わる事業者・団体を中心に、マーケティング・情報発信を支援。Webサイトの企画・構築・運用改善、コンテンツ企画・編集、SEOやアクセス解析など、事業と顧客をつなぐ情報設計に取り組みます。",
   alternates: {
     canonical: "https://stretch-s.co.jp/service/marketing",
   },
@@ -19,7 +18,6 @@ const sans =
 const ACCENT = "#2f4e6f";
 
 const LINKS = {
-  contact: "mailto:info@stretch-s.co.jp",
   instagram: "https://www.instagram.com/udio08/?hl=ja",
   facebook: "https://www.facebook.com/hironori.uranaka",
 } as const;
@@ -34,113 +32,133 @@ function Eyebrow({ en, ja }: { en: string; ja: string }) {
   );
 }
 
-const heroBullets = [
-  "Webサイトを見直したい",
-  "もっと情報を発信したい",
-  "自分たちの強みをきちんと伝えたい",
-  "新しいサービスを、必要としている人に届けたい",
+const heroBody = [
+  "スポーツに関わる事業者・団体を中心に、マーケティング・情報発信の企画から実行、改善まで支援します。",
+  "事業やサービスの強みを理解し、誰に、何を、どのように届けるかを整理する。",
+  "Webサイトの企画・構築・運用改善を中心に、コンテンツや情報発信を組み合わせながら、顧客の理解や問い合わせにつながる仕組みを考えます。",
 ];
 
 const challengeItems = [
-  "サービスには自信があるが、他社との違いをうまく説明できていない",
-  "Webサイトを改善したいが、何年もそのままになっている",
-  "情報発信を始めても、日々の業務が忙しく継続できない",
-  "専門的な知識や経験はあるが、記事やコンテンツにする時間がない",
-  "お客様から評価されていることを、マーケティングに活かせていない",
-  "新しいサービスを作っても、どう伝え、どう届けるかまで手が回らない",
-  "マーケティングや広報を強化したいが、専任者を置くほどの体制にはなっていない",
-];
-
-const diagram1Steps = [
-  "事業・目標を理解する",
-  "現状・課題を整理する",
-  "優先順位を決める",
-  "企画・実行する",
-  "振り返り・改善する",
-];
-
-const conditionalLines = [
-  "Webサイトの改善が必要なら、Webサイトを見直す。",
-  "専門性を伝える必要があるなら、記事やコンテンツをつくる。",
-  "顧客がどこに価値を感じているのか分からなければ、お客様の声を聞く。",
-  "新しいサービスを届けたいのであれば、そのためのマーケティングを考える。",
-];
-
-const supportCards = [
   {
-    title: "Webサイトの企画・改善",
-    body: "事業やサービスの価値が伝わるように、サイト構成、文章、コンテンツ、導線などを見直します。必要に応じて、新しいページの企画・制作や既存ページの改善も行います。",
+    title: "強みや違いが伝わらない",
+    body: "専門性や実績はあるものの、顧客に何を提供できるのか、他社と何が違うのかをうまく説明できていない。",
   },
   {
-    title: "記事・コンテンツ制作",
-    body: "専門知識や現場での経験、顧客が知りたい情報などを整理し、Web記事、コラム、ホワイトペーパーなどのコンテンツとして形にします。",
+    title: "Webサイトが十分に機能していない",
+    body: "サイトはあるものの、サービス内容が分かりにくく、問い合わせや相談につながる導線が整っていない。",
   },
   {
-    title: "専門性・サービスの言語化",
-    body: "「何が強みなのか」「誰にどのような価値を提供しているのか」を整理し、Webサイトや営業資料、情報発信などで使える言葉にしていきます。",
+    title: "情報発信が継続できない",
+    body: "発信の必要性は感じていても、テーマの整理やコンテンツ制作、更新のための時間が確保できない。",
   },
   {
-    title: "顧客インタビュー・事例制作",
-    body: "お客様へのインタビューを通じて、サービスがどのように評価されているのかを確認・整理します。得られた内容は、事例記事やWebサイト、営業資料などにも活用します。",
-  },
-  {
-    title: "情報発信・広報",
-    body: "発信するテーマの設計、コンテンツの企画・制作、プレスリリースなど、事業の状況に合わせて必要な情報発信を支援します。",
-  },
-  {
-    title: "営業・提案資料",
-    body: "サービスの特徴や導入する価値を整理し、営業や商談で使用する資料の企画・制作を行います。",
-  },
-  {
-    title: "イベント・企画",
-    body: "顧客との新しい接点づくりや情報発信など、目的に応じてイベント、講習会、セミナー等の企画を行います。",
+    title: "効果が分からず、改善できない",
+    body: "Webサイトや情報発信が顧客にどう届いているのかを把握できず、次の施策を判断しにくい。",
   },
 ];
 
-const specialtyBullets = [
-  "誰に伝えるのか",
-  "その人は何に困っているのか",
-  "何を理解してもらう必要があるのか",
-  "どのような形で届けるのか",
+const approachBody = [
+  "Webサイトを新しくすること。記事を増やすこと。SNSで発信すること。",
+  "それらは目的を実現するための手段です。",
+  "私たちは、まず事業やサービスの特徴、顧客、現在の課題を理解することから始めます。",
+  "そのうえで、何を優先して取り組むべきかを整理し、必要な施策を企画・実行します。",
+  "最初からすべての施策を行うのではなく、事業の状況や体制に合わせて、必要な範囲から支援します。",
 ];
 
-const diagram2Items = [
-  "スポーツ・身体・現場への理解",
-  "マーケティング・広報",
-  "編集・制作・実行力",
-];
-
-const flowSteps = [
+const whatWeDo = [
   {
-    title: "ご相談",
-    body: [
-      "現在の事業や、マーケティング・広報について感じている課題をお聞きします。",
-      "具体的な施策が決まっていなくても問題ありません。",
+    title: "マーケティング・情報発信の設計",
+    lead: "事業の目的や顧客像を整理し、伝えるべき情報と届け方を設計します。",
+    body: "Webサイトやコンテンツなどの役割を整理し、顧客の認知から理解、比較・検討、問い合わせまでを見据えた情報発信を考えます。",
+    points: [
+      "顧客・市場・サービスの理解",
+      "情報発信の課題整理と優先順位づけ",
+      "コンテンツの方向性・テーマ設計",
+      "顧客接点・問い合わせ導線の設計",
     ],
   },
   {
-    title: "現状・課題の整理",
-    body: ["事業の目標やサービス、現在行っているマーケティング活動などを確認し、課題を整理します。"],
+    title: "Webサイトの企画・構築",
+    lead: "サービスや事業の価値を伝え、顧客が必要な情報を得られるWebサイトを企画・構築します。",
+    body: "新規制作やリニューアルに加え、既存サイトの情報設計・導線改善にも対応します。",
+    points: [
+      "Webサイトの企画・構成設計",
+      "ページ設計・ワイヤーフレーム作成",
+      "サービスサイト・プロダクトサイトの制作・実装",
+      "SEO・AI検索を意識した情報構造の設計",
+    ],
   },
   {
-    title: "取り組むことを決める",
-    body: ["課題の優先順位を整理し、何から取り組むのか、どのような支援が必要なのかを決めます。"],
+    title: "コンテンツの企画・編集",
+    lead: "サービスの特徴や専門的な知識・経験を、顧客に伝わるコンテンツへと編集します。",
+    body: "記事を増やすこと自体を目的にせず、顧客の理解や検討に必要な情報を整理し、適切な形で届けます。",
+    points: [
+      "コンテンツテーマ・構成の企画",
+      "サービス紹介コンテンツの制作・改善",
+      "導入事例や取り組みの編集",
+      "Webサイトと情報発信の連携設計",
+    ],
   },
   {
-    title: "実行する",
-    body: ["Webサイト、コンテンツ、広報など、必要な施策を実行します。"],
-  },
-  {
-    title: "振り返り・改善",
-    body: ["実施した施策を確認しながら、次に取り組むことを考えます。"],
+    title: "計測・運用・改善",
+    lead: "Webサイトや情報発信の状況を把握し、改善につなげます。",
+    body: "アクセスデータや問い合わせ状況、顧客の反応などから課題を整理し、優先順位をつけて施策を検討・実行します。",
+    points: [
+      "アクセス解析・計測環境の整備",
+      "Webサイトの課題分析",
+      "コンテンツ・問い合わせ導線の改善",
+      "運用方針の整理と継続的な改善支援",
+    ],
   },
 ];
 
-const closingQuotes = [
-  "「Webサイトを何とかしたい」",
-  "「情報発信を始めたい」",
-  "「自分たちのサービスを、もっときちんと伝えたい」",
-  "「マーケティングを強化したいが、何から取り組めばよいか分からない」",
+const experienceItems = [
+  {
+    tag: "BtoC",
+    title: "ランナー向けメディアの企画・運営",
+    body: [
+      "ランナー向けメディアを企画・運営し、月間30万PVを超える規模へ成長させました。",
+      "情報発信に加え、コンテンツ販売、物販、イベント集客などにも展開。コンテンツを顧客との接点や事業につなげる経験を積んできました。",
+    ],
+  },
+  {
+    tag: "BtoB",
+    title: "Webマーケティング・サイト構築",
+    body: [
+      "BtoB事業において、Webサイトの企画・構成、ワイヤーフレーム作成から実装まで担当。",
+      "顧客理解や市場・業界理解を起点に、アクセス解析や計測データに基づくサイト改善にも取り組んできました。",
+    ],
+  },
+];
+
+const howWeWorkSteps = [
+  {
+    title: "事業・課題の理解",
+    body: "事業の目的、サービスの特徴、顧客、現在の取り組みを把握します。",
+  },
+  {
+    title: "方針・優先順位の整理",
+    body: "何を改善し、どのような施策に取り組むかを整理します。",
+  },
+  {
+    title: "企画・制作・実行",
+    body: "Webサイトやコンテンツなど、合意した施策を具体化します。",
+  },
+  {
+    title: "計測・振り返り",
+    body: "アクセス状況や顧客の反応などを確認します。",
+  },
+  {
+    title: "改善・次の施策へ",
+    body: "結果を踏まえて課題と優先順位を見直し、次の取り組みにつなげます。",
+  },
+];
+
+const consultExamples = [
+  "Webサイトを新しくつくりたい",
+  "今あるサイトの情報や導線を見直したい",
+  "自社の強みを伝えるコンテンツを整えたい",
+  "情報発信やマーケティングの進め方を相談したい",
 ];
 
 export default function MarketingServicePage() {
@@ -157,43 +175,19 @@ export default function MarketingServicePage() {
         {/* ── Hero ── */}
         <section className="bg-white" style={{ borderBottom: `1px solid ${ACCENT}` }}>
           <div className="mx-auto max-w-5xl px-6 pt-16 pb-14 sm:pt-24 sm:pb-16">
-            <p className="mb-6 text-[12px] uppercase tracking-[0.22em] text-neutral-600">
-              For Business / Marketing &amp; PR
-            </p>
+            <Eyebrow en="Marketing" ja="マーケティング・情報発信支援" />
             <h1
               className="text-[1.875rem] leading-[1.55] text-neutral-900 [text-wrap:balance] sm:text-[2.5rem] sm:leading-[1.5]"
               style={{ fontFamily: serif }}
             >
-              スポーツ事業者の、
-              <br />
-              外部マーケティング・広報パートナー
+              事業の価値を、顧客に届く情報と接点へ。
             </h1>
             <div className="my-7 h-px w-12" style={{ backgroundColor: ACCENT }} />
-            <p className="max-w-xl text-[14px] leading-loose tracking-wide text-neutral-600 sm:text-[15px]">
-              スポーツ事業のマーケティング・広報を、外部パートナーとともに。
-            </p>
-            <p className="mt-6 max-w-2xl text-[15px] leading-loose tracking-wide text-neutral-700">
-              株式会社ストレッチサポートは、事業やサービスへの理解を深めながら、社内のメンバーと同じような距離で課題を共有し、マーケティング・広報の課題整理から必要な施策の企画・実行まで支援します。
-            </p>
-            <ul className="mt-10 grid grid-cols-1 gap-x-8 border-t border-neutral-200 sm:grid-cols-2">
-              {heroBullets.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 border-b border-neutral-200 py-5"
-                >
-                  <span
-                    className="mt-[0.65em] h-[3px] w-[3px] shrink-0 rounded-full"
-                    style={{ backgroundColor: ACCENT }}
-                  />
-                  <span className="text-[14px] tracking-wide text-neutral-700 sm:text-[15px]">
-                    {item}
-                  </span>
-                </li>
+            <div className="max-w-2xl space-y-5 text-[15px] leading-loose tracking-wide text-neutral-700">
+              {heroBody.map((line) => (
+                <p key={line}>{line}</p>
               ))}
-            </ul>
-            <p className="mt-8 max-w-2xl text-[13px] leading-loose tracking-wide text-neutral-500">
-              やった方がいいことは分かっていても、日々の業務を優先するうちに、マーケティングや広報は後回しになりがちです。
-            </p>
+            </div>
           </div>
         </section>
 
@@ -206,69 +200,38 @@ export default function MarketingServicePage() {
                 className="text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose"
                 style={{ fontFamily: serif }}
               >
-                専門的な仕事に集中するほど、マーケティングは後回しになりやすい
+                伝えたい価値が、顧客に届いていない。
               </h2>
-              <div className="mt-8 space-y-6 text-[15px] leading-loose tracking-wide text-neutral-700">
-                <p>
-                  スポーツに関わる事業では、専門的な知識や技術、現場で積み重ねてきた経験そのものが、サービスの価値になっていることがあります。
-                </p>
-                <p>
-                  一方で、その専門性を持つ人たちが、サービスの提供だけでなく、営業、広報、Webサイトの更新、情報発信まで担っているケースもあります。また、少人数で運営するスポーツクラブなどでは、営業、広報、集客、スポンサー対応などを複数のメンバーが兼務し、マーケティングに十分な時間を割けないこともあります。
-                </p>
+              <div className="mt-8 space-y-4 text-[15px] leading-loose tracking-wide text-neutral-700">
+                <p>専門的なサービスや現場の仕事に力を注ぐ一方で、マーケティングや情報発信まで十分に手が回らない。</p>
+                <p>そんな課題を抱える事業者は少なくありません。</p>
               </div>
-              <p className="mt-10 mb-6 text-[13px] tracking-wide text-neutral-500">
-                その結果、次のような状況が生まれます。
-              </p>
-              <ul className="divide-y divide-neutral-200 border-t border-neutral-200">
+              <ul className="mt-10 divide-y divide-neutral-200 border-t border-neutral-200">
                 {challengeItems.map((item, i) => (
-                  <li key={item} className="flex items-start gap-5 py-6 sm:py-7">
+                  <li key={item.title} className="flex items-start gap-5 py-7">
                     <span className="w-7 shrink-0 pt-0.5 text-[13px] tracking-[0.18em] text-neutral-600">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-[15px] leading-loose tracking-wide text-neutral-700">
-                      {item}
-                    </span>
+                    <div>
+                      <h3
+                        className="text-[15px] text-neutral-900 sm:text-[16px]"
+                        style={{ fontFamily: serif }}
+                      >
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-[14px] leading-loose tracking-wide text-neutral-600">
+                        {item.body}
+                      </p>
+                    </div>
                   </li>
                 ))}
               </ul>
-              <div className="mt-10 space-y-5 text-[15px] leading-loose tracking-wide text-neutral-700">
-                <p>
-                  必要なのは、必ずしも施策を増やすことではありません。今の事業にとって何が課題なのかを整理し、限られた時間や予算の中で、何から取り組むのかを決めることが重要です。
-                </p>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* ── Partner ── */}
+        {/* ── Our Approach ── */}
         <section className="border-t border-neutral-200">
-          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
-            <Eyebrow en="Partner" ja="私たちの関わり方" />
-            <div className="max-w-2xl">
-              <h2
-                className="text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose"
-                style={{ fontFamily: serif }}
-              >
-                社内にマーケティング担当者がいるような距離で
-              </h2>
-              <div className="mt-8 space-y-6 text-[15px] leading-loose tracking-wide text-neutral-700">
-                <p>
-                  Webサイトだけを作る会社でも、記事だけを制作する会社でもありません。Stretch
-                  Supportは、スポーツ事業者の外部マーケティング・広報パートナーとして、事業の状況や目標を共有しながら、今取り組むべきことを一緒に考え、必要な施策の実行まで支援します。
-                </p>
-                <p>
-                  マーケティングや広報の専任者を正社員として採用するほどではない。一方で、経営者や専門職のメンバーだけでマーケティングまで担い続けるのも難しい。その間を埋める外部マーケティング・広報パートナーとして、事業の状況を共有しながら継続的に支援します。
-                </p>
-                <p>
-                  Webサイト、コンテンツ、広報、顧客インタビュー、営業資料、イベントなどは、そのための手段です。最初から「何をつくるか」を決めるのではなく、まず事業を理解し、今どこに課題があるのかを整理するところから始めます。
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Approach + 図解01 ── */}
-        <section className="border-t border-neutral-200 bg-neutral-50">
           <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
             <Eyebrow en="Approach" ja="進め方" />
             <div className="max-w-2xl">
@@ -276,136 +239,151 @@ export default function MarketingServicePage() {
                 className="text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose"
                 style={{ fontFamily: serif }}
               >
-                マーケティングの課題を整理し、取り組むことを決める
+                施策からではなく、事業の理解から。
               </h2>
               <div className="mt-8 space-y-6 text-[15px] leading-loose tracking-wide text-neutral-700">
-                <p>
-                  マーケティングの課題は、事業によって異なります。Webサイトに問題がある場合もあれば、そもそもサービスの価値が十分に言語化されていない場合もあります。認知を広げることより、既存のお客様の声や実績を整理した方がよいこともあります。
-                </p>
-                <p>
-                  Stretch Supportでは、特定の施策を最初から前提にするのではなく、事業の状況や目標、現在のマーケティング・広報活動を確認しながら、課題と優先順位を整理します。
-                </p>
-              </div>
-            </div>
-
-            {/* 図解01 */}
-            <div className="mt-16 max-w-4xl">
-              <h3
-                className="mb-8 text-lg text-neutral-900 sm:text-xl"
-                style={{ fontFamily: serif }}
-              >
-                事業の課題から、必要なマーケティングを考える
-              </h3>
-
-              <ol className="flex flex-col gap-3 sm:flex-row sm:items-stretch sm:gap-2">
-                {diagram1Steps.map((step, i) => (
-                  <Fragment key={step}>
-                    <li className="flex flex-1 items-start gap-3 border border-neutral-200 bg-white px-4 py-4 sm:flex-col sm:items-start sm:gap-2 sm:px-4 sm:py-5">
-                      <span
-                        className="text-[12px] tracking-[0.16em]"
-                        style={{ color: ACCENT }}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="text-[14px] leading-snug tracking-wide text-neutral-800 sm:text-[14px]">
-                        {step}
-                      </span>
-                    </li>
-                    {i < diagram1Steps.length - 1 && (
-                      <li
-                        aria-hidden="true"
-                        className="flex items-center justify-center leading-none"
-                        style={{ color: ACCENT }}
-                      >
-                        <span className="text-lg sm:hidden">↓</span>
-                        <span className="hidden text-lg sm:inline">→</span>
-                      </li>
-                    )}
-                  </Fragment>
+                {approachBody.map((line) => (
+                  <p key={line}>{line}</p>
                 ))}
-              </ol>
-
-              <div
-                className="mt-6 flex items-start justify-center gap-3 border-t border-dashed pt-6 sm:mt-8 sm:pt-7"
-                style={{ borderColor: "rgba(47,78,111,0.3)" }}
-              >
-                <span aria-hidden="true" className="mt-0.5 text-base" style={{ color: ACCENT }}>
-                  ↺
-                </span>
-                <p className="max-w-md text-center text-[13px] leading-relaxed tracking-wide text-neutral-500">
-                  「振り返り・改善する」の内容は、再び「現状・課題を整理する」へとつながり、次のサイクルへ活かされます。
-                </p>
               </div>
-            </div>
-
-            <div className="mt-14 max-w-2xl">
-              <ul className="space-y-4 text-[15px] leading-loose tracking-wide text-neutral-700">
-                {conditionalLines.map((line) => (
-                  <li key={line}>{line}</li>
-                ))}
-              </ul>
-              <p className="mt-8 text-[15px] leading-loose tracking-wide text-neutral-700">
-                「何をつくるか」からではなく、「何を解決する必要があるのか」から考えます。
-              </p>
             </div>
           </div>
         </section>
 
-        {/* ── What We Do（実務支援）── */}
-        <section className="border-t border-neutral-200">
+        {/* ── What We Do ── */}
+        <section className="border-t border-neutral-200 bg-neutral-50">
           <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
             <Eyebrow en="What We Do" ja="支援できること" />
-            <p className="mb-14 max-w-2xl text-[15px] leading-loose tracking-wide text-neutral-700">
-              課題や優先順位に応じて、必要な支援を組み合わせます。
-            </p>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {supportCards.map((card) => (
-                <div
-                  key={card.title}
-                  className="flex flex-col border border-neutral-200 bg-neutral-50 p-7"
-                >
-                  <h3
-                    className="mb-3 text-[16px] leading-snug text-neutral-900 sm:text-[17px]"
-                    style={{ fontFamily: serif }}
-                  >
-                    {card.title}
-                  </h3>
-                  <p className="text-[14px] leading-loose tracking-wide text-neutral-600">
-                    {card.body}
-                  </p>
+            <h2
+              className="mb-14 max-w-2xl text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose"
+              style={{ fontFamily: serif }}
+            >
+              伝え方を設計し、形にし、改善する。
+            </h2>
+            <div className="divide-y divide-neutral-200 border-t border-neutral-200">
+              {whatWeDo.map((item, i) => (
+                <div key={item.title} className="flex items-start gap-5 py-10 sm:gap-10">
+                  <span className="w-7 shrink-0 pt-0.5 text-[13px] tracking-[0.18em] text-neutral-600 sm:w-8">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1">
+                    <h3 className="text-lg text-neutral-900 sm:text-xl" style={{ fontFamily: serif }}>
+                      {item.title}
+                    </h3>
+                    <div className="mt-3 max-w-2xl space-y-3 text-[15px] leading-loose tracking-wide text-neutral-700">
+                      <p>{item.lead}</p>
+                      <p>{item.body}</p>
+                    </div>
+                    <ul className="mt-5 grid grid-cols-1 gap-x-8 gap-y-2.5 sm:grid-cols-2">
+                      {item.points.map((point) => (
+                        <li key={point} className="flex items-start gap-3">
+                          <span
+                            className="mt-[0.6em] h-[3px] w-[3px] shrink-0 rounded-full"
+                            style={{ backgroundColor: ACCENT }}
+                          />
+                          <span className="text-[13px] leading-loose tracking-wide text-neutral-600">
+                            {point}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               ))}
             </div>
-            <div className="mt-12 max-w-2xl space-y-4 text-[15px] leading-loose tracking-wide text-neutral-700">
-              <p>すべてを実施するわけではありません。</p>
-              <p>事業の状況と課題を確認しながら、必要なものを選び、優先順位をつけて進めます。</p>
+            <p className="mt-10 max-w-2xl text-[13px] leading-loose tracking-wide text-neutral-500">
+              支援範囲・体制は案件ごとに設計します。専門的な技術開発などが必要な場合は、外部パートナーとの連携も含めて検討します。
+            </p>
+          </div>
+        </section>
+
+        {/* ── Experience ── */}
+        <section className="border-t border-neutral-200">
+          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+            <Eyebrow en="Experience" ja="実績・経験" />
+            <h2
+              className="mb-14 max-w-2xl text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose"
+              style={{ fontFamily: serif }}
+            >
+              情報を届けることと、事業につなげること。
+            </h2>
+            <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+              {experienceItems.map((item, i) => (
+                <div
+                  key={item.title}
+                  className={
+                    i === 0
+                      ? "border-t border-neutral-200 pt-8"
+                      : "border-t border-neutral-200 pt-8 sm:border-t-0 sm:border-l sm:pl-10 sm:pt-0"
+                  }
+                >
+                  <p className="text-[12px] uppercase tracking-[0.18em]" style={{ color: ACCENT }}>
+                    {item.tag}
+                  </p>
+                  <h3
+                    className="mt-3 text-[16px] leading-snug text-neutral-900 sm:text-[17px]"
+                    style={{ fontFamily: serif }}
+                  >
+                    {item.title}
+                  </h3>
+                  <div className="mt-4 space-y-4 text-[14px] leading-loose tracking-wide text-neutral-600">
+                    {item.body.map((para) => (
+                      <p key={para}>{para}</p>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* ── Expertise + 図解02 ── */}
+        {/* ── How We Work ── */}
         <section className="border-t border-neutral-200 bg-neutral-50">
           <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
-            <Eyebrow en="Expertise" ja="専門性への理解" />
+            <Eyebrow en="How We Work" ja="支援の流れ" />
+            <h2
+              className="mb-14 max-w-2xl text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose"
+              style={{ fontFamily: serif }}
+            >
+              理解から実行、改善まで。
+            </h2>
+            <div className="divide-y divide-neutral-200 border-t border-neutral-200">
+              {howWeWorkSteps.map((item, i) => (
+                <div key={item.title} className="flex items-start gap-5 py-10 sm:gap-10 sm:py-12">
+                  <span className="w-7 shrink-0 pt-0.5 text-[13px] tracking-[0.18em] text-neutral-600 sm:w-8">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1">
+                    <h3 className="text-lg text-neutral-900 sm:text-xl" style={{ fontFamily: serif }}>
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 max-w-2xl text-[15px] leading-loose tracking-wide text-neutral-600">
+                      {item.body}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-10 max-w-2xl text-[13px] leading-loose tracking-wide text-neutral-500">
+              すべての工程を一括で依頼いただく必要はありません。ご相談内容に応じて、支援範囲や進め方をご提案します。
+            </p>
+          </div>
+        </section>
+
+        {/* ── Contact / CTA ── */}
+        <section className="border-t border-neutral-200">
+          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+            <Eyebrow en="Contact" ja="お問い合わせ" />
             <div className="max-w-2xl">
               <h2
                 className="text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose"
                 style={{ fontFamily: serif }}
               >
-                スポーツの専門性を理解したうえで、マーケティングを考える
+                事業やサービスの伝え方から、ご相談ください。
               </h2>
-              <div className="mt-8 space-y-6 text-[15px] leading-loose tracking-wide text-neutral-700">
-                <p>
-                  スポーツに関わるサービスでは、専門的な内容そのものが価値になっていることがあります。身体、トレーニング、コンディショニング、育成、指導などに関する専門性は、単に分かりやすい言葉に置き換えればよいわけではありません。
-                </p>
-                <p>内容を理解したうえで、次のことまで考える必要があります。</p>
-              </div>
-              <ul className="mt-8 grid grid-cols-1 gap-x-8 border-t border-neutral-200 sm:grid-cols-2">
-                {specialtyBullets.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 border-b border-neutral-200 py-5"
-                  >
+              <ul className="mt-10 grid grid-cols-1 gap-x-8 border-t border-neutral-200 sm:grid-cols-2">
+                {consultExamples.map((item) => (
+                  <li key={item} className="flex items-start gap-3 border-b border-neutral-200 py-5">
                     <span
                       className="mt-[0.65em] h-[3px] w-[3px] shrink-0 rounded-full"
                       style={{ backgroundColor: ACCENT }}
@@ -416,127 +394,16 @@ export default function MarketingServicePage() {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* 図解02 */}
-            <div className="mt-16 max-w-4xl">
-              <h3
-                className="mb-8 text-lg text-neutral-900 sm:text-xl"
-                style={{ fontFamily: serif }}
-              >
-                スポーツの専門性と、マーケティングをつなぐ
-              </h3>
-
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:items-stretch sm:gap-3">
-                {diagram2Items.map((item, i) => (
-                  <Fragment key={item}>
-                    <div className="flex items-center justify-center border border-neutral-200 bg-white px-5 py-7 text-center sm:py-8">
-                      <p className="text-[14px] leading-relaxed tracking-wide text-neutral-800 sm:text-[15px]">
-                        {item}
-                      </p>
-                    </div>
-                    {i < diagram2Items.length - 1 && (
-                      <div
-                        aria-hidden="true"
-                        className="flex items-center justify-center text-lg"
-                        style={{ color: ACCENT }}
-                      >
-                        ×
-                      </div>
-                    )}
-                  </Fragment>
-                ))}
-              </div>
-
-              <p
-                className="mt-10 text-center text-lg leading-loose text-neutral-900 sm:text-xl sm:leading-loose"
-                style={{ fontFamily: serif }}
-              >
-                専門性を理解したうえで、
-                <br className="hidden sm:block" />
-                マーケティング・広報を考え、実行する
+              <p className="mt-10 text-[15px] leading-loose tracking-wide text-neutral-700">
+                具体的な施策が決まっていない段階でも構いません。まずは現在の状況や課題をお聞かせください。
               </p>
-            </div>
-
-            <div className="mt-14 max-w-2xl space-y-6 text-[15px] leading-loose tracking-wide text-neutral-700">
-              <p>
-                Stretch
-                Supportは、スポーツ現場での経験と身体・トレーニング領域への理解、WebメディアやBtoB事業でのマーケティング経験をもとに、専門性を損なわず、顧客に伝わる形へ整理することを大切にしています。
-              </p>
-              <p>
-                マーケティングと専門性を別々に考えるのではなく、事業そのものを理解しながら、必要なマーケティング・広報活動を一緒につくっていきます。
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Flow ── */}
-        <section className="border-t border-neutral-200">
-          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
-            <Eyebrow en="Flow" ja="ご相談から支援までの流れ" />
-            <h2
-              className="mb-14 max-w-2xl text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose"
-              style={{ fontFamily: serif }}
-            >
-              ご相談から支援までの流れ
-            </h2>
-            <div className="divide-y divide-neutral-200 border-t border-neutral-200">
-              {flowSteps.map((item, i) => (
-                <div
-                  key={item.title}
-                  className="flex items-start gap-5 py-10 sm:gap-10 sm:py-12"
-                >
-                  <span className="w-7 shrink-0 pt-0.5 text-[13px] tracking-[0.18em] text-neutral-600 sm:w-8">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="flex-1">
-                    <h3
-                      className="text-lg text-neutral-900 sm:text-xl"
-                      style={{ fontFamily: serif }}
-                    >
-                      {item.title}
-                    </h3>
-                    <div className="mt-3 space-y-2 text-[15px] leading-loose tracking-wide text-neutral-600">
-                      {item.body.map((para) => (
-                        <p key={para}>{para}</p>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Contact / CTA ── */}
-        <section className="border-t border-neutral-200 bg-neutral-50">
-          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
-            <Eyebrow en="Contact" ja="お問い合わせ" />
-            <div className="max-w-2xl">
-              <h2
-                className="text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose"
-                style={{ fontFamily: serif }}
-              >
-                まずは、今の課題を整理するところから
-              </h2>
-              <ul className="mt-8 space-y-3 text-[15px] leading-loose tracking-wide text-neutral-700">
-                {closingQuotes.map((line) => (
-                  <li key={line}>{line}</li>
-                ))}
-              </ul>
-              <div className="mt-8 space-y-5 text-[15px] leading-loose tracking-wide text-neutral-700">
-                <p>
-                  具体的な施策が決まっていない段階でも構いません。まず現在の事業やマーケティング・広報の状況を伺い、どこに課題があるのかを一緒に整理します。
-                </p>
-                <p>そのうえで、Stretch Supportがお手伝いできることがあれば、必要な支援内容をご提案します。</p>
-              </div>
               <div className="mt-12">
                 <a
                   href="/contact"
                   className="group inline-flex items-center gap-2 text-[15px] tracking-wide transition-colors"
                   style={{ color: ACCENT }}
                 >
-                  スポーツ事業のマーケティング・広報について相談する
+                  お問い合わせ・ご相談
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>
