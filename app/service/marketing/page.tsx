@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
 
@@ -29,6 +30,112 @@ function Eyebrow({ en, ja }: { en: string; ja: string }) {
       <span className="text-[12px] uppercase tracking-[0.2em] text-neutral-600">{en}</span>
       <span className="text-[12px] tracking-wide text-neutral-500">{ja}</span>
     </div>
+  );
+}
+
+type IconType = "media" | "product" | "event" | "contact" | "plan" | "build" | "measure";
+
+function DiagramIcon({ type }: { type: IconType }) {
+  const common = {
+    width: 18,
+    height: 18,
+    viewBox: "0 0 24 24",
+    fill: "none" as const,
+    stroke: "currentColor",
+    strokeWidth: 1.5,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true as const,
+  };
+  switch (type) {
+    case "media":
+      return (
+        <svg {...common}>
+          <rect x="4" y="4" width="16" height="16" rx="2" />
+          <line x1="7.5" y1="9" x2="16.5" y2="9" />
+          <line x1="7.5" y1="13" x2="16.5" y2="13" />
+          <line x1="7.5" y1="17" x2="13" y2="17" />
+        </svg>
+      );
+    case "product":
+      return (
+        <svg {...common}>
+          <path d="M21 8 12 3 3 8l9 5 9-5Z" />
+          <path d="M3 8v8l9 5 9-5V8" />
+          <line x1="12" y1="13" x2="12" y2="21" />
+        </svg>
+      );
+    case "event":
+      return (
+        <svg {...common}>
+          <rect x="3" y="5" width="18" height="16" rx="2" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+          <line x1="8" y1="3" x2="8" y2="7" />
+          <line x1="16" y1="3" x2="16" y2="7" />
+        </svg>
+      );
+    case "contact":
+      return (
+        <svg {...common}>
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l2.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 1 1 17 0Z" />
+        </svg>
+      );
+    case "plan":
+      return (
+        <svg {...common}>
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <line x1="3" y1="9" x2="21" y2="9" />
+          <line x1="9" y1="9" x2="9" y2="21" />
+        </svg>
+      );
+    case "build":
+      return (
+        <svg {...common}>
+          <rect x="2" y="4" width="20" height="14" rx="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="18" x2="12" y2="21" />
+        </svg>
+      );
+    case "measure":
+      return (
+        <svg {...common}>
+          <line x1="4" y1="20" x2="20" y2="20" />
+          <rect x="6" y="13" width="3" height="7" />
+          <rect x="11" y="9" width="3" height="11" />
+          <rect x="16" y="5" width="3" height="15" />
+        </svg>
+      );
+  }
+}
+
+function IconCircle({ type, accent = true }: { type: IconType; accent?: boolean }) {
+  return (
+    <span
+      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-neutral-100"
+      style={{ color: accent ? ACCENT : "#9ca3af" }}
+    >
+      <DiagramIcon type={type} />
+    </span>
+  );
+}
+
+function ArrowIcon({ direction = "right" }: { direction?: "right" | "down" }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className="shrink-0 text-neutral-300"
+      style={direction === "down" ? { transform: "rotate(90deg)" } : undefined}
+    >
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
   );
 }
 
@@ -114,21 +221,34 @@ const whatWeDo = [
 
 const experienceItems = [
   {
-    tag: "BtoC",
-    title: "ランナー向けメディアの企画・運営",
+    title: "情報発信を事業につなげる",
     body: [
-      "ランナー向けメディアを企画・運営し、月間30万PVを超える規模へ成長させました。",
-      "情報発信に加え、コンテンツ販売、物販、イベント集客などにも展開。コンテンツを顧客との接点や事業につなげる経験を積んできました。",
+      "BtoC・BtoBの両領域で、メディアの企画・運営に携わってきました。",
+      "ランナー向けメディアでは、情報発信を起点にコンテンツ販売や物販、イベント集客などへ展開。",
+      "BtoBメディアでは、顧客の関心や課題に応じた情報発信を通じて、問い合わせや商談・受注につながる仕組みの設計・運用に取り組んできました。",
     ],
+    note: "ランナー向けメディアは、月間30万PV超の規模に成長しました。",
   },
   {
-    tag: "BtoB",
-    title: "Webマーケティング・サイト構築",
+    title: "Webを企画から改善まで",
     body: [
-      "BtoB事業において、Webサイトの企画・構成、ワイヤーフレーム作成から実装まで担当。",
-      "顧客理解や市場・業界理解を起点に、アクセス解析や計測データに基づくサイト改善にも取り組んできました。",
+      "Webサイトの企画・構成、ワイヤーフレーム作成から制作・実装まで担当。",
+      "事業や顧客の理解を起点に、アクセス解析や計測データを活用しながら、Webサイトやコンテンツの改善にも取り組んできました。",
     ],
+    note: null,
   },
+];
+
+const experienceBranches = [
+  { label: "商品・サービス", icon: "product" as const },
+  { label: "イベント", icon: "event" as const },
+  { label: "相談・商談", icon: "contact" as const },
+];
+
+const webFlowSteps = [
+  { label: "企画・設計", icon: "plan" as const },
+  { label: "制作・実装", icon: "build" as const },
+  { label: "計測・改善", icon: "measure" as const },
 ];
 
 const howWeWorkSteps = [
@@ -307,7 +427,7 @@ export default function MarketingServicePage() {
             >
               情報を届けることと、事業につなげること。
             </h2>
-            <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-10">
               {experienceItems.map((item, i) => (
                 <div
                   key={item.title}
@@ -317,9 +437,9 @@ export default function MarketingServicePage() {
                       : "border-t border-neutral-200 pt-8 sm:border-t-0 sm:border-l sm:pl-10 sm:pt-0"
                   }
                 >
-                  <p className="text-[12px] uppercase tracking-[0.18em]" style={{ color: ACCENT }}>
-                    {item.tag}
-                  </p>
+                  <span className="text-[13px] tracking-[0.18em] text-neutral-600">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <h3
                     className="mt-3 text-[16px] leading-snug text-neutral-900 sm:text-[17px]"
                     style={{ fontFamily: serif }}
@@ -331,6 +451,57 @@ export default function MarketingServicePage() {
                       <p key={para}>{para}</p>
                     ))}
                   </div>
+                  {item.note && (
+                    <p className="mt-3 text-[12px] leading-relaxed tracking-wide text-neutral-500">
+                      {item.note}
+                    </p>
+                  )}
+
+                  {i === 0 ? (
+                    <div className="mt-8 grid grid-cols-[auto_auto_1fr] items-center gap-x-3 gap-y-3 sm:max-w-sm">
+                      <div className="row-span-3 flex flex-col items-center gap-2 pr-3">
+                        <IconCircle type="media" />
+                        <span className="text-center text-[11px] leading-snug tracking-wide text-neutral-500">
+                          メディア
+                          <br />
+                          情報発信
+                        </span>
+                      </div>
+                      {experienceBranches.map((branch) => (
+                        <Fragment key={branch.label}>
+                          <ArrowIcon />
+                          <div className="flex items-center gap-2.5">
+                            <IconCircle type={branch.icon} accent={false} />
+                            <span className="text-[13px] tracking-wide text-neutral-700">
+                              {branch.label}
+                            </span>
+                          </div>
+                        </Fragment>
+                      ))}
+                    </div>
+                  ) : (
+                    <ol className="mt-8 flex flex-col gap-3 sm:max-w-sm sm:flex-row sm:items-stretch sm:gap-2">
+                      {webFlowSteps.map((step, j) => (
+                        <Fragment key={step.label}>
+                          <li className="flex flex-1 flex-col items-center gap-2 border border-neutral-200 px-3 py-5 text-center">
+                            <IconCircle type={step.icon} />
+                            <span className="text-[12px] tracking-wide text-neutral-800">
+                              {step.label}
+                            </span>
+                          </li>
+                          {j < webFlowSteps.length - 1 && (
+                            <li
+                              aria-hidden="true"
+                              className="flex items-center justify-center text-neutral-300"
+                            >
+                              <span className="text-base sm:hidden">↓</span>
+                              <span className="hidden text-base sm:inline">→</span>
+                            </li>
+                          )}
+                        </Fragment>
+                      ))}
+                    </ol>
+                  )}
                 </div>
               ))}
             </div>
@@ -347,7 +518,38 @@ export default function MarketingServicePage() {
             >
               理解から実行、改善まで。
             </h2>
-            <div className="divide-y divide-neutral-200 border-t border-neutral-200">
+            {/* PC: 横方向の5ステップ図解（lg以上） */}
+            <div className="hidden lg:flex lg:items-stretch lg:gap-0">
+              {howWeWorkSteps.map((item, i) => (
+                <Fragment key={item.title}>
+                  <div
+                    className="flex flex-1 flex-col gap-2 border-t-2 pt-5"
+                    style={{ borderColor: ACCENT }}
+                  >
+                    <span className="text-[12px] tracking-[0.16em]" style={{ color: ACCENT }}>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="text-[14px] leading-snug text-neutral-900" style={{ fontFamily: serif }}>
+                      {item.title}
+                    </h3>
+                    <p className="text-[12px] leading-relaxed tracking-wide text-neutral-600">
+                      {item.body}
+                    </p>
+                  </div>
+                  {i < howWeWorkSteps.length - 1 && (
+                    <div
+                      aria-hidden="true"
+                      className="flex w-6 shrink-0 items-center justify-center pt-5"
+                    >
+                      <ArrowIcon />
+                    </div>
+                  )}
+                </Fragment>
+              ))}
+            </div>
+
+            {/* SP・タブレット: 縦方向の5ステップ（lg未満） */}
+            <div className="divide-y divide-neutral-200 border-t border-neutral-200 lg:hidden">
               {howWeWorkSteps.map((item, i) => (
                 <div key={item.title} className="flex items-start gap-5 py-10 sm:gap-10 sm:py-12">
                   <span className="w-7 shrink-0 pt-0.5 text-[13px] tracking-[0.18em] text-neutral-600 sm:w-8">
@@ -400,11 +602,11 @@ export default function MarketingServicePage() {
               <div className="mt-12">
                 <a
                   href="/contact"
-                  className="group inline-flex items-center gap-2 text-[15px] tracking-wide transition-colors"
-                  style={{ color: ACCENT }}
+                  className="group inline-flex items-center justify-center gap-2 rounded-md px-8 py-4 text-[15px] font-semibold tracking-wide whitespace-nowrap text-white transition-colors hover:bg-[#24405c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f4e6f] focus-visible:ring-offset-2"
+                  style={{ backgroundColor: ACCENT }}
                 >
-                  お問い合わせ・ご相談
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  お問い合わせ・ご相談はこちら
+                  <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">
                     →
                   </span>
                 </a>
