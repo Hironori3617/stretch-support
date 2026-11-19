@@ -47,15 +47,16 @@ const services = [
   },
   {
     title: "マーケティング・情報発信支援",
-    tagline: "Webサイトを、事業と顧客をつなぐ基盤へ。",
-    body: "専門性の高いサービスであっても、その価値が顧客に伝わらなければ、新しい相談や事業機会にはつながりません。サービスサイトやプロダクトサイトの企画・構築・運用改善を中心に、SEOやAI検索を意識した情報設計、顧客との接点づくりを支援します。",
+    tagline: "事業の価値を、顧客に届く情報と接点へ。",
+    body: "Webサイトの企画・構築・改善を中心に、コンテンツや情報発信を組み合わせ、顧客の理解や相談につながる仕組みをつくります。",
     examples: [
-      "コーポレートサイト・サービスサイト・プロダクトサイトの企画・構築・改善",
-      "サービス情報・事例・FAQの制作",
-      "検索や問い合わせ導線の改善",
-      "アクセス解析・運用支援",
+      "Webサイトの企画・構築",
+      "コンテンツの企画・編集",
+      "SEO・検索導線の改善",
+      "アクセス解析・運用改善",
     ],
     href: "/service/marketing",
+    linkLabel: "マーケティング支援の詳細を見る",
   },
   {
     title: "事業・共創プロジェクトの企画設計",
@@ -262,23 +263,37 @@ export default function ServicePage() {
                     <p className="mt-3 text-[15px] leading-loose tracking-wide text-neutral-600">
                       {item.body}
                     </p>
-                    <p className="mt-5 text-[12px] leading-relaxed tracking-wide text-neutral-500">
-                      <span className="text-neutral-400">支援内容の例：</span>{" "}
-                      {item.examples.join("／")}
-                    </p>
+                    <div className="mt-5">
+                      <p className="text-[12px] tracking-wide text-neutral-400">支援内容の例</p>
+                      <ul className="mt-3 grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
+                        {item.examples.map((example) => (
+                          <li key={example} className="flex items-start gap-2.5">
+                            <span
+                              className="mt-[0.55em] h-[3px] w-[3px] shrink-0 rounded-full"
+                              style={{ backgroundColor: ACCENT }}
+                            />
+                            <span className="text-[13px] leading-relaxed tracking-wide text-neutral-600">
+                              {example}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                     {item.note && (
-                      <p className="mt-3 text-[12px] leading-relaxed tracking-wide text-neutral-400">
+                      <p className="mt-4 text-[12px] leading-relaxed tracking-wide text-neutral-400">
                         {item.note}
                       </p>
                     )}
                     {item.href && (
                       <a
                         href={item.href}
-                        className="group mt-5 inline-flex items-center gap-2 text-[14px] tracking-wide transition-colors"
-                        style={{ color: ACCENT }}
+                        className="group mt-6 inline-flex w-fit items-center gap-2 rounded-md border border-[#2f4e6f] bg-white px-5 py-2.5 text-[14px] font-semibold tracking-wide text-[#2f4e6f] transition-colors hover:bg-[#2f4e6f] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f4e6f] focus-visible:ring-offset-2"
                       >
-                        詳細はこちら
-                        <span className="transition-transform duration-300 group-hover:translate-x-1">
+                        {item.linkLabel}
+                        <span
+                          className="transition-transform duration-300 group-hover:translate-x-1"
+                          aria-hidden="true"
+                        >
                           →
                         </span>
                       </a>
@@ -485,7 +500,39 @@ export default function ServicePage() {
           </div>
         </section>
 
-        {/* Document: 既存PDFと「3つの支援領域」の内容が不一致のため、新PDF確定まで一時非表示（public/documents配下のファイルは削除していない） */}
+        {/* ── Document ── */}
+        <section className="border-t border-neutral-200">
+          <div className="mx-auto max-w-5xl px-6 py-24 sm:py-28">
+            <Eyebrow en="Document" ja="サービス紹介資料" />
+            <div className="max-w-2xl">
+              <p
+                className="text-xl leading-loose text-neutral-900 sm:text-2xl sm:leading-loose"
+                style={{ fontFamily: serif }}
+              >
+                サービス紹介資料をご覧いただけます。
+              </p>
+              <p className="mt-8 text-[15px] leading-loose tracking-wide text-neutral-700">
+                ストレッチサポートの3つの支援領域、実績・経験、支援の進め方をまとめた法人・団体向け資料です。
+              </p>
+              <p className="mt-4 text-[13px] tracking-wide text-neutral-500">PDF・全13ページ</p>
+              <div className="mt-10">
+                <a
+                  href="/documents/stretch-support-service-guide.pdf"
+                  className="group inline-flex items-center justify-center gap-2 rounded-md px-8 py-4 text-[15px] font-semibold tracking-wide whitespace-nowrap text-white transition-colors hover:bg-[#24405c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2f4e6f] focus-visible:ring-offset-2"
+                  style={{ backgroundColor: ACCENT }}
+                >
+                  サービス紹介資料をダウンロード
+                  <span
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ── Contact ── */}
         <section className="border-t border-neutral-200 bg-neutral-50">
